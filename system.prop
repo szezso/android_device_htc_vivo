@@ -92,3 +92,8 @@ ro.device.gpu=Adreno 205
 ro.device.front_cam=1.3MPix
 ro.device.rear_cam=8MPix
 ro.device.screen_res=4" WVGA
+
+windowsmgr.max_events_per_sec=150
+ro.max.fling_velocity=12000
+ro.min.fling_velocity=8000
+view.scroll_friction=0 
