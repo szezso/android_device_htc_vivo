@@ -92,8 +92,6 @@ TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/class/android_usb/android0/f_mass_storag
 
 BOARD_VOLD_EMMC_SHARES_DEV_MAJOR := true
 
-COMMON_GLOBAL_CFLAGS += -DQCOM_NO_DMX_SUPPORT 
-
 # for recovery
 BOARD_UMS_LUNFILE := /sys/class/android_usb/android0/f_mass_storage/lun0/file
 
