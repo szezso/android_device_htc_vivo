@@ -2,7 +2,6 @@ import init.htc7x30.usb.rc
 
 on init
     mkdir /mnt/media_rw/sdcard0 0700 media_rw media_rw
-    mkdir /storage 0555 root root
     mkdir /storage/sdcard0 0700 root root
     export EXTERNAL_STORAGE /storage/sdcard0
 
@@ -10,7 +9,6 @@ on init
     symlink /storage/sdcard0 /sdcard
     symlink /storage/sdcard0 /mnt/sdcard
 
-on early-fs
     mkdir /devlog 0700 root root
 
 on fs
@@ -71,6 +69,8 @@ on boot
     # SysFS charging functions
     chown radio radio /sys/class/power_supply/battery/charger_control
     chmod 0660        /sys/class/power_supply/battery/charger_control
+
+    chmod 0644 /proc/cmdline
 
     # bluetooth power up/down interface
     chown bluetooth bluetooth /dev/ttyHS0
@@ -162,7 +162,7 @@ service akmd /system/bin/akmd
 
 # sdcard daemon
 service fuse_sdcard0 /system/bin/sdcard -u 1023 -g 1023 -d /mnt/media_rw/sdcard0 /storage/sdcard0
-    class late_start
+    class main
     disabled
 
 # Bugreport is triggered by the KEY_VOLUMEUP and BTN_MOUSE keycodes
