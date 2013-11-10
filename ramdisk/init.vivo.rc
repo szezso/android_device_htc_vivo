@@ -1,9 +1,12 @@
 import init.htc7x30.usb.rc
 
-on early-init
+on init
+    mkdir /mnt/media_rw/sdcard0 0700 media_rw media_rw
+    mkdir /storage 0555 root root
+    mkdir /storage/sdcard0 0700 root root
     export EXTERNAL_STORAGE /storage/sdcard0
-    mkdir /storage 0050 system sdcard_r
-    mkdir /storage/sdcard0 0000 system system
+
+    # Support legacy paths
     symlink /storage/sdcard0 /sdcard
     symlink /storage/sdcard0 /mnt/sdcard
 
@@ -21,14 +24,9 @@ on post-fs
 
 on post-fs-data
     # Misc, Radio and WiFi
-    chmod 0771 /data
-    chown system system /data
-    mkdir /data/radio 0770 radio radio
-    mkdir /data/misc 1771 system misc
-    mkdir /data/misc/wifi 0770 wifi wifi
     mkdir /data/misc/wifi/sockets 0770 wifi wifi
+    mkdir /data/misc/wifi/wpa_supplicant 0770 wifi wifi
     mkdir /data/misc/dhcp 0770 dhcp dhcp
-    chown dhcp dhcp /data/misc/dhcp
 
     # Set indication (checked by vold) that we have finished this action
     setprop vold.post_fs_data_done 1
@@ -148,12 +146,7 @@ service dhcpcd_bnep0 /system/bin/dhcpcd -ABKL
     disabled
     oneshot
 
-service iprenew_wlan0 /system/bin/dhcpcd -n
-    class main
-    disabled
-    oneshot
-
-service iprenew_p2p /system/bin/dhcpcd -n
+service iprenew_wlan0 /system/bin/dhcpcd -aABDKL
     class main
     disabled
     oneshot
@@ -168,6 +161,11 @@ service akmd /system/bin/akmd
     class main
     user compass
     group compass misc input
+
+# sdcard daemon
+service fuse_sdcard0 /system/bin/sdcard -u 1023 -g 1023 -d /mnt/media_rw/sdcard0 /storage/sdcard0
+    class late_start
+    disabled
 
 # Bugreport is triggered by the KEY_VOLUMEUP and BTN_MOUSE keycodes
 service bugreport /system/bin/bugmailer.sh -v
