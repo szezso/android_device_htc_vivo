@@ -72,8 +72,6 @@ on boot
     chown radio radio /sys/class/power_supply/battery/charger_control
     chmod 0660        /sys/class/power_supply/battery/charger_control
 
-    chmod 0644 /proc/cmdline
-
     # bluetooth power up/down interface
     chown bluetooth bluetooth /dev/ttyHS0
     chown bluetooth net_bt_stack /sys/class/rfkill/rfkill0/type
