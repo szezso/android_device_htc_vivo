@@ -201,8 +201,7 @@
 
     <!-- Enable flashlight -->
     <bool name="config_enableTorch">true</bool>
-    
-    
+
     <!-- Whether to set a system prop (sys.orientation.landscape)
          when rotating for devices that have rotating buttons -->
     <bool name="config_setLandscapeProp">true</bool>
