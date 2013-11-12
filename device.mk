@@ -60,12 +60,9 @@ PRODUCT_COPY_FILES += \
 
 # Sensors, GPS, Lights
 PRODUCT_PACKAGES += \
+    gps.vivo \
     lights.vivo \
     sensors.vivo
-
-# libemoji
-PRODUCT_PACKAGES += \
-    libemoji.so
 
 # Input device calibration files
 PRODUCT_COPY_FILES += \
