@@ -206,4 +206,8 @@
          when rotating for devices that have rotating buttons -->
     <bool name="config_setLandscapeProp">true</bool>
 
+
+    <!-- Disable lockscreen translucent decor by default -->
+    <bool name="config_enableLockScreenTranslucentDecor">true</bool>
+
 </resources>
