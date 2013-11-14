@@ -80,6 +80,9 @@ persist.sys.usb.config=mass_storage,adb
 # For QC perf binary hooks
 ro.vendor.extension_library=/system/lib/libqc-opt.so
 
+# Disable SW buttons
+qemu.hw.mainkeys=1
+
 # Scrolling Tweaks
 
 windowsmgr.max_events_per_sec=150
