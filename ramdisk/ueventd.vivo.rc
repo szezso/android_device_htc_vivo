@@ -48,4 +48,4 @@
 /dev/ppp                  0660   radio      vpn
 /dev/tun                  0660   system     vpn
 /dev/ion                  0664   system     system
-
+/dev/pmem                 0666   media      system
