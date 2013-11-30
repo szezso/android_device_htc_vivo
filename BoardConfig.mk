@@ -33,7 +33,7 @@ TARGET_USE_O3 := true
 -include device/htc/msm7x30-common/BoardConfigCommon.mk
 
 # inherit from the proprietary version
--include vendor/htc/vivo/BoardConfigVendor.mk
+-include vendor/htc/vivoion/BoardConfigVendor.mk
 
 # Bootloader & Recovery
 TARGET_BOOTLOADER_BOARD_NAME := vivo
@@ -45,9 +45,9 @@ BOARD_KERNEL_CMDLINE := no_console_suspend=1
 BOARD_KERNEL_RECOVERY_CMDLINE := $(BOARD_KERNEL_CMDLINE) msmsdcc_power_gpio=88 androidboot.selinux=permissive
 BOARD_KERNEL_BASE := 0x4400000
 BOARD_KERNEL_PAGE_SIZE := 4096
-TARGET_KERNEL_CONFIG := cyanogenmod_defconfig
-TARGET_KERNEL_SOURCE := kernel/htc/vivo
-TARGET_KERNEL_CUSTOM_TOOLCHAIN := arm-eabi-4.7
+TARGET_KERNEL_CONFIG := vivoion_defconfig
+TARGET_KERNEL_SOURCE := kernel/htc/vivoion
+TARGET_KERNEL_CUSTOM_TOOLCHAIN := arm-eabi-4.8
 
 # GPS
 BOARD_VENDOR_QCOM_GPS_LOC_API_HARDWARE := vivo
