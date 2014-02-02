@@ -98,7 +98,7 @@ on boot
     chown system system /sys/class/leds/lcd-backlight/brightness
 
     chown system camera /sys/class/leds/flashlight/brightness
-    chmod 0660          /sys/class/leds/flashlight/brightness
+    chmod 0666          /sys/class/leds/flashlight/brightness
 
 
     # MMC devices readahead performance tweak
