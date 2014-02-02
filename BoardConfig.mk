@@ -28,6 +28,7 @@
 ARCH_ARM_HIGH_OPTIMIZATION := true
 ARCH_ARM_HIGH_OPTIMIZATION_COMPAT := true
 TARGET_USE_O3 := true
+TARGET_USE_QCOM_BIONIC_OPTIMIZATION := true
 
 # inherit from common msm7x30
 -include device/htc/msm7x30-common/BoardConfigCommon.mk
