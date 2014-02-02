@@ -14,6 +14,9 @@ on init
 on fs
     mount_all /fstab.vivo
 
+    # zRAM
+    swapon_all /fstab.vivo
+
 on post-fs
     chmod 0771 /cache
     chown system cache /cache
@@ -46,6 +49,9 @@ on boot
 
     # Power Management
     chmod 0664 /sys/module/pm/parameters/idle_sleep_mode
+
+    # zRAM
+    write /proc/sys/vm/page-cluster 0
 
     # Disable IPv6 over mobile radio
 #    write /proc/sys/net/ipv6/conf/rmnet0/disable_ipv6 1
