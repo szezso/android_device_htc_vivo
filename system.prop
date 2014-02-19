@@ -40,7 +40,7 @@ ro.ril.hsxpa=2
 # Default network type.
 # 0 => WCDMA preferred.
 ro.telephony.default_network=0
-ro.telephony.ril.v3=signalstrength
+ro.telephony.ril.v3=skipdatareg,skipbrokendatacall
 
 # Define TCP buffer sizes
 net.tcp.buffersize.hsdpa=4094,87380,393216,4096,16384,110208
