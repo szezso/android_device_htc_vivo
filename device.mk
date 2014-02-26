@@ -29,9 +29,23 @@ PRODUCT_COPY_FILES += \
     device/htc/vivo/ramdisk/init.trace.rc:root/init.trace.rc \
     device/htc/vivo/ramdisk/init.rc:root/init.rc \
     device/htc/vivo/ramdisk/fstab.vivo:root/fstab.vivo \
+    device/htc/vivo/ramdisk/init.htc7x30.usb.rc:root/init.htc7x30.usb.rc \
     device/htc/vivo/ramdisk/ueventd.vivo.rc:root/ueventd.vivo.rc
 
 PRODUCT_COPY_FILES += \
+    frameworks/native/data/etc/handheld_core_hardware.xml:system/etc/permissions/handheld_core_hardware.xml \
+    frameworks/native/data/etc/android.hardware.camera.flash-autofocus.xml:system/etc/permissions/android.hardware.camera.flash-autofocus.xml \
+    frameworks/native/data/etc/android.hardware.location.gps.xml:system/etc/permissions/android.hardware.location.gps.xml \
+    frameworks/native/data/etc/android.hardware.wifi.xml:system/etc/permissions/android.hardware.wifi.xml \
+    frameworks/native/data/etc/android.hardware.sensor.accelerometer.xml:system/etc/permissions/android.hardware.sensor.accelerometer.xml \
+    frameworks/native/data/etc/android.hardware.sensor.compass.xml:system/etc/permissions/android.hardware.sensor.compass.xml \
+    frameworks/native/data/etc/android.hardware.sensor.proximity.xml:system/etc/permissions/android.hardware.sensor.proximity.xml \
+    frameworks/native/data/etc/android.hardware.sensor.light.xml:system/etc/permissions/android.hardware.sensor.light.xml \
+    frameworks/native/data/etc/android.hardware.touchscreen.multitouch.distinct.xml:system/etc/permissions/android.hardware.touchscreen.multitouch.distinct.xml \
+    frameworks/native/data/etc/android.hardware.usb.accessory.xml:system/etc/permissions/android.hardware.usb.accessory.xml \
+    frameworks/native/data/etc/android.software.sip.voip.xml:system/etc/permissions/android.software.sip.voip.xml \
+    frameworks/native/data/etc/android.hardware.usb.host.xml:system/etc/permissions/android.hardware.usb.host.xml \
+    packages/wallpapers/LivePicker/android.software.live_wallpaper.xml:system/etc/permissions/android.software.live_wallpaper.xml \
     frameworks/native/data/etc/android.hardware.camera.front.xml:system/etc/permissions/android.hardware.camera.front.xml \
     frameworks/native/data/etc/android.hardware.telephony.gsm.xml:system/etc/permissions/android.hardware.telephony.gsm.xml
 
@@ -58,12 +72,6 @@ DEVICE_PACKAGE_OVERLAYS += device/htc/vivo/overlay
 PRODUCT_COPY_FILES += \
     device/htc/vivo/voicemail-conf.xml:system/etc/voicemail-conf.xml
 
-# Sensors, GPS, Lights
-PRODUCT_PACKAGES += \
-    gps.vivo \
-    lights.vivo \
-    sensors.vivo
-
 # Input device calibration files
 PRODUCT_COPY_FILES += \
     device/htc/vivo/idc/atmel-touchscreen.idc:system/usr/idc/atmel-touchscreen.idc \
@@ -89,6 +97,13 @@ PRODUCT_COPY_FILES += \
 
 # Device specific firmware
 PRODUCT_COPY_FILES += \
+    device/htc/vivo/firmware/vidc_720p_command_control.fw:system/etc/firmware/vidc_720p_command_control.fw \
+    device/htc/vivo/firmware/vidc_720p_h263_dec_mc.fw:system/etc/firmware/vidc_720p_h263_dec_mc.fw \
+    device/htc/vivo/firmware/vidc_720p_h264_dec_mc.fw:system/etc/firmware/vidc_720p_h264_dec_mc.fw \
+    device/htc/vivo/firmware/vidc_720p_h264_enc_mc.fw:system/etc/firmware/vidc_720p_h264_enc_mc.fw \
+    device/htc/vivo/firmware/vidc_720p_mp4_dec_mc.fw:system/etc/firmware/vidc_720p_mp4_dec_mc.fw \
+    device/htc/vivo/firmware/vidc_720p_mp4_enc_mc.fw:system/etc/firmware/vidc_720p_mp4_enc_mc.fw \
+    device/htc/vivo/firmware/vidc_720p_vc1_dec_mc.fw:system/etc/firmware/vidc_720p_vc1_dec_mc.fw \
     device/htc/vivo/firmware/bcm4329.hcd:system/vendor/firmware/bcm4329.hcd \
     device/htc/vivo/firmware/fw_bcmdhd.bin:system/vendor/firmware/fw_bcmdhd.bin \
     device/htc/vivo/firmware/fw_bcmdhd_apsta.bin:system/vendor/firmware/fw_bcmdhd_apsta.bin \
@@ -153,26 +168,6 @@ PRODUCT_COPY_FILES += \
     device/htc/vivo/dsp/soundimage/srsfx_trumedia_music.cfg:system/etc/soundimage/srsfx_trumedia_music.cfg \
     device/htc/vivo/dsp/soundimage/srsfx_trumedia_voice.cfg:system/etc/soundimage/srsfx_trumedia_voice.cfg
 
-# media config xml file
-PRODUCT_COPY_FILES += \
-    device/htc/vivo/media_codecs.xml:system/etc/media_codecs.xml \
-    device/htc/vivo/media_profiles.xml:system/etc/media_profiles.xml
-
-# Kernel modules
-#PRODUCT_COPY_FILES += \
-
-ifeq ($(TARGET_PREBUILT_KERNEL),)
-LOCAL_KERNEL := device/htc/vivo/prebuilt/kernel
-else
-LOCAL_KERNEL := $(TARGET_PREBUILT_KERNEL)
-endif
-
-PRODUCT_COPY_FILES += \
-    $(LOCAL_KERNEL):kernel
-
-PRODUCT_COPY_FILES += \
-    device/htc/vivo/prebuilt/bcmdhd.ko:system/lib/modules/bcmdhd.ko
-
 #Softkey Rotation Script
 PRODUCT_COPY_FILES += \
     device/htc/vivo/rotate_lights.sh:/system/etc/rotate_lights.sh
@@ -180,12 +175,111 @@ PRODUCT_COPY_FILES += \
 # stuff common to all HTC phones
 $(call inherit-product, device/htc/common/common.mk)
 
-# common msm7x30 configs
-$(call inherit-product, device/htc/msm7x30-common/msm7x30.mk)
-
 # htc audio settings
 $(call inherit-product, device/htc/vivo/media_htcaudio.mk)
 
 $(call inherit-product, frameworks/native/build/phone-hdpi-512-dalvik-heap.mk)
 
-$(call inherit-product-if-exists, vendor/htc/vivo/device-vendor.mk)
+# media configs
+PRODUCT_COPY_FILES += \
+    device/htc/vivo/prebuilt/media_profiles.xml:system/etc/media_profiles.xml \
+    device/htc/vivo/prebuilt/media_codecs.xml:system/etc/media_codecs.xml \
+    device/htc/vivo/prebuilt/audio_policy.conf:system/etc/audio_policy.conf
+
+# adb hack
+PRODUCT_COPY_FILES += \
+    device/htc/vivo/prebuilt/20fixup:system/etc/init.d/20fixup
+
+# Audio
+PRODUCT_PACKAGES += \
+    audio.a2dp.default \
+    audio.primary.msm7x30 \
+    audio_policy.msm7x30 \
+    audio.usb.default \
+    audio_policy.conf \
+    libaudioutils \
+    libaudio-resampler \
+    libtinyalsa \
+    libaudioparameter
+
+
+# Sensors, GPS, Lights
+PRODUCT_PACKAGES += \
+    gps.vivo \
+    lights.vivo \
+    sensors.vivo
+
+# Video
+PRODUCT_PACKAGES += \
+    libc2dcolorconvert \
+    copybit.msm7x30 \
+    gralloc.msm7x30 \
+    hwcomposer.msm7x30 \
+    libgenlock \
+    libmemalloc \
+    liboverlay \
+    libQcomUI \
+    libtilerenderer
+
+#wireless
+PRODUCT_PACKAGES += \
+    libnetcmdiface
+
+# Power HAL
+PRODUCT_PACKAGES += \
+    power.vivo
+
+# Media
+PRODUCT_PACKAGES += \
+    libOmxCore \
+    libOmxVenc \
+    libmm-omxcore \
+    libdivxdrmdecrypt \
+    libOmxVdec \
+    libstagefrighthw
+
+# Misc
+PRODUCT_PACKAGES += \
+    com.android.future.usb.accessory \
+    libsurfaceflinger_client
+
+# Live Wallpapers
+PRODUCT_PACKAGES += \
+    LiveWallpapers \
+    LiveWallpapersPicker \
+    VisualizationWallpapers \
+    librs_jni
+
+# Torch
+PRODUCT_PACKAGES += \
+    Torch
+
+# Filesystem management tools
+PRODUCT_PACKAGES += \
+    make_ext4fs \
+    setup_fs
+
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.sys.fw.bg_apps_limit=12
+
+# we have enough storage space to hold precise GC data
+PRODUCT_TAGS += dalvik.gc.type-precise
+
+# use high-density artwork where available
+PRODUCT_LOCALES += hdpi
+
+PRODUCT_AAPT_CONFIG := normal hdpi
+PRODUCT_AAPT_PREF_CONFIG := hdpi
+
+PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
+
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.bq.gpu_to_cpu_unsupported=1 \
+    debug.composition.type=gpu \
+    debug.sf.hw=1 \
+    debug.hwc.fakevsync=1 \
+    debug.egl.hw=1 \
+    debug.sf.no_hw_vsync=1 \
+    ro.zygote.disable_gl_preload=true \
+    debug.hwui.render_dirty_regions=false \
+    persist.webview.provider=classic

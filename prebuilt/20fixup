@@ -1,0 +1,5 @@
+#!/system/bin/sh
+
+# Due to unknown bugs of Android usb config, we need to trigger it
+# manually at start-up. It doesn't hurt anyway.
+setprop sys.usb.config `getprop sys.usb.config`
