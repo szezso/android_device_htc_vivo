@@ -146,7 +146,7 @@ TARGET_BOOTANIMATION_USE_RGB565 := true
 TARGET_FORCE_CPU_UPLOAD := true
 
 # inherit from the proprietary version
--include vendor/htc/vivoion/BoardConfigVendor.mk
+-include vendor/htc/vivo/BoardConfigVendor.mk
 
 # Bootloader & Recovery
 TARGET_BOOTLOADER_BOARD_NAME := vivo
