@@ -60,6 +60,7 @@ TARGET_CPU_ABI := armeabi-v7a
 TARGET_CPU_ABI2 := armeabi
 ARCH_ARM_HAVE_NEON := true
 ARCH_ARM_HAVE_VFP := true
+TARGET_ENABLE_QC_AV_ENHANCEMENTS := true
 
 # Common stuffs for proper compilation
 TARGET_SPECIFIC_HEADER_PATH := device/htc/vivo/include
