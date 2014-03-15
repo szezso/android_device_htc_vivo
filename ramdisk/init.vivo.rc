@@ -201,3 +201,26 @@ on property:sys.orientation.landscape=0
 
 on property:sys.orientation.landscape=1
     start lights_landscape
+
+# CM Performance Profiles
+
+# Powersave
+on property:sys.perf.profile=0
+    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor conservative
+    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq 806400
+    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq 149760
+    write /sys/module/pm2/parameters/idle_sleep_mode 1
+
+# Balanced
+on property:sys.perf.profile=1
+    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor smartassV2
+    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq 1024000
+    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq 245760
+    write /sys/module/pm2/parameters/idle_sleep_mode 1
+
+# Performance
+on property:sys.perf.profile=2
+    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor performance
+    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq 1024000
+    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq 245760
+    write /sys/module/pm2/parameters/idle_sleep_mode 3
