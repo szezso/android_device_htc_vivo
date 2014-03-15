@@ -258,6 +258,9 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
 	DeviceSettings
 
+PRODUCT_PACKAGES += \
+    camera.msm7x30
+
 # Filesystem management tools
 PRODUCT_PACKAGES += \
     make_ext4fs \
