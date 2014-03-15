@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Продвинутые настройки</string>
+    <string name="category_kernel_title">Ядро</string>
+    <string name="dyn_fsync_title">Контроль fsync</string>
+    <string name="dyn_fsync_summary">Пока экран будет включен, файловая синхронизация будет приостановлена. Включайте файловую синхронизацию для лучшей целостности данных в обмен на производительность.</string>
+    <string name="fast_charge_title">Fast Charge</string>
+    <string name="fast_charge_summary">Любое зарядное устройство, определённое как USB, теперь будет определено как обычное. (напр. машинные зарядки).</string>
+    <string name="sweep2wake_title">Sweep2Wake</string>
+    <string name="sweep2wake_summary">Включает Sweep2Wake - разблокировку и блокировку по проведению пальцем по софт клавишам. (NOTE: Ещё не оттестирована и может приводить к непредсказуемым результатам.)</string>
+</resources>

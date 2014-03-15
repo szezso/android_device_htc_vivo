@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:settings="http://schemas.android.com/apk/res/com.cyanogenmod.settings.device"
+    android:title="@string/app_name">
+
+    <!-- General features -->
+    <PreferenceCategory android:key="category_general"
+        android:title="@string/category_general_title">
+        <CheckBoxPreference
+            android:key="dyn_fsync"
+            android:title="@string/dyn_fsync_title"
+            android:summary="@string/dyn_fsync_summary"
+            android:defaultValue="false" />
+        <CheckBoxPreference
+            android:key="fast_charge"
+            android:title="@string/fast_charge_title"
+            android:summary="@string/fast_charge_summary"
+            android:defaultValue="false" />
+    </PreferenceCategory>
+
+    <!-- Sweep2Wake -->
+    <PreferenceCategory android:key="category_sweep2wake"
+        android:title="@string/category_sweep2wake_title">
+        <SwitchPreference
+            android:key="sweep2wake"
+            android:title="@string/sweep2wake_title"
+            android:summaryOn="@string/sweep2wake_summaryOn"
+            android:summaryOff="@string/sweep2wake_summaryOff"
+            android:defaultValue="false" />
+        <CheckBoxPreference
+            android:key="s2w_allow_stroke"
+            android:title="@string/s2w_allow_stroke_title"
+            android:summary="@string/s2w_allow_stroke_summary"
+            android:defaultValue="false"
+            android:dependency="sweep2wake" />
+        <com.cyanogenmod.settings.device.SeekBarPreference
+            android:key="s2w_min_distance"
+            android:title="@string/s2w_min_distance_title"
+            android:summary="@string/s2w_min_distance_summary"
+            android:max="1000"
+            settings:min="0"
+            settings:interval="10"
+            settings:unitsLeft=""
+            settings:unitsRight=""
+            android:defaultValue="600"
+            android:dependency="sweep2wake" />
+        <com.cyanogenmod.settings.device.SeekBarPreference
+            android:key="s2w_register_threshold"
+            android:title="@string/s2w_register_threshold_title"
+            android:summary="@string/s2w_register_threshold_summary"
+            android:max="50"
+            settings:min="0"
+            settings:interval="1"
+            settings:unitsLeft=""
+            settings:unitsRight=""
+            android:defaultValue="9"
+            android:dependency="sweep2wake" />
+    </PreferenceCategory>
+
+    <!-- Doubletap2Wake -->
+    <PreferenceCategory android:key="category_doubletap2wake"
+        android:title="@string/category_doubletap2wake_title">
+        <SwitchPreference
+            android:key="doubletap2wake"
+            android:title="@string/doubletap2wake_title"
+            android:summaryOn="@string/doubletap2wake_summaryOn"
+            android:summaryOff="@string/doubletap2wake_summaryOff"
+            android:defaultValue="false" />
+        <com.cyanogenmod.settings.device.SeekBarPreference
+            android:key="dt2w_min_duration"
+            android:title="@string/dt2w_min_duration_title"
+            android:summary="@string/dt2w_min_duration_summary"
+            android:max="500"
+            settings:min="0"
+            settings:interval="10"
+            settings:unitsLeft=""
+            settings:unitsRight="ms"
+            android:defaultValue="100"
+            android:dependency="doubletap2wake" />
+        <com.cyanogenmod.settings.device.SeekBarPreference
+            android:key="dt2w_max_duration"
+            android:title="@string/dt2w_max_duration_title"
+            android:summary="@string/dt2w_max_duration_summary"
+            android:max="1000"
+            settings:min="0"
+            settings:interval="10"
+            settings:unitsLeft=""
+            settings:unitsRight="ms"
+            android:defaultValue="500"
+            android:dependency="doubletap2wake" />
+    </PreferenceCategory>
+</PreferenceScreen>

@@ -67,6 +67,8 @@ ARCH_ARM_HAVE_TLS_REGISTER := true
 # Common stuffs for proper compilation
 TARGET_SPECIFIC_HEADER_PATH := device/htc/vivo/include
 
+BOARD_HARDWARE_CLASS := device/htc/msm7x30-common/cmhw
+
 # Wifi
 WIFI_BAND := 802_11_ABGN
 WPA_SUPPLICANT_VERSION := VER_0_8_X

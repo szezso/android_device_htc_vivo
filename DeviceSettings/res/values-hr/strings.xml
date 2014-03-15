@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Napredne postavke</string>
+    <string name="category_kernel_title">Kernel</string>
+    <string name="dyn_fsync_title">Dinamička kontrola sinkronizacije</string>
+    <string name="dyn_fsync_summary">Dok je zaslon uključen, sinkronizacija datoteka je onemogućena. Dok je zaslon isključen, sinkronizacija će presnimiti sve dospjele zapise i povratiti ih normalno. Isključiti za bolju cjelovitosti podataka u zamjenu za bolje performanse.</string>
+    <string name="fast_charge_title">Prisilno brzo punjenje</string>
+    <string name="fast_charge_summary">Omogućuje korisniku da prisili AC punjenje za bilo koji izvor ako je prepoznat kao USB (npr. mnogi auto punjači).</string>
+    <string name="sweep2wake_title">Sweep2Wake</string>
+    <string name="sweep2wake_summary">Omogući Sweep2Wake značajku (NAPOMENA: Ova značajka je trenutno u eksperimentalnoj fazi i može doći do neočekivanih nuspojava.)</string>
+</resources>

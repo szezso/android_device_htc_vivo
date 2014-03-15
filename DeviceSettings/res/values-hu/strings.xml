@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Haladó beállítások</string>
+    <string name="category_general_title">Általános</string>
+    <string name="category_sweep2wake_title">Sweep2Wake</string>
+    <string name="category_doubletap2wake_title">DoubleTap2Wake</string>
+    <string name="dyn_fsync_title">Dinamikus szinkronizáció</string>
+    <string name="dyn_fsync_summary">A képernyő bekapcsolt állapotában a fájlszinkronizálás felfüggesztésre kerül. Amikor a képernyő kikapcsol, a fájlszinkronizálás befejez minden el nem végzett írási műveletet, és visszaállítja a fájlszinkronizálást a normál módba. Kapcsolja ki ha fontosabb az adatbiztonság mint a teljesítmény!</string>
+    <string name="fast_charge_title">Kényszerített gyorstöltés</string>
+    <string name="fast_charge_summary">Lehetővé teszi a felhasználó számára, hogy kényszerített módon hálózati töltőnek minősítsen bármilyen USB töltőt (pl. autós töltők)</string>
+    <string name="sweep2wake_title">Sweep2Wake</string>
+    <string name="sweep2wake_summaryOn">Sweep2Wake engedélyezve</string>
+    <string name="sweep2wake_summaryOff">Sweep2Wake tiltva</string>
+    <string name="s2w_allow_stroke_title">Csúsztatás engedélyezése</string>
+    <string name="s2w_allow_stroke_summary">Csúsztatás mindkét irányba</string>
+    <string name="s2w_min_distance_title">Minimális távolság</string>
+    <string name="s2w_min_distance_summary">Minimális csúsztatási távolság</string>
+    <string name="s2w_register_threshold_title">Regisztrálás határértéke</string>
+    <string name="s2w_register_threshold_summary">Regisztrálási határérték</string>
+    <string name="doubletap2wake_title">DoubleTap2Wake</string>
+    <string name="doubletap2wake_summaryOn">DoubleTap2Wake engedélyezve</string>
+    <string name="doubletap2wake_summaryOff">DoubleTap2Wake tiltva</string>
+    <string name="dt2w_min_duration_title">Érintések minimális időtartama</string>
+    <string name="dt2w_min_duration_summary">Dupla érintés min. időtartama</string>
+    <string name="dt2w_max_duration_title">Érintések maximális időtartama</string>
+    <string name="dt2w_max_duration_summary">Dupla érintés max. időtartama</string>
+</resources>

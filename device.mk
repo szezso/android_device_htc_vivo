@@ -254,6 +254,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     Torch
 
+# DeviceSettings
+PRODUCT_PACKAGES += \
+	DeviceSettings
+
 # Filesystem management tools
 PRODUCT_PACKAGES += \
     make_ext4fs \
@@ -279,6 +283,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     debug.sf.hw=1 \
     debug.hwc.fakevsync=1 \
     debug.egl.hw=1 \
+    debug.egl.recordable.rgba8888=1 \
     debug.sf.no_hw_vsync=1 \
     ro.zygote.disable_gl_preload=true \
     debug.hwui.render_dirty_regions=false \

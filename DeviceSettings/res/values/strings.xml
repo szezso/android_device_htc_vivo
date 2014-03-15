@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Device Settings</string>
+    <string name="category_general_title">General</string>
+    <string name="category_sweep2wake_title">Sweep2Wake</string>
+    <string name="category_doubletap2wake_title">DoubleTap2Wake</string>
+    <string name="dyn_fsync_title">Dynamic sync control</string>
+    <string name="dyn_fsync_summary">While screen is on, file sync is disabled. When screen is off, file sync is enabled. Turn this off for better data integrity in lieu of performance.</string>
+    <string name="fast_charge_title">Force fast charge</string>
+    <string name="fast_charge_summary">Force AC charging for any charger that is detected as USB (e.g. many car chargers).</string>
+    <string name="sweep2wake_title">Sweep2Wake</string>
+    <string name="sweep2wake_summaryOn">Sweep2Wake enabled</string>
+    <string name="sweep2wake_summaryOff">Sweep2Wake disabled</string>
+    <string name="s2w_allow_stroke_title">Allow stroke</string>
+    <string name="s2w_allow_stroke_summary">Swiping in both directions</string>
+    <string name="s2w_min_distance_title">Minimum distance</string>
+    <string name="s2w_min_distance_summary">Adjust minimum swipe distance</string>
+    <string name="s2w_register_threshold_title">Register threshold</string>
+    <string name="s2w_register_threshold_summary">Adjust register threshold</string>
+    <string name="doubletap2wake_title">DoubleTap2Wake</string>
+    <string name="doubletap2wake_summaryOn">DoubleTap2Wake enabled</string>
+    <string name="doubletap2wake_summaryOff">DoubleTap2Wake disabled</string>
+    <string name="dt2w_min_duration_title">Minimum tap duration</string>
+    <string name="dt2w_min_duration_summary">Adjust minimum duration</string>
+    <string name="dt2w_max_duration_title">Maximum tap duration</string>
+    <string name="dt2w_max_duration_summary">Adjust maximum duration</string>
+</resources>

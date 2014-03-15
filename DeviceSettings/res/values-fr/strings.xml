@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Paramètres avancés</string>
+    <string name="category_general_title">Général</string>
+    <string name="category_sweep2wake_title">Glisser pour réveiller</string>
+    <string name="category_doubletap2wake_title">Double tape pour réveiller</string>
+    <string name="dyn_fsync_title">Contrôle sync dynamique</string>
+    <string name="dyn_fsync_summary">Si l\'écran est allumé, la synchronisation de fichiers est désactivée. Si l\'écran est éteint, elle est active. Décocher l\'option pour privilégier l\'intégrité des données au lieu des performances.</string>
+    <string name="fast_charge_title">Forcer la charge rapide</string>
+    <string name="fast_charge_summary">Force l\'alimentation AC pour tout chargeur détecté comme USB (ex. chargeurs de voiture).</string>
+    <string name="sweep2wake_title">Sweep2Wake</string>
+    <string name="sweep2wake_summaryOn">Sweep2Wake actif</string>
+    <string name="sweep2wake_summaryOff">Sweep2Wake inactif</string>
+    <string name="s2w_allow_stroke_title">Autoriser s2w bidirectionnel</string>
+    <string name="s2w_allow_stroke_summary">Glisser dans les 2 directions</string>
+    <string name="s2w_min_distance_title">Distance minimale</string>
+    <string name="s2w_min_distance_summary">Ajuster la distance minimale</string>
+    <string name="s2w_register_threshold_title">Enregistrer le seuil </string>
+    <string name="s2w_register_threshold_summary">Ajuster le seuil enregistré</string>
+    <string name="doubletap2wake_title">DoubleTap2Wake</string>
+    <string name="doubletap2wake_summaryOn">DoubleTap2Wake actif</string>
+    <string name="doubletap2wake_summaryOff">DoubleTap2Wake inactif</string>
+    <string name="dt2w_min_duration_title">Durée minimale de détection</string>
+    <string name="dt2w_min_duration_summary">Ajuster la durée minimale</string>
+    <string name="dt2w_max_duration_title">Durée maximale de détection</string>
+    <string name="dt2w_max_duration_summary">Ajuster la durée maximale</string>
+</resources>

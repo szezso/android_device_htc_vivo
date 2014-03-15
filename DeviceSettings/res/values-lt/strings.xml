@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Išplėstiniai nustatymai</string>
+    <string name="category_kernel_title">Kernel</string>
+    <string name="dyn_fsync_title">Dinaminė sinchronizacijos kontrolė</string>
+    <string name="dyn_fsync_summary">Kol ekranas yra įjungtas, failų sinchronizacija yra išjungta. Kai ekranas įšungtas, failų sinchronizacija išvalo visus neįšsprestus įrašus ir atkuria failų sinchronizacijos operacija kaip įprasta. Išjungūs šį pasirinkimą bus pasiektas geresnis duomenų vientisumas ir greitumas.</string>
+    <string name="fast_charge_title">Priversti greitą krovimą</string>
+    <string name="fast_charge_summary">Tai leidžia naudotojui priversti pakrovimą iš bet kokio pakrovėjo aptikto kaip USB (pvz. automobilių pakrovėjai).</string>
+    <string name="sweep2wake_title">Velkti, kad pabusti (Sweep2Wake)</string>
+    <string name="sweep2wake_summary">Įjungia Sweep2Wake funkcija (PASTABA: Ši funkcija šiuo metu yra eksperimentinėje stadijoje, todėl gali sukelti šalutinius poveikius.)</string>
+</resources>

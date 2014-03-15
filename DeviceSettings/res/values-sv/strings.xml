@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Avancerade Inställningar</string>
+    <string name="category_kernel_title">Kernel</string>
+    <string name="dyn_fsync_title">Dynamisk Synk Kontroll</string>
+    <string name="dyn_fsync_summary">Då skärmen är påslagen är filsynkronisering avaktiverad. När skärmen är avstängd skickas en förfrågan om filsynkronisering för att tömma all ickeskriven information och återställa filsynkronisering till normalt läge. Stäng av denna funktion för ökad dataintegritet istället för ökad prestanda.</string>
+    <string name="fast_charge_title">Forcera Snabbladdning</string>
+    <string name="fast_charge_summary">Denna funktion ger användaren möjlighet att AC-ladda med alla typer av laddare som upptäcks som USB (bl.a. många billaddare.)</string>
+    <string name="sweep2wake_title">Sweep2Wake</string>
+    <string name="sweep2wake_summary">Aktiverar Sweep2Wake funktionen (OBS: Denna funktion är för tillfället experimentell och kan orsaka oförutsedda problem.)</string>
+</resources>
