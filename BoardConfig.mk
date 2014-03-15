@@ -65,7 +65,7 @@ TARGET_ENABLE_QC_AV_ENHANCEMENTS := true
 # Common stuffs for proper compilation
 TARGET_SPECIFIC_HEADER_PATH := device/htc/vivo/include
 
-BOARD_HARDWARE_CLASS := device/htc/msm7x30-common/cmhw
+BOARD_HARDWARE_CLASS := device/htc/vivo/cmhw
 
 # Wifi
 WIFI_BAND := 802_11_ABGN
