@@ -24,9 +24,6 @@ PRODUCT_COPY_FILES += device/common/gps/gps.conf_EU:system/etc/gps.conf
 
 PRODUCT_COPY_FILES += \
     device/htc/vivo/ramdisk/init.vivo.rc:root/init.vivo.rc \
-    device/htc/vivo/ramdisk/init.usb.rc:root/init.usb.rc \
-    device/htc/vivo/ramdisk/init.cm.rc:root/init.cm.rc \
-    device/htc/vivo/ramdisk/init.trace.rc:root/init.trace.rc \
     device/htc/vivo/ramdisk/init.rc:root/init.rc \
     device/htc/vivo/ramdisk/fstab.vivo:root/fstab.vivo \
     device/htc/vivo/ramdisk/init.htc7x30.usb.rc:root/init.htc7x30.usb.rc \
