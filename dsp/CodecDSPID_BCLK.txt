@@ -1,19 +1,8 @@
-Header, Vivo_BCLK_soundeffet_2012_0329
-## Group for phone ##
-Phone_Default,/system/etc/soundimage/Sound_Original_BCLK.txt
-Phone_Handset_Dualmic,/system/etc/soundimage/Sound_Phone_Original_REC_BCLK.txt
-Phone_Speaker_Dualmic,/system/etc/soundimage/Sound_Phone_Original_SPK_BCLK.txt
-Phone_Headset,/system/etc/soundimage/Sound_Phone_Original_HP_BCLK.txt
-
-## Group for playback ## 
-Playback_Default,/system/etc/soundimage/Sound_Original_BCLK.txt
-Playback_Speaker_Default,/system/etc/soundimage/Sound_Original_SPK_BCLK.txt
-
-## Group for recording ##
-Record_Default,/system/etc/soundimage/Sound_Original_Recording_BCLK.txt
-Record_V_Mono,/system/etc/soundimage/Sound_Recording_BCLK.txt
-Record_V_IMIC_Landscape_Stereo,
-Record_V_IMIC_Protrait_Stereo,
-Record_A_IMIC_Mono,
-Record_A_EMIC_Mono,
-
+Original,/system/etc/soundimage/Sound_Original_BCLK.txt
+Original_SPK,/system/etc/soundimage/Sound_Original_SPK_BCLK.txt
+Original_Recording,/system/etc/soundimage/Sound_Original_Recording_BCLK.txt
+Recording,/system/etc/soundimage/Sound_Recording_BCLK.txt
+Original_Phone,/system/etc/soundimage/Sound_Original_BCLK.txt
+Original_Phone_REC,/system/etc/soundimage/Sound_Phone_Original_REC_BCLK.txt
+Original_Phone_SPK,/system/etc/soundimage/Sound_Phone_Original_SPK_BCLK.txt
+Original_Phone_HP,/system/etc/soundimage/Sound_Phone_Original_HP_BCLK.txt
