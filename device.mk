@@ -193,10 +193,7 @@ PRODUCT_PACKAGES += \
     audio.primary.msm7x30 \
     audio_policy.msm7x30 \
     audio.usb.default \
-    audio_policy.conf \
-    libaudioutils \
     libaudio-resampler \
-    libtinyalsa \
     libaudioparameter
 
 
@@ -278,13 +275,17 @@ PRODUCT_AAPT_PREF_CONFIG := hdpi
 PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
 
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.bq.gpu_to_cpu_unsupported=1 \
     debug.composition.type=gpu \
     debug.sf.hw=1 \
-    debug.hwc.fakevsync=1 \
     debug.egl.hw=1 \
     debug.egl.recordable.rgba8888=1 \
-    debug.sf.no_hw_vsync=1 \
-    ro.zygote.disable_gl_preload=true \
-    debug.hwui.render_dirty_regions=false \
-    persist.webview.provider=classic
+    debug.sf.no_hw_vsync=1
+    
+    # Low Power Audio
+PRODUCT_PROPERTY_OVERRIDES += \
+	lpa.decode=false \
+	lpa.use-stagefright=false
+
+# Resampler quality
+PRODUCT_PROPERTY_OVERRIDES += \
+	af.resampler.quality=255
