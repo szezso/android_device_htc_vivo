@@ -4,8 +4,6 @@
  <string name="category_general_title">Ogólne</string>
  <string name="category_sweep2wake_title">Sweep2Wake</string>
  <string name="category_doubletap2wake_title">DoubleTap2Wake</string>
- <string name="dyn_fsync_title">Dynamiczna kontrola synchronizacji</string>
- <string name="dyn_fsync_summary">Kiedy ekran jest włączony synchronizacja plików jest zawieszona. Kiedy ekran jest wyłączony synchronizacja plików jest przywrócona. Wyłącz tę funkcję dla lepszej integralności danych, kosztem wydajności.</string>
  <string name="fast_charge_title">Wymuszanie szybkiego ładowania</string>
  <string name="fast_charge_summary">Wymusza szybkie ładowanie dla każdej ładowarki wykrytej jako USB (np.: wiele ładowarek samochodowych).</string>
  <string name="sweep2wake_title">Sweep2Wake</string>

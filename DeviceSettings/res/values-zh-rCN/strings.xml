@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">高级设置</string>
+    <string name="category_general_title">普通</string>
+    <string name="category_sweep2wake_title">滑屏解锁</string>
+    <string name="category_doubletap2wake_title">双击唤醒</string>
+    <string name="fast_charge_title">强制快速充电</string>
+    <string name="fast_charge_summary">强制快速充电只要连接usb电源（例如许多汽车充电器）.</string>
+    <string name="sweep2wake_title">滑屏解锁</string>
+    <string name="sweep2wake_summaryOn">滑屏解锁 启用</string>
+    <string name="sweep2wake_summaryOff">滑屏解锁 禁用</string>
+    <string name="s2w_allow_stroke_title">允许双向</string>
+    <string name="s2w_allow_stroke_summary">左右滑动均可解锁</string>
+    <string name="s2w_min_distance_title">最小距离</string>
+    <string name="s2w_min_distance_summary">调整最小滑动距离</string>
+    <string name="s2w_register_threshold_title">缓存值</string>
+    <string name="s2w_register_threshold_summary">调整缓存器值大小</string>
+    <string name="doubletap2wake_title">双击唤醒</string>
+    <string name="doubletap2wake_summaryOn">双击唤醒 启用</string>
+    <string name="doubletap2wake_summaryOff">双击唤醒 禁用</string>
+    <string name="dt2w_min_duration_title">最小双击间隔</string>
+    <string name="dt2w_min_duration_summary">调整最小双击间隔</string>
+    <string name="dt2w_max_duration_title">最大双击间隔</string>
+    <string name="dt2w_max_duration_summary">调整最大双击间隔</string>
+</resources>

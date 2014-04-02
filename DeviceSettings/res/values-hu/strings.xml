@@ -4,8 +4,6 @@
     <string name="category_general_title">Általános</string>
     <string name="category_sweep2wake_title">Sweep2Wake</string>
     <string name="category_doubletap2wake_title">DoubleTap2Wake</string>
-    <string name="dyn_fsync_title">Dinamikus szinkronizáció</string>
-    <string name="dyn_fsync_summary">A képernyő bekapcsolt állapotában a fájlszinkronizálás felfüggesztésre kerül. Amikor a képernyő kikapcsol, a fájlszinkronizálás befejez minden el nem végzett írási műveletet, és visszaállítja a fájlszinkronizálást a normál módba. Kapcsolja ki ha fontosabb az adatbiztonság mint a teljesítmény!</string>
     <string name="fast_charge_title">Kényszerített gyorstöltés</string>
     <string name="fast_charge_summary">Lehetővé teszi a felhasználó számára, hogy kényszerített módon hálózati töltőnek minősítsen bármilyen USB töltőt (pl. autós töltők)</string>
     <string name="sweep2wake_title">Sweep2Wake</string>

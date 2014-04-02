@@ -4,8 +4,6 @@
     <string name="category_general_title">Generale</string>
     <string name="category_sweep2wake_title">Sweep2Wake</string>
     <string name="category_doubletap2wake_title">DoppioTocco2Wake</string>
-    <string name="dyn_fsync_title">Controllo dinamico sincronizzazione</string>
-    <string name="dyn_fsync_summary">Quando lo schermo e\' acceso la sincronizzazione e\' disattivata. Quando lo schermo e\' spento, una richiesta di sincronizzazione riattivera\' la sincronizzazione. Disabilita per una migliore integrita\' dei dati a discapito delle prestazioni</string>
     <string name="fast_charge_title">Forza carica rapida</string>
     <string name="fast_charge_summary">Forza AC di ricarica per qualsiasi caricabatterie che viene rilevato come USB (ad esempio molte caricabatterie da auto).</string>
     <string name="sweep2wake_title">Sweep2Wake</string>

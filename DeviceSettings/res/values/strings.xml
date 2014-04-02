@@ -4,8 +4,6 @@
     <string name="category_general_title">General</string>
     <string name="category_sweep2wake_title">Sweep2Wake</string>
     <string name="category_doubletap2wake_title">DoubleTap2Wake</string>
-    <string name="dyn_fsync_title">Dynamic sync control</string>
-    <string name="dyn_fsync_summary">While screen is on, file sync is disabled. When screen is off, file sync is enabled. Turn this off for better data integrity in lieu of performance.</string>
     <string name="fast_charge_title">Force fast charge</string>
     <string name="fast_charge_summary">Force AC charging for any charger that is detected as USB (e.g. many car chargers).</string>
     <string name="sweep2wake_title">Sweep2Wake</string>
