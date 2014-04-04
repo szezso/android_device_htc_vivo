@@ -63,13 +63,6 @@ ro.ril.update.vivo.acoustic=1
 postprocess.iso_midband=400
 postprocess.denoise_level=5
 
-# Following property will be reference by Settings.
-ro.device.chipset=Qualcomm Snapdragon MSM8255
-ro.device.gpu=Adreno 205
-ro.device.front_cam=1.3 Megapixels
-ro.device.rear_cam=8 Megapixels
-ro.device.screen_res=480x800
-
 # Recording Audio Workaround
 ro.camera.sound.disabled=1
 
