@@ -23,10 +23,9 @@ PRODUCT_COPY_FILES += device/common/gps/gps.conf_EU:system/etc/gps.conf
 ## (1) First, the most specific values, i.e. the aspects that are specific to GSM
 
 PRODUCT_COPY_FILES += \
-    device/htc/vivo/init.vivo.rc:root/init.vivo.rc \
-    device/htc/vivo/init.usb.rc:root/init.usb.rc \
-    device/htc/vivo/init.rc:root/init.rc \
-    device/htc/vivo/ueventd.vivo.rc:root/ueventd.vivo.rc
+    device/htc/vivo/rootdir/init.vivo.rc:root/init.vivo.rc \
+    device/htc/vivo/rootdir/init.htc7x30.usb.rc:root/init.htc7x30.usb.rc \
+    device/htc/vivo/rootdir/ueventd.vivo.rc:root/ueventd.vivo.rc
 
 PRODUCT_COPY_FILES += \
     frameworks/base/data/etc/android.hardware.camera.front.xml:system/etc/permissions/android.hardware.camera.front.xml \
@@ -211,10 +210,7 @@ PRODUCT_COPY_FILES += \
     frameworks/base/data/etc/android.hardware.usb.accessory.xml:system/etc/permissions/android.hardware.usb.accessory.xml \
     frameworks/base/data/etc/android.software.sip.voip.xml:system/etc/permissions/android.software.sip.voip.xml \
     frameworks/base/data/etc/android.hardware.usb.host.xml:system/etc/permissions/android.hardware.usb.host.xml \
-    packages/wallpapers/LivePicker/android.software.live_wallpaper.xml:system/etc/permissions/android.software.live_wallpaper.xml 
-
-PRODUCT_COPY_FILES += \
-    device/htc/vivo/init.htc7x30.usb.rc:root/init.htc7x30.usb.rc
+    packages/wallpapers/LivePicker/android.software.live_wallpaper.xml:system/etc/permissions/android.software.live_wallpaper.xml
 
 # Common 7x30 firmware
 PRODUCT_COPY_FILES += \
