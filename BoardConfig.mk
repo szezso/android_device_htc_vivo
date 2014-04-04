@@ -81,7 +81,7 @@ WIFI_DRIVER_MODULE_PATH := "/system/lib/modules/bcmdhd.ko"
 
 # QCOM Display
 BOARD_ADRENO_DECIDE_TEXTURE_TARGET := true
-BOARD_EGL_CFG := device/htc/msm7x30-common/egl.cfg
+BOARD_EGL_CFG := device/htc/vivo/prebuilt/egl.cfg
 BOARD_USES_ADRENO_200 := true
 TARGET_PROVIDES_LIBLIGHTS := true
 TARGET_USES_C2D_COMPOSITION := true
