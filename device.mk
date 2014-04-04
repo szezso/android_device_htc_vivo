@@ -168,9 +168,6 @@ endif
 PRODUCT_COPY_FILES += \
     $(LOCAL_KERNEL):kernel
 
-PRODUCT_COPY_FILES += \
-    device/htc/vivo/prebuilt/bcmdhd.ko:system/lib/modules/bcmdhd.ko
-
 #Softkey Rotation Script
 PRODUCT_COPY_FILES += \
     device/htc/vivo/rotate_lights.sh:/system/etc/rotate_lights.sh
