@@ -285,6 +285,11 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	lpa.decode=false \
 	lpa.use-stagefright=false
 
-# Resampler quality
+    # Resampler quality
 PRODUCT_PROPERTY_OVERRIDES += \
 	af.resampler.quality=255
+	
+    # hTC-realted stuff (pulled from DHD)
+PRODUCT_PROPERTY_OVERRIDES += \
+    	media.a1026.nsForVoiceRec=0 \
+    	media.a1026.enableA1026=0
