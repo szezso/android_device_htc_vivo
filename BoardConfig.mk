@@ -187,4 +187,4 @@ BOARD_VOLD_EMMC_SHARES_DEV_MAJOR := true
 # Misc
 TARGET_RELEASETOOLS_EXTENSIONS := device/htc/common
 #TARGET_PREBUILT_KERNEL := device/htc/vivo/prebuilt/kernel
-TARGET_PREBUILT_RECOVERY_KERNEL := device/htc/vivo/prebuilt/kernel
+#TARGET_PREBUILT_RECOVERY_KERNEL := device/htc/vivo/prebuilt/kernel
