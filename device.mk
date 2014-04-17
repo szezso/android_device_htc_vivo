@@ -103,10 +103,7 @@ PRODUCT_COPY_FILES += \
     device/htc/vivo/firmware/bcm4329.hcd:system/vendor/firmware/bcm4329.hcd \
     device/htc/vivo/firmware/fw_bcmdhd.bin:system/vendor/firmware/fw_bcmdhd.bin \
     device/htc/vivo/firmware/fw_bcmdhd_apsta.bin:system/vendor/firmware/fw_bcmdhd_apsta.bin \
-    device/htc/vivo/firmware/default.acdb:system/etc/firmware/default.acdb \
-    device/htc/vivo/firmware/default_mfg.acdb:system/etc/firmware/default_mfg.acdb \
-    device/htc/vivo/firmware/default_org.acdb:system/etc/firmware/default_org.acdb \
-    device/htc/vivo/firmware/default_org_nel.acdb:system/etc/firmware/default_org_nel.acdb 
+    device/htc/vivo/firmware/default.acdb:system/etc/firmware/default.acdb
 
 # Audio DSP Profiles
 PRODUCT_COPY_FILES += \
