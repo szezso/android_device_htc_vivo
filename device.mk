@@ -93,17 +93,9 @@ PRODUCT_COPY_FILES += \
 
 # Device specific firmware
 PRODUCT_COPY_FILES += \
-    device/htc/vivo/firmware/vidc_720p_command_control.fw:system/etc/firmware/vidc_720p_command_control.fw \
-    device/htc/vivo/firmware/vidc_720p_h263_dec_mc.fw:system/etc/firmware/vidc_720p_h263_dec_mc.fw \
-    device/htc/vivo/firmware/vidc_720p_h264_dec_mc.fw:system/etc/firmware/vidc_720p_h264_dec_mc.fw \
-    device/htc/vivo/firmware/vidc_720p_h264_enc_mc.fw:system/etc/firmware/vidc_720p_h264_enc_mc.fw \
-    device/htc/vivo/firmware/vidc_720p_mp4_dec_mc.fw:system/etc/firmware/vidc_720p_mp4_dec_mc.fw \
-    device/htc/vivo/firmware/vidc_720p_mp4_enc_mc.fw:system/etc/firmware/vidc_720p_mp4_enc_mc.fw \
-    device/htc/vivo/firmware/vidc_720p_vc1_dec_mc.fw:system/etc/firmware/vidc_720p_vc1_dec_mc.fw \
     device/htc/vivo/firmware/bcm4329.hcd:system/vendor/firmware/bcm4329.hcd \
     device/htc/vivo/firmware/fw_bcmdhd.bin:system/vendor/firmware/fw_bcmdhd.bin \
-    device/htc/vivo/firmware/fw_bcmdhd_apsta.bin:system/vendor/firmware/fw_bcmdhd_apsta.bin \
-    device/htc/vivo/firmware/default.acdb:system/etc/firmware/default.acdb
+    device/htc/vivo/firmware/fw_bcmdhd_apsta.bin:system/vendor/firmware/fw_bcmdhd_apsta.bin
 
 # Audio DSP Profiles
 PRODUCT_COPY_FILES += \
