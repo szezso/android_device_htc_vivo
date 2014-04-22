@@ -76,6 +76,7 @@ enum ion_heap_ids {
 	ION_CP_MFC_HEAP_ID = 12,
 	ION_CP_WB_HEAP_ID = 16, /* 8660 only */
 	ION_CAMERA_HEAP_ID = 20, /* 8660 only */
+	ION_SYSTEM_CONTIG_HEAP_ID = 21,
 	ION_SF_HEAP_ID = 24,
 	ION_QSECOM_HEAP_ID = 27,
 	ION_AUDIO_HEAP_ID = 28,
@@ -639,6 +640,7 @@ struct ion_allocation_data {
 	size_t len;
 	size_t align;
 	unsigned int flags;
+	unsigned int heap_mask;
 	struct ion_handle *handle;
 };
 
