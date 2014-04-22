@@ -1,0 +1,3 @@
+# Allow vold to request the encryption kernel modules
+allow vold kernel:system module_request;
+

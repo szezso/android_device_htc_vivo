@@ -1,0 +1,2 @@
+#============= untrusted_app ==============
+allow untrusted_app apk_data_file:dir getattr;
