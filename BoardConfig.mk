@@ -192,7 +192,7 @@ TARGET_RELEASETOOLS_EXTENSIONS := device/htc/common
 
 # SELinux
 BOARD_SEPOLICY_DIRS += \
-    device/htc/msm7x30-common/sepolicy
+    device/htc/vivo/sepolicy
 
 BOARD_SEPOLICY_UNION += \
     app.te \
