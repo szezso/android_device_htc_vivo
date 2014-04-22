@@ -39,32 +39,48 @@
       <value>3</value>
   </array>
   <array name="cpu.speeds"> <!-- from /sys/devices/system/cpu/cpu0/cpufreq/scaling_available_frequencies -->
+    <value>149760</value>
     <value>245760</value>
-    <value>368640</value>
+    <value>341640</value>
+    <value>614400</value>
     <value>768000</value>
     <value>806400</value>
     <value>1024000</value>
     <value>1200000</value>
+    <value>1305600</value>
     <value>1401600</value>
     <value>1516800</value>
     <value>1612800</value>
-    <value>1708800</value>
-    <value>1804800</value>
+    <value>1689600</value>
+    <value>1766400</value>
+    <value>1843200</value>
+    <value>1920000</value>
+    <value>1996800</value>
+    <value>2016000</value>
   </array>
   <!-- Power consumption in suspend -->
   <item name="cpu.idle">3.0</item> <!-- from /sys/class/power_supply/battery/current_now -->
+  <!-- Power consumption due to wake lock held -->
+  <item name="cpu.awake">10</item>
   <!-- Power consumption at different speeds -->
   <array name="cpu.active"> <!-- Estimated -->
+      <value>55</value>
       <value>60</value>
       <value>74.7</value>
       <value>120.6</value>
-      <value>134.9</value>
+      <value>154.9</value>
       <value>163.8</value>
       <value>173.2</value>
+      <value>184.5</value>
       <value>196.2</value>
+      <value>208.9</value>
       <value>220.1</value>
       <value>232</value>
-      <value>248</value>
-      <value>250</value>
+      <value>244</value>
+      <value>256</value>
+      <value>268</value>
+      <value>280</value>
+      <value>292</value>
+      <value>304</value>
   </array>
 </device>
