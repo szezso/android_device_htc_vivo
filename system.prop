@@ -11,7 +11,6 @@ ro.secure=0
 # cm qcom build lub
 com.qc.hardware=true
 com.qc.hdmi_out=false
-ro.bq.gpu_to_cpu_unsupported=1
 
 # Modify MMS APN retry timer from 5s to 2s.
 ro.gsm.2nd_data_retry_config=max_retries=3, 2000, 2000, 2000

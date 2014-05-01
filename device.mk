@@ -262,8 +262,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     debug.composition.type=gpu \
     debug.sf.hw=1 \
     debug.egl.hw=1 \
-    debug.egl.recordable.rgba8888=1 \
-    debug.sf.no_hw_vsync=1
+    debug.egl.recordable.rgba8888=1
     
     # Low Power Audio
 PRODUCT_PROPERTY_OVERRIDES += \
