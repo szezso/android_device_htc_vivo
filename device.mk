@@ -199,13 +199,9 @@ PRODUCT_PACKAGES += \
     libQcomUI \
     libtilerenderer
 
-#wireless
+# Wireless
 PRODUCT_PACKAGES += \
     libnetcmdiface
-
-# Power HAL
-PRODUCT_PACKAGES += \
-    power.vivo
 
 # Media
 PRODUCT_PACKAGES += \
