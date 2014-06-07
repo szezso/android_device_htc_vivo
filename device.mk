@@ -48,6 +48,9 @@ PRODUCT_COPY_FILES += \
 ## (2) Also get non-open-source GSM-specific aspects if available
 $(call inherit-product-if-exists, vendor/htc/vivo/vivo-vendor.mk)
 
+# Copy bcm4329 firmware
+$(call inherit-product-if-exists, hardware/broadcom/wlan/bcmdhd/firmware/bcm4329/device-bcm.mk)
+
 ## (3)  Finally, the least specific parts, i.e. the non-GSM-specific aspects
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.com.google.locationfeatures=1 \
@@ -93,9 +96,7 @@ PRODUCT_COPY_FILES += \
 
 # Device specific firmware
 PRODUCT_COPY_FILES += \
-    device/htc/vivo/firmware/bcm4329.hcd:system/vendor/firmware/bcm4329.hcd \
-    device/htc/vivo/firmware/fw_bcmdhd.bin:system/vendor/firmware/fw_bcmdhd.bin \
-    device/htc/vivo/firmware/fw_bcmdhd_apsta.bin:system/vendor/firmware/fw_bcmdhd_apsta.bin
+    device/htc/vivo/firmware/bcm4329.hcd:system/vendor/firmware/bcm4329.hcd
 
 # Audio DSP Profiles
 PRODUCT_COPY_FILES += \
