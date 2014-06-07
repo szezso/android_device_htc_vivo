@@ -35,6 +35,9 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.camera.front.xml:system/etc/permissions/android.hardware.camera.front.xml \
     frameworks/native/data/etc/android.hardware.telephony.gsm.xml:system/etc/permissions/android.hardware.telephony.gsm.xml
 
+# Copy bcm4329 firmware
+$(call inherit-product-if-exists, hardware/broadcom/wlan/bcmdhd/firmware/bcm4329/device-bcm.mk)
+
 ## (2) Also get non-open-source GSM-specific aspects if available
 $(call inherit-product-if-exists, vendor/htc/vivo/vivo-vendor.mk)
 
@@ -90,8 +93,6 @@ PRODUCT_COPY_FILES += \
 # Device specific firmware
 PRODUCT_COPY_FILES += \
     device/htc/vivo/firmware/bcm4329.hcd:system/vendor/firmware/bcm4329.hcd \
-    device/htc/vivo/firmware/fw_bcmdhd.bin:system/vendor/firmware/fw_bcmdhd.bin \
-    device/htc/vivo/firmware/fw_bcmdhd_apsta.bin:system/vendor/firmware/fw_bcmdhd_apsta.bin \
     device/htc/vivo/firmware/default.acdb:system/etc/firmware/default.acdb \
     device/htc/vivo/firmware/default_mfg.acdb:system/etc/firmware/default_mfg.acdb \
     device/htc/vivo/firmware/default_org.acdb:system/etc/firmware/default_org.acdb \
