@@ -77,6 +77,8 @@
 
 #define MSMFB_OVERLAY_VSYNC_CTRL  _IOW(MSMFB_IOCTL_MAGIC, 160, unsigned int)
 #define MSMFB_VSYNC_CTRL  _IOW(MSMFB_IOCTL_MAGIC, 161, unsigned int)
+#define MSMFB_DISPLAY_COMMIT      _IOW(MSMFB_IOCTL_MAGIC, 164, \
+						struct mdp_display_commit)
 
 /* HTC: Define custom ioctl started from 200 */
 #define MSMFB_OVERLAY_CHANGE_ZORDER_VG_PIPES    _IOW(MSMFB_IOCTL_MAGIC, 200, unsigned int)
@@ -88,6 +90,9 @@
 
 #define MSMFB_GET_USB_PROJECTOR_INFO _IOR(MSMFB_IOCTL_MAGIC, 301, struct msmfb_usb_projector_info)
 #define MSMFB_SET_USB_PROJECTOR_INFO _IOW(MSMFB_IOCTL_MAGIC, 302, struct msmfb_usb_projector_info)
+
+#define MDSS_MDP_RIGHT_MIXER		0x100
+#define MDP_DISPLAY_COMMIT_OVERLAY 0x00000001
 
 enum {
 	NOTIFY_UPDATE_START,
@@ -197,6 +202,12 @@ struct mdp_img {
 	uint32_t offset;
 	int memory_id;		/* the file descriptor */
 	uint32_t priv;
+};
+
+struct mdp_display_commit {
+	uint32_t flags;
+	uint32_t wait_for_finish;
+	struct fb_var_screeninfo var;
 };
 
 /*
