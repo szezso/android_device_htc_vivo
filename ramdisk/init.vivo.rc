@@ -14,9 +14,6 @@ on init
 on fs
     mount_all /fstab.vivo
     
-    # zRAM
-#    swapon_all /fstab.vivo
-
 on post-fs
     chmod 0771 /cache
     chown system cache /cache
@@ -118,6 +115,12 @@ on boot
     chown system system /sys/class/leds/button-backlight-portrait/brightness
     chown system system /sys/class/leds/button-backlight-landscape/brightness
     chown system system /sys/class/leds/lcd-backlight/brightness
+    
+    # I/O scheduler
+    chown system system /sys/block/mmcblk0/queue/scheduler
+    chmod 0664 /sys/block/mmcblk0/queue/scheduler
+    chown system system /sys/block/mmcblk1/queue/scheduler
+    chmod 0664 /sys/block/mmcblk1/queue/scheduler
 
     chown system camera /sys/class/leds/flashlight/brightness
     chmod 0666          /sys/class/leds/flashlight/brightness
