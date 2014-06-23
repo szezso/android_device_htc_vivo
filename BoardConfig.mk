@@ -156,7 +156,7 @@ BOARD_KERNEL_CMDLINE := no_console_suspend=1
 BOARD_KERNEL_RECOVERY_CMDLINE := $(BOARD_KERNEL_CMDLINE) msmsdcc_power_gpio=88 androidboot.selinux=permissive
 BOARD_KERNEL_BASE := 0x4400000
 BOARD_KERNEL_PAGE_SIZE := 4096
-TARGET_KERNEL_CONFIG := cyanogenmod_defconfig
+TARGET_KERNEL_CONFIG := cyanogen_vivo_defconfig
 TARGET_KERNEL_SOURCE := kernel/htc/vivo
 TARGET_KERNEL_CUSTOM_TOOLCHAIN := arm-eabi-4.9
 
