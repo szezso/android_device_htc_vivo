@@ -61,6 +61,9 @@ ARCH_ARM_HAVE_NEON := true
 ARCH_ARM_HAVE_VFP := true
 TARGET_ENABLE_QC_AV_ENHANCEMENTS := true
 
+# Common stuffs for proper compilation
+TARGET_SPECIFIC_HEADER_PATH := device/htc/vivo/include
+
 BOARD_HARDWARE_CLASS := device/htc/vivo/cmhw
 
 # Wifi
@@ -83,9 +86,9 @@ BOARD_LEGACY_NL80211_STA_EVENTS := true
 BOARD_EGL_CFG := device/htc/vivo/prebuilt/egl.cfg
 USE_OPENGL_RENDERER := true
 TARGET_USES_C2D_COMPOSITION := true
-TARGET_NO_HW_VSYNC := true
 TARGET_USES_QCOM_BSP := true
 BOARD_EGL_WORKAROUND_BUG_10194508 := true
+TARGET_NO_HW_VSYNC := true
 
 # Audio
 TARGET_QCOM_AUDIO_VARIANT := caf
