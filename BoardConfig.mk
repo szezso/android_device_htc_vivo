@@ -38,19 +38,38 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-TARGET_NO_BOOTLOADER := true
+# Flags
+COMMON_GLOBAL_CFLAGS += -DQCOM_HARDWARE
+COMMON_GLOBAL_CFLAGS += -DREFRESH_RATE=60
+COMMON_GLOBAL_CFLAGS += -DQCOM_ICS_COMPAT
+COMMON_GLOBAL_CFLAGS += -DICS_CAMERA_BLOB
+COMMON_GLOBAL_CFLAGS += -DNO_UPDATE_PREVIEW
+
+# Optimalizations
+ARCH_ARM_HIGH_OPTIMIZATION := true
+ARCH_ARM_HIGH_OPTIMIZATION_COMPAT := true
+TARGET_USE_O3 := true
+TARGET_USE_QCOM_BIONIC_OPTIMIZATION := true
+
+# Board
 TARGET_BOARD_PLATFORM := msm7x30
 TARGET_BOARD_PLATFORM_GPU := qcom-adreno200
-TARGET_USE_O3 := true
+
+# Bootloader
+TARGET_NO_BOOTLOADER := true
+TARGET_BOOTLOADER_BOARD_NAME := vivo
 
 # Vendor
 BOARD_VENDOR := htc
 
+# Architecture
 TARGET_ARCH := arm
 TARGET_ARCH_VARIANT := armv7-a-neon
 TARGET_CPU_VARIANT := scorpion
 TARGET_CPU_ABI := armeabi-v7a
 TARGET_CPU_ABI2 := armeabi
+ARCH_ARM_HAVE_NEON := true
+ARCH_ARM_HAVE_VFP := true
 
 TARGET_SPECIFIC_HEADER_PATH := device/htc/vivo/include
 
@@ -70,53 +89,53 @@ WIFI_DRIVER_MODULE_NAME := bcmdhd
 WIFI_DRIVER_MODULE_PATH := "/system/lib/modules/bcmdhd.ko"
 BOARD_LEGACY_NL80211_STA_EVENTS := true
 
-BOARD_VOLD_MAX_PARTITIONS := 36
-
 # QCOM Display
-BOARD_ADRENO_DECIDE_TEXTURE_TARGET := true
 BOARD_EGL_CFG := device/htc/vivo/prebuilt/egl.cfg
-BOARD_USES_ADRENO_200 := true
-TARGET_GRALLOC_USES_ASHMEM := true
 TARGET_USES_C2D_COMPOSITION := true
-TARGET_USES_GENLOCK := true
 USE_OPENGL_RENDERER := true
-BOARD_EGL_NEEDS_LEGACY_FB := true
 TARGET_QCOM_DISPLAY_VARIANT := legacy
 TARGET_NO_HW_VSYNC := true
+BOARD_USES_QCOM_LEGACY_CAM_PARAMS := true
+
+# Camera
+BOARD_USES_QCOM_LEGACY_CAM_PARAMS := true
+TARGET_DISABLE_ARM_PIE := true
+BOARD_NEEDS_MEMORYHEAPPMEM := true
+BOARD_HAVE_HTC_FFC := true
+BOARD_USE_REVERSE_FFC := true
+TARGET_DISABLE_ARM_PIE := true
+USE_CAMERA_STUB := true
+BOARD_USES_PMEM_ADSP := true
+
+# Audio
 TARGET_QCOM_AUDIO_VARIANT := caf
 BOARD_HAVE_HTC_AUDIO := true
-BOARD_USES_QCOM_LEGACY_CAM_PARAMS := true
-TARGET_QCOM_MEDIA_VARIANT := legacy
+BOARD_PREBUILT_LIBAUDIO := false
+
+# Power
+TARGET_POWERHAL_VARIANT := cm
+
+# Bluetooth
+BOARD_HAVE_BLUETOOTH := true
+BOARD_HAVE_BLUETOOTH_BCM := true
+BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/htc/vivo/bluetooth
+BOARD_BLUEDROID_VENDOR_CONF := device/htc/vivo/bluetooth/libbt_vndcfg.txt
 
 # QCOM
-COMMON_GLOBAL_CFLAGS += -DQCOM_HARDWARE -DREFRESH_RATE=60 -DQCOM_ICS_COMPAT
-BOARD_USE_QCOM_PMEM := true
 BOARD_USES_QCOM_GPS := true
 BOARD_USES_QCOM_HARDWARE := true
 BOARD_USES_QCOM_LIBRPC := true
 BOARD_USES_QCOM_LIBS := true
 
-# Pmem
-TARGET_USES_PMEM := true
+# ION
+TARGET_USES_ION := true
 
-# Legacy
-COMMON_GLOBAL_CFLAGS += -DICS_CAMERA_BLOB -DQCOM_NO_SECURE_PLAYBACK -DNO_UPDATE_PREVIEW
-BOARD_NEEDS_MEMORYHEAPPMEM := true
+# Legacy patches
+TARGET_QCOM_MEDIA_VARIANT := legacy
+TARGET_QCOM_DISPLAY_VARIANT := legacy
+
+# RIL
 BOARD_USES_LEGACY_RIL := true
-
-# FM Radio
-BOARD_HAVE_FM_RADIO := true
-BOARD_GLOBAL_CFLAGS += -DHAVE_FM_RADIO
-
-# Audio
-BOARD_HAVE_BLUETOOTH := true
-BOARD_HAVE_BLUETOOTH_BCM := true
-BOARD_PREBUILT_LIBAUDIO := false
-#BOARD_HAVE_QCOM_FM := true
-#BOARD_USES_QCOM_AUDIO_LPA := true
-#BOARD_USES_QCOM_AUDIO_RESETALL := true
-#BOARD_USES_QCOM_AUDIO_SPEECH := true
-#BOARD_USES_QCOM_AUDIO_VOIPMUTE := true
 
 # Boot Animation
 TARGET_BOOTANIMATION_PRELOAD := true
@@ -128,65 +147,32 @@ ENABLE_WEBGL := true
 TARGET_FORCE_CPU_UPLOAD := true
 DYNAMIC_SHARED_LIBV8SO := true
 
-USE_CAMERA_STUB := true
-
-# Compiler Optimization
-ARCH_ARM_HIGH_OPTIMIZATION := true
-ARCH_ARM_HIGH_OPTIMIZATION_COMPAT := true
-
-# TLS Register
-ARCH_ARM_HAVE_TLS_REGISTER := true
-
 # inherit from the proprietary version
 -include vendor/htc/vivo/BoardConfigVendor.mk
 
-TARGET_BOOTLOADER_BOARD_NAME := vivo
-
+# Recovery
 TARGET_RECOVERY_FSTAB = device/htc/vivo/ramdisk/fstab.vivo
+BOARD_UMS_LUNFILE := /sys/class/android_usb/android0/f_mass_storage/lun0/file
 
+# Kernel
 BOARD_KERNEL_CMDLINE := no_console_suspend=1
 BOARD_KERNEL_RECOVERY_CMDLINE := $(BOARD_KERNEL_CMDLINE) msmsdcc_power_gpio=88
 BOARD_KERNEL_BASE := 0x4400000
 BOARD_KERNEL_PAGE_SIZE := 4096
+TARGET_KERNEL_CONFIG := cyanogen_vivo_defconfig
+TARGET_KERNEL_SOURCE := kernel/htc/vivo
 
-# needed or FFC FC's for some reason.
-TARGET_DISABLE_ARM_PIE := true
-
+# GPS
 BOARD_VENDOR_QCOM_GPS_LOC_API_HARDWARE := vivo
 BOARD_VENDOR_QCOM_AMSS_VERSION := 1200
 BOARD_VENDOR_QCOM_GPS_LOC_API_AMSS_VERSION := 50000
 
-BOARD_HAVE_HTC_FFC := true
-BOARD_USE_REVERSE_FFC := true
-
-# Workaround for Vivo's broken overlay scaling
-#BOARD_OVERLAY_MINIFICATION_LIMIT := 2
-
-# cat /proc/emmc
-#dev:        size     erasesize name
-#mmcblk0p17: 00040000 00000200 "misc"
-#mmcblk0p21: 0087f400 00000200 "recovery"
-#mmcblk0p22: 00400000 00000200 "boot"
-#mmcblk0p25: 22dffe00 00000200 "system"
-#mmcblk0p27: 12bffe00 00000200 "cache"
-#mmcblk0p26: 496ffe00 00000200 "userdata"
-#mmcblk0p28: 014bfe00 00000200 "devlog"
-#mmcblk0p29: 00040000 00000200 "pdata"
-
+# Partitons
 TARGET_USERIMAGES_USE_EXT4 := true
 BOARD_SYSTEMIMAGE_PARTITION_SIZE := 585101312
 BOARD_USERDATAIMAGE_PARTITION_SIZE := 1232072704
 BOARD_BOOTIMAGE_PARTITION_SIZE := 4194304
 BOARD_FLASH_BLOCK_SIZE := 262144
-
-TARGET_RELEASETOOLS_EXTENSIONS := device/htc/common
-TARGET_PREBUILT_KERNEL := device/htc/vivo/prebuilt/kernel
-TARGET_PREBUILT_RECOVERY_KERNEL := device/htc/vivo/prebuilt/kernel
-
-TARGET_KERNEL_CONFIG := cyanogenmod_defconfig
-TARGET_KERNEL_SOURCE := kernel/htc/vivo
-TARGET_KERNEL_CUSTOM_TOOLCHAIN := arm-eabi-4.7
-
 BOARD_HAS_LARGE_FILESYSTEM := true
 BOARD_HAS_NO_SELECT_BUTTON := true
 BOARD_SDCARD_DEVICE_PRIMARY := /dev/block/mmcblk1p1
@@ -194,18 +180,10 @@ BOARD_SDCARD_DEVICE_SECONDARY := /dev/block/mmcblk1
 BOARD_SDEXT_DEVICE := /dev/block/mmcblk1p2
 BOARD_USES_MMCUTILS := true
 BOARD_HAS_NO_MISC_PARTITION := true
-
 TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/class/android_usb/android0/f_mass_storage/lun0/file
-
 BOARD_VOLD_EMMC_SHARES_DEV_MAJOR := true
 
-# for recovery
-BOARD_UMS_LUNFILE := /sys/class/android_usb/android0/f_mass_storage/lun0/file
-
-# for 4.2
-BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/htc/vivo/bluetooth
-BOARD_BLUEDROID_VENDOR_CONF := device/htc/vivo/bluetooth/libbt_vndcfg.txt
-
-# No SDK blobs
-BUILD_EMULATOR_SENSORS_MODULE := false
-BUILD_EMULATOR_GPS_MODULE := false 
+# Misc
+TARGET_RELEASETOOLS_EXTENSIONS := device/htc/common
+#TARGET_PREBUILT_KERNEL := device/htc/vivo/prebuilt/kernel
+#TARGET_PREBUILT_RECOVERY_KERNEL := device/htc/vivo/prebuilt/kernel
