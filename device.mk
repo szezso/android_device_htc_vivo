@@ -97,9 +97,9 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     Torch
 
-# Camera
-PRODUCT_PACKAGES := \
-    Camera
+# DeviceSettings
+PRODUCT_PACKAGES += \
+    DeviceSettings
 
 # Filesystem management tools
 PRODUCT_PACKAGES += \

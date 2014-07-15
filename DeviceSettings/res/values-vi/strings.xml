@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Cài đặt nâng cao</string>
+    <string name="category_general_title">Cài đặt chung</string>
+    <string name="category_sweep2wake_title">Sweep2Wake</string>
+    <string name="category_doubletap2wake_title">DoubleTap2Wake</string>
+    <string name="dyn_fsync_title">Kiểm soát đồng bộ năng động</string>
+    <string name="dyn_fsync_summary">Trong khi màn hình bật, đồng bộ tập tin bị vô hiệu hóa. Khi màn hình tắt, đồng bộ tập tin xóa tất cả các dữ liệu chưa được giải quyết và phục hồi hoạt động đồng bộ hóa tập tin như bình thường. Vô hiệu hóa tùy chọn này sẽ đạt được toàn vẹn dữ liệu và tốc độ.</string>
+    <string name="fast_charge_title">Chế độ sạc nhanh</string>
+    <string name="fast_charge_summary">Cho phép người dùng buộc AC sạc cho bất kỳ loại sạc được phát hiện là USB (ví dụ như nhiều bộ sạc xe hơi).</string>
+    <string name="sweep2wake_title">Sweep2Wake</string>
+    <string name="sweep2wake_summaryOn">Đã kích hoạt Sweep2Wake</string>
+    <string name="sweep2wake_summaryOff">Đã tắt Sweep2Wake</string>
+    <string name="s2w_allow_stroke_title">Cho phép stroke</string>
+    <string name="s2w_allow_stroke_summary">Trượt theo cả 2 hướng</string>
+    <string name="s2w_min_distance_title">Khoảng cách tối thiểut</string>
+    <string name="s2w_min_distance_summary">Điều chỉnh khoảng cách tối thiểu</string>
+    <string name="s2w_register_threshold_title">Lập mức ngưỡng</string>
+    <string name="s2w_register_threshold_summary">Điều chỉnh lập mức ngưỡng</string>
+    <string name="doubletap2wake_title">DoubleTap2Wake</string>
+    <string name="doubletap2wake_summaryOn">Đã kích hoạt DoubleTap2Wake</string>
+    <string name="doubletap2wake_summaryOff">Đã tắt DoubleTap2Wake</string>
+    <string name="dt2w_min_duration_title">Độ dài tối thiểu</string>
+    <string name="dt2w_min_duration_summary">Điều chỉnh độ dài tối thiểu</string>
+    <string name="dt2w_max_duration_title">Độ dài cực đại</string>
+    <string name="dt2w_max_duration_summary">Điều chỉnh độ dài cực đại</string>
+</resources>

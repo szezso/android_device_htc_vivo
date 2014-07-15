@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Erweiterte Einstellungen</string>
+    <string name="category_kernel_title">Kernel</string>
+    <string name="dyn_fsync_title">Dynamische Sync-Kontrolle</string>
+    <string name="dyn_fsync_summary">Solange der Bildschirm an ist, ist die Dateisystemsynchronisation ausgeschaltet. Beim Ausschalten des Bildschirms wird eine Synchronisation erzwungen, um alle austehenden Schreiboperationen durchzuführen und die Dateisystemsynchronisation wird wieder aktiviert.</string>
+    <string name="fast_charge_title">Erzwinge Schnellaufladung</string>
+    <string name="fast_charge_summary">Erlaubt das Laden des Akkus mit maximal möglicher Leistung auch über USB-Anschlüsse.</string>
+    <string name="sweep2wake_title">Sweep2Wake</string>
+    <string name="sweep2wake_summary">Aktiviere Sweep2Wake (Wischgeste zum Wecken des Gerätes). Bemerkung: Diese Funktionalität ist noch experimentell!</string>
+</resources>

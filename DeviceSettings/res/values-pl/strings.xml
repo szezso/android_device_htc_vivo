@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+ <string name="app_name">Ustawienia zaawansowane</string>
+ <string name="category_general_title">Ogólne</string>
+ <string name="category_sweep2wake_title">Sweep2Wake</string>
+ <string name="category_doubletap2wake_title">DoubleTap2Wake</string>
+ <string name="dyn_fsync_title">Dynamiczna kontrola synchronizacji</string>
+ <string name="dyn_fsync_summary">Kiedy ekran jest włączony synchronizacja plików jest zawieszona. Kiedy ekran jest wyłączony synchronizacja plików jest przywrócona. Wyłącz tę funkcję dla lepszej integralności danych, kosztem wydajności.</string>
+ <string name="fast_charge_title">Wymuszanie szybkiego ładowania</string>
+ <string name="fast_charge_summary">Wymusza szybkie ładowanie dla każdej ładowarki wykrytej jako USB (np.: wiele ładowarek samochodowych).</string>
+ <string name="sweep2wake_title">Sweep2Wake</string>
+ <string name="sweep2wake_summaryOn">Sweep2Wake włączone</string>
+ <string name="sweep2wake_summaryOff">Sweep2Wake wyłączone</string>
+ <string name="s2w_allow_stroke_title">Pozwól na przeciąganie</string>
+ <string name="s2w_allow_stroke_summary">Przeciąganie w obie strony</string>
+ <string name="s2w_min_distance_title">Minimalny dystans</string>
+ <string name="s2w_min_distance_summary">Ustala minimalny dystans przeciągnięcia palcem</string>
+ <string name="s2w_register_threshold_title">Próg uruchomienia</string>
+ <string name="s2w_register_threshold_summary">Ustala próg uruchomienia</string>
+ <string name="doubletap2wake_title">DoubleTap2Wake</string>
+ <string name="doubletap2wake_summaryOn">DoubleTap2Wake włączone</string>
+ <string name="doubletap2wake_summaryOff">DoubleTap2Wake wyłączone</string>
+ <string name="dt2w_min_duration_title">Minimalny czas dotknięcia</string>
+ <string name="dt2w_min_duration_summary">Ustala minimalny czas</string>
+ <string name="dt2w_max_duration_title">Maksymalny czas dotknięcia</string>
+ <string name="dt2w_max_duration_summary">Ustala maksymalny czas</string>
+</resources>

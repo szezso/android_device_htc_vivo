@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">إعدادات متقدمة</string>
+    <string name="category_kernel_title">النواة</string>
+    <string name="dyn_fsync_title">التحكم بالمزامنة الديناميكية</string>
+    <string name="dyn_fsync_summary">سيتم تعطيل مزامنة الملفات حين تكون الشاشة في وضع التشغيل. و عند إطفاء الشاشة سيتم إكمال كافة عمليات كتابة الملفات المعلقة و سيتم استعادة عملية مزامنة الملفات كالمعتاد. إيقاف هذا الخيار أفضل لضمان سلامة البيانات على حساب الأداء.</string>
+    <string name="fast_charge_title">فرض الشحن السريع</string>
+    <string name="fast_charge_summary">هذا الخيار يسمح للمستخدم فرض التعامل مع أي شاحن كشاحن تيار متردد حين يتم الكشف عنه كشاحن USB (مثل العديد من شواحن السيارات).</string>
+    <string name="sweep2wake_title">Sweep2Wake</string>
+    <string name="sweep2wake_summary">تمكين ميزة Sweep2Wake (ملاحظة: هذه الميزة في حالة تجريبية و يمكن أن تتسبب في آثار جانبية غير متوقعة)</string>
+</resources>

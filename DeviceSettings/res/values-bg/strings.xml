@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Разширени настройки</string>
+    <string name="category_kernel_title">Kernel</string>
+    <string name="dyn_fsync_title">Динамичен контрол на синхронизацията</string>
+    <string name="dyn_fsync_summary">Докато дисплея е включен синхрнизацията е изключена. Когато дисплея е изключен започва файлова синхронизация за изчиистване на всички изчакващи записи. Изключете за по-добла цялост на данните за сметка на производителността.</string>
+    <string name="fast_charge_title">Принудително бързо зареждане</string>
+    <string name="fast_charge_summary">Това позволява на потребителя да разреши бързо зареждане от всяко зарядно разпознато като USB (като много автомобилни зарядни).</string>
+    <string name="sweep2wake_title">Sweep2Wake</string>
+    <string name="sweep2wake_summary">Разрешаване на Sweep2Wake функция (Бележка: Тази функция е експериментална и може да предизвика неочаквани ефекти.)</string>
+</resources>

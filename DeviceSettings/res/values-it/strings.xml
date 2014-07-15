@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Impostazioni avanzate</string>
+    <string name="category_general_title">Generale</string>
+    <string name="category_sweep2wake_title">Sweep2Wake</string>
+    <string name="category_doubletap2wake_title">DoppioTocco2Wake</string>
+    <string name="dyn_fsync_title">Controllo dinamico sincronizzazione</string>
+    <string name="dyn_fsync_summary">Quando lo schermo e\' acceso la sincronizzazione e\' disattivata. Quando lo schermo e\' spento, una richiesta di sincronizzazione riattivera\' la sincronizzazione. Disabilita per una migliore integrita\' dei dati a discapito delle prestazioni</string>
+    <string name="fast_charge_title">Forza carica rapida</string>
+    <string name="fast_charge_summary">Forza AC di ricarica per qualsiasi caricabatterie che viene rilevato come USB (ad esempio molte caricabatterie da auto).</string>
+    <string name="sweep2wake_title">Sweep2Wake</string>
+    <string name="sweep2wake_summaryOn">Sweep2Wake abilitato</string>
+    <string name="sweep2wake_summaryOff">Sweep2Wake disabilitato</string>
+    <string name="s2w_allow_stroke_title">Abilita S2W bidirezionale</string>
+    <string name="s2w_allow_stroke_summary">Scorri in entrambe le direzioni</string>
+    <string name="s2w_min_distance_title">Distanza minima</string>
+    <string name="s2w_min_distance_summary">Regola la distanza minima dello swipe.</string>
+    <string name="s2w_register_threshold_title">Registra soglia</string>
+    <string name="s2w_register_threshold_summary">Regola la registrazione della soglia</string>
+    <string name="doubletap2wake_title">DoppioTocco2Wake</string>
+    <string name="doubletap2wake_summaryOn">DoppioTocco2Wake abilitato</string>
+    <string name="doubletap2wake_summaryOff">DoppioTocco2Wake disabilitato</string>
+    <string name="dt2w_min_duration_title">Durata minima del DoppioTocco2Wake</string>
+    <string name="dt2w_min_duration_summary">Regola la durata minima del DoppioTocco2Wake</string>
+    <string name="dt2w_max_duration_title">Durata massima del DoppioTocco2Wake</string>
+    <string name="dt2w_max_duration_summary">Regola la durata massima del DoppioTocco2Wake</string>
+</resources>
