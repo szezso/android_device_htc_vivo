@@ -24,16 +24,87 @@ PRODUCT_COPY_FILES += device/common/gps/gps.conf_EU:system/etc/gps.conf
 
 PRODUCT_COPY_FILES += \
     device/htc/vivo/ramdisk/init.vivo.rc:root/init.vivo.rc \
-    device/htc/vivo/ramdisk/init.usb.rc:root/init.usb.rc \
-    device/htc/vivo/ramdisk/init.cm.rc:root/init.cm.rc \
-    device/htc/vivo/ramdisk/init.trace.rc:root/init.trace.rc \
-    device/htc/vivo/ramdisk/init.rc:root/init.rc \
+    device/htc/vivo/ramdisk/init.htc7x30.usb.rc:root/init.htc7x30.usb.rc \
     device/htc/vivo/ramdisk/fstab.vivo:root/fstab.vivo \
     device/htc/vivo/ramdisk/ueventd.vivo.rc:root/ueventd.vivo.rc
 
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.camera.front.xml:system/etc/permissions/android.hardware.camera.front.xml \
-    frameworks/native/data/etc/android.hardware.telephony.gsm.xml:system/etc/permissions/android.hardware.telephony.gsm.xml
+    frameworks/native/data/etc/android.hardware.telephony.gsm.xml:system/etc/permissions/android.hardware.telephony.gsm.xml \
+    frameworks/native/data/etc/handheld_core_hardware.xml:system/etc/permissions/handheld_core_hardware.xml \
+    frameworks/native/data/etc/android.hardware.camera.flash-autofocus.xml:system/etc/permissions/android.hardware.camera.flash-autofocus.xml \
+    frameworks/native/data/etc/android.hardware.location.gps.xml:system/etc/permissions/android.hardware.location.gps.xml \
+    frameworks/native/data/etc/android.hardware.wifi.xml:system/etc/permissions/android.hardware.wifi.xml \
+    frameworks/native/data/etc/android.hardware.sensor.accelerometer.xml:system/etc/permissions/android.hardware.sensor.accelerometer.xml \
+    frameworks/native/data/etc/android.hardware.sensor.compass.xml:system/etc/permissions/android.hardware.sensor.compass.xml \
+    frameworks/native/data/etc/android.hardware.sensor.proximity.xml:system/etc/permissions/android.hardware.sensor.proximity.xml \
+    frameworks/native/data/etc/android.hardware.sensor.light.xml:system/etc/permissions/android.hardware.sensor.light.xml \
+    frameworks/native/data/etc/android.hardware.touchscreen.multitouch.distinct.xml:system/etc/permissions/android.hardware.touchscreen.multitouch.distinct.xml \
+    frameworks/native/data/etc/android.hardware.usb.accessory.xml:system/etc/permissions/android.hardware.usb.accessory.xml \
+    frameworks/native/data/etc/android.software.sip.voip.xml:system/etc/permissions/android.software.sip.voip.xml \
+    frameworks/native/data/etc/android.hardware.usb.host.xml:system/etc/permissions/android.hardware.usb.host.xml \
+    packages/wallpapers/LivePicker/android.software.live_wallpaper.xml:system/etc/permissions/android.software.live_wallpaper.xml
+
+# Audio
+PRODUCT_PACKAGES += \
+    audio.a2dp.default \
+    audio.primary.msm7x30 \
+    audio.usb.default \
+    libaudioutils \
+    libtinyalsa
+
+# Video
+PRODUCT_PACKAGES += \
+    copybit.msm7x30 \
+    gralloc.msm7x30 \
+    hwcomposer.msm7x30 \
+    libgenlock \
+    libmemalloc \
+    liboverlay \
+    libQcomUI \
+    libtilerenderer
+
+#wireless
+PRODUCT_PACKAGES += \
+    libnetcmdiface
+
+# Media
+PRODUCT_PACKAGES += \
+    libOmxCore \
+    libOmxVenc \
+    libmm-omxcore \
+    libdivxdrmdecrypt \
+    libOmxVdec \
+    libc2dcolorconvert \
+    libstagefrighthw
+
+# Misc
+PRODUCT_PACKAGES += \
+    com.android.future.usb.accessory \
+    libsurfaceflinger_client
+
+# Live Wallpapers
+PRODUCT_PACKAGES += \
+    LiveWallpapers \
+    LiveWallpapersPicker \
+    VisualizationWallpapers \
+    librs_jni
+
+# Torch
+PRODUCT_PACKAGES += \
+    Torch
+
+# Camera
+PRODUCT_PACKAGES := \
+    Camera
+
+# Filesystem management tools
+PRODUCT_PACKAGES += \
+    make_ext4fs \
+    setup_fs
+
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.sys.fw.bg_apps_limit=12
 
 ## (2) Also get non-open-source GSM-specific aspects if available
 $(call inherit-product-if-exists, vendor/htc/vivo/vivo-vendor.mk)
@@ -64,6 +135,16 @@ PRODUCT_PACKAGES += \
     lights.vivo \
     sensors.vivo
 
+# Media configs
+PRODUCT_COPY_FILES += \
+    device/htc/vivo/prebuilt/media_profiles.xml:system/etc/media_profiles.xml \
+    device/htc/vivo/prebuilt/media_codecs.xml:system/etc/media_codecs.xml \
+    device/htc/vivo/prebuilt/audio_policy.conf:system/etc/audio_policy.conf
+
+# ADB hack
+PRODUCT_COPY_FILES += \
+    device/htc/vivo/prebuilt/prebuilt/20fixup:system/etc/init.d/20fixup
+
 # Input device calibration files
 PRODUCT_COPY_FILES += \
     device/htc/vivo/idc/atmel-touchscreen.idc:system/usr/idc/atmel-touchscreen.idc \
@@ -89,13 +170,7 @@ PRODUCT_COPY_FILES += \
 
 # Device specific firmware
 PRODUCT_COPY_FILES += \
-    device/htc/vivo/firmware/bcm4329.hcd:system/vendor/firmware/bcm4329.hcd \
-    device/htc/vivo/firmware/fw_bcmdhd.bin:system/vendor/firmware/fw_bcmdhd.bin \
-    device/htc/vivo/firmware/fw_bcmdhd_apsta.bin:system/vendor/firmware/fw_bcmdhd_apsta.bin \
-    device/htc/vivo/firmware/default.acdb:system/etc/firmware/default.acdb \
-    device/htc/vivo/firmware/default_mfg.acdb:system/etc/firmware/default_mfg.acdb \
-    device/htc/vivo/firmware/default_org.acdb:system/etc/firmware/default_org.acdb \
-    device/htc/vivo/firmware/default_org_nel.acdb:system/etc/firmware/default_org_nel.acdb 
+    device/htc/vivo/firmware/bcm4329.hcd:system/vendor/firmware/bcm4329.hcd
 
 # Audio DSP Profiles
 PRODUCT_COPY_FILES += \
@@ -153,10 +228,21 @@ PRODUCT_COPY_FILES += \
     device/htc/vivo/dsp/soundimage/srsfx_trumedia_music.cfg:system/etc/soundimage/srsfx_trumedia_music.cfg \
     device/htc/vivo/dsp/soundimage/srsfx_trumedia_voice.cfg:system/etc/soundimage/srsfx_trumedia_voice.cfg
 
-# media config xml file
-PRODUCT_COPY_FILES += \
-    device/htc/vivo/media_codecs.xml:system/etc/media_codecs.xml \
-    device/htc/vivo/media_profiles.xml:system/etc/media_profiles.xml
+# we have enough storage space to hold precise GC data
+PRODUCT_TAGS += dalvik.gc.type-precise
+
+# use high-density artwork where available
+PRODUCT_LOCALES += hdpi
+
+PRODUCT_AAPT_CONFIG := normal hdpi
+PRODUCT_AAPT_PREF_CONFIG := hdpi
+
+PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
+
+PRODUCT_PROPERTY_OVERRIDES += \
+    debug.composition.type=gpu \
+    debug.sf.hw=1 \
+    debug.egl.hw=1
 
 # Kernel modules
 #PRODUCT_COPY_FILES += \
@@ -179,9 +265,6 @@ PRODUCT_COPY_FILES += \
 
 # stuff common to all HTC phones
 $(call inherit-product, device/htc/common/common.mk)
-
-# common msm7x30 configs
-$(call inherit-product, device/htc/msm7x30-common/msm7x30.mk)
 
 # htc audio settings
 $(call inherit-product, device/htc/vivo/media_htcaudio.mk)
