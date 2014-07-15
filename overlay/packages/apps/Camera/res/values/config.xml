@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2009 The Android Open Source Project
+<!-- Copyright (C) 2012 The Android Open Source Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -14,18 +14,13 @@
      limitations under the License.
 -->
 
+<!-- Camera app resources that may need to be customized
+     for different hardware or product builds. -->
 <resources>
+    <!-- The camera removes the focus modes by default when touch-to-focus
+         exists. Use this option to change that behavior -->
+    <bool name="wantsFocusModes">true</bool>
 
-    <!-- LED Flashlight -->
-    <bool name="has_led_flash">true</bool>
-
-    <!-- Whether or not the dock settings are to be displayed for this device when docked -->
-    <bool name="has_dock_settings">false</bool>
-
-    <bool name="config_show_expandedDesktop">true</bool>
-
-    <!-- Volume Rocker Wake Support. Some devices do not support (PMU) this.
-    Setting to false will disable Volume Rocker Wake support -->
-    <bool name="config_show_volumeRockerWake">true</bool>
-
+    <!-- HTC Camcorder Mode -->
+    <bool name="needsHTCCamMode">true</bool>
 </resources>
