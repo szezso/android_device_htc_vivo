@@ -16,6 +16,9 @@
 
 $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 
+# Copy bcm4329 firmware
+$(call inherit-product-if-exists, hardware/broadcom/wlan/bcmdhd/firmware/bcm4329/device-bcm.mk)
+
 # The gps config appropriate for this device
 
 PRODUCT_COPY_FILES += device/common/gps/gps.conf_EU:system/etc/gps.conf
