@@ -150,7 +150,7 @@ PRODUCT_COPY_FILES += \
 
 # ADB hack
 PRODUCT_COPY_FILES += \
-    device/htc/vivo/prebuilt/prebuilt/20fixup:system/etc/init.d/20fixup
+    device/htc/vivo/prebuilt/20fixup:system/etc/init.d/20fixup
 
 # Input device calibration files
 PRODUCT_COPY_FILES += \
