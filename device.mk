@@ -71,6 +71,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     libnetcmdiface
 
+# Power HAL
+PRODUCT_PACKAGES += \
+    power.vivo
+
 # Media
 PRODUCT_PACKAGES += \
     libOmxCore \
