@@ -251,21 +251,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     debug.sf.hw=1 \
     debug.egl.hw=1
 
-# Kernel modules
-#PRODUCT_COPY_FILES += \
-
-ifeq ($(TARGET_PREBUILT_KERNEL),)
-LOCAL_KERNEL := device/htc/vivo/prebuilt/kernel
-else
-LOCAL_KERNEL := $(TARGET_PREBUILT_KERNEL)
-endif
-
-PRODUCT_COPY_FILES += \
-    $(LOCAL_KERNEL):kernel
-
-PRODUCT_COPY_FILES += \
-    device/htc/vivo/prebuilt/bcmdhd.ko:system/lib/modules/bcmdhd.ko
-
 #Softkey Rotation Script
 PRODUCT_COPY_FILES += \
     device/htc/vivo/rotate_lights.sh:/system/etc/rotate_lights.sh
