@@ -6,11 +6,6 @@ ro.sf.lcd_density=240
 # Disable system restrictions for all builds
 persist.sys.strictmode.visual=0
 persist.sys.strictmode.disable=1
-ro.secure=0 
-
-# cm qcom build lub
-com.qc.hardware=true
-com.qc.hdmi_out=false
 
 # Modify MMS APN retry timer from 5s to 2s.
 ro.gsm.2nd_data_retry_config=max_retries=3, 2000, 2000, 2000
@@ -39,17 +34,14 @@ ro.ril.hsxpa=2
 # Default network type.
 # 0 => WCDMA preferred.
 ro.telephony.default_network=0
-ro.telephony.ril.v3=skipdatareg,skipbrokendatacall
-
-# Define TCP buffer sizes
-net.tcp.buffersize.hsdpa=4094,87380,393216,4096,16384,110208
 
 # system props for the data modules
 ro.use_data_netmgrd=true
-persist.data_netmgrd_nint=8
 
+# WiFi
 wifi.interface=wlan0
 wifi.supplicant_scan_interval=180
+ro.tethering.kb_disconnect=1
 
 mobiledata.interfaces=gannet0,rmnet0,rmnet1,rmnet2
 
@@ -66,18 +58,5 @@ ro.ril.disable.power.collapse=1
 # Vivo China NEL use
 ro.ril.update.vivo.acoustic=1
 
-# Properties of Scalado Denoise param.
-postprocess.iso_midband=400
-postprocess.denoise_level=5
-
-# Recording Audio Workaround
-ro.camera.sound.disabled=1
-
 # USB Mounting
 persist.sys.usb.config=mass_storage,adb
-
-# For QC perf binary hooks
-ro.vendor.extension_library=/system/lib/libqc-opt.so
-
-# Memory
-ro.ksm.default=1
