@@ -21,6 +21,32 @@
 #include <linux/ioctl.h>
 #include <linux/types.h>
 
+struct ion_handle;
+/**
+ * enum ion_heap_types - list of all possible types of heaps
+ * @ION_HEAP_TYPE_SYSTEM:	 memory allocated via vmalloc
+ * @ION_HEAP_TYPE_SYSTEM_CONTIG: memory allocated via kmalloc
+ * @ION_HEAP_TYPE_CARVEOUT:	 memory allocated from a prereserved
+ * 				 carveout heap, allocations are physically
+ * 				 contiguous
+ * @ION_HEAP_TYPE_IOMMU: IOMMU memory
+ * @ION_HEAP_TYPE_CP:	 memory allocated from a prereserved
+ *				carveout heap, allocations are physically
+ *				contiguous. Used for content protection.
+ * @ION_HEAP_TYPE_DMA:          memory allocated via DMA API
+ * @ION_HEAP_END:		helper for iterating over heaps
+ */
+enum ion_heap_type {
+	ION_HEAP_TYPE_SYSTEM,
+	ION_HEAP_TYPE_SYSTEM_CONTIG,
+	ION_HEAP_TYPE_CARVEOUT,
+	ION_HEAP_TYPE_DMA,
+	ION_HEAP_TYPE_CUSTOM, /* must be last so device specific heaps always
+				 are at the end of this enum */
+	ION_NUM_HEAPS,
+};
+
+
 /**
  * These are the only ids that should be used for Ion heap ids.
  * The ids listed are the order in which allocation will be attempted
@@ -61,31 +87,6 @@ enum ion_heap_ids {
 
 #define CACHED          1
 #define UNCACHED        0
-
-struct ion_handle;
-/**
- * enum ion_heap_types - list of all possible types of heaps
- * @ION_HEAP_TYPE_SYSTEM:	 memory allocated via vmalloc
- * @ION_HEAP_TYPE_SYSTEM_CONTIG: memory allocated via kmalloc
- * @ION_HEAP_TYPE_CARVEOUT:	 memory allocated from a prereserved
- * 				 carveout heap, allocations are physically
- * 				 contiguous
- * @ION_HEAP_TYPE_IOMMU: IOMMU memory
- * @ION_HEAP_TYPE_CP:	 memory allocated from a prereserved
- *				carveout heap, allocations are physically
- *				contiguous. Used for content protection.
- * @ION_HEAP_TYPE_DMA:          memory allocated via DMA API
- * @ION_HEAP_END:		helper for iterating over heaps
- */
-enum ion_heap_type {
-	ION_HEAP_TYPE_SYSTEM,
-	ION_HEAP_TYPE_SYSTEM_CONTIG,
-	ION_HEAP_TYPE_CARVEOUT,
-	ION_HEAP_TYPE_DMA,
-	ION_HEAP_TYPE_CUSTOM, /* must be last so device specific heaps always
-				 are at the end of this enum */
-	ION_NUM_HEAPS = 16,
-};
 
 #define ION_HEAP_SYSTEM_MASK		(1 << ION_HEAP_TYPE_SYSTEM)
 #define ION_HEAP_SYSTEM_CONTIG_MASK	(1 << ION_HEAP_TYPE_SYSTEM_CONTIG)
@@ -300,19 +301,6 @@ int ion_share_dma_buf(struct ion_client *client, struct ion_handle *handle);
  * another exporter is passed in this function will return ERR_PTR(-EINVAL)
  */
 struct ion_handle *ion_import_dma_buf(struct ion_client *client, int fd);
-
-/**
- * ion_import_fd() - given an fd obtained via ION_IOC_SHARE ioctl, import it
- * @client:	this blocks client
- * @fd:		the fd
- *
- * A helper function for drivers that will be recieving ion buffers shared
- * with them from userspace.  These buffers are represented by a file
- * descriptor obtained as the return from the ION_IOC_SHARE ioctl.
- * This function coverts that fd into the underlying buffer, and returns
- * the handle to use to refer to it further.
- */
-struct ion_handle *ion_import_fd(struct ion_client *client, int fd);
 
 /**
  * ion_handle_get_flags - get the flags for a given handle
