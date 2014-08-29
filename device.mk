@@ -189,16 +189,10 @@ PRODUCT_PACKAGES += \
 
 # Video
 PRODUCT_PACKAGES += \
-    libc2dcolorconvert \
     copybit.msm7x30 \
     gralloc.msm7x30 \
-    hwcomposer.msm7x30 \
-    memtrack.msm7x30 \
-    libgenlock \
-    libmemalloc \
-    liboverlay \
-    libQcomUI \
-    libtilerenderer
+    hwcomposer.msm7x30
+
 
 # Wireless
 PRODUCT_PACKAGES += \
@@ -209,8 +203,8 @@ PRODUCT_PACKAGES += \
     libOmxCore \
     libOmxVenc \
     libmm-omxcore \
-    libdivxdrmdecrypt \
     libOmxVdec \
+    libc2dcolorconvert \
     libstagefrighthw
 
 # Misc
@@ -231,7 +225,7 @@ PRODUCT_PACKAGES += \
 
 # DeviceSettings
 PRODUCT_PACKAGES += \
-	DeviceSettings
+    DeviceSettings
 
 PRODUCT_PACKAGES += \
     camera.msm7x30
@@ -240,9 +234,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     make_ext4fs \
     setup_fs
-
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.sys.fw.bg_apps_limit=12
 
 # we have enough storage space to hold precise GC data
 PRODUCT_TAGS += dalvik.gc.type-precise
@@ -256,6 +247,7 @@ PRODUCT_AAPT_PREF_CONFIG := hdpi
 PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
 
 PRODUCT_PROPERTY_OVERRIDES += \
+    com.qc.hardware=true \
     debug.composition.type=gpu \
     debug.sf.hw=1 \
     debug.egl.hw=1 \
