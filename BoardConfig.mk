@@ -135,6 +135,9 @@ BOARD_USES_QCOM_LIBS := true
 # ION
 TARGET_USES_ION := true
 
+# No sync framework for this device...
+TARGET_RUNNING_WITHOUT_SYNC_FRAMEWORK := true
+
 # Boot Animation
 TARGET_BOOTANIMATION_PRELOAD := true
 TARGET_BOOTANIMATION_TEXTURE_CACHE := true
