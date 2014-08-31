@@ -1,0 +1,16 @@
+diff -rupN cm/android_hardware_Camera.cpp cm11/frameworks/base/core/jni/android_hardware_Camera.cpp
+--- cm/android_hardware_Camera.cpp	2013-11-30 22:08:50.000000000 +0100
++++ cm11/frameworks/base/core/jni/android_hardware_Camera.cpp	2013-11-25 17:36:45.095424408 +0100
+@@ -715,10 +716,12 @@ static void android_hardware_Camera_setM
+     sp<Camera> camera = get_native_camera(env, thiz, &context);
+     if (camera == 0) return;
+ 
++#if 0
+     if(mode == true)
+         rc = camera->sendCommand(CAMERA_CMD_METADATA_ON, 0, 0);
+     else
+         rc = camera->sendCommand(CAMERA_CMD_METADATA_OFF, 0, 0);
++#endif
+ 
+     if (rc != NO_ERROR) {
+         jniThrowException(env, "java/lang/RuntimeException", "set metadata mode failed");

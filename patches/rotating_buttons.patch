@@ -1,0 +1,75 @@
+diff --git a/core/res/res/values/config.xml b/core/res/res/values/config.xml
+index 9d98af7..5daad11 100755
+--- a/core/res/res/values/config.xml
++++ b/core/res/res/values/config.xml
+@@ -1297,4 +1301,8 @@
+    <string-array name="config_disabledComponents" translatable="false">
+    </string-array>
+ 
++    <!-- Whether to set a system prop (sys.orientation.landscape)
++         when rotating for devices that have rotating buttons -->
++    <bool name="config_setLandscapeProp">false</bool>
++
+ </resources>
+diff --git a/core/res/res/values/symbols.xml b/core/res/res/values/symbols.xml
+index 082fe87..1f26a26 100644
+--- a/core/res/res/values/symbols.xml
++++ b/core/res/res/values/symbols.xml
+@@ -2050,5 +2050,6 @@
+
+  <!-- Package Manager -->
+  <java-symbol type="array" name="config_disabledComponents" />
++  <java-symbol type="bool" name="config_setLandscapeProp" />
+ 
+ </resources>
+diff --git a/services/java/com/android/server/wm/WindowManagerService.java b/services/java/com/android/server/wm/WindowManagerService.java
+index bf5b402..c7a0e38 100755
+--- a/services/java/com/android/server/wm/WindowManagerService.java
++++ b/services/java/com/android/server/wm/WindowManagerService.java
+@@ -330,6 +330,8 @@ public void onReceive(Context context, Intent intent) {
+ 
+     final boolean mLimitedAlphaCompositing;
+ 
++    final boolean mSetLandscapeProperty;
++
+     final WindowManagerPolicy mPolicy = PolicyManager.makeNewWindowManager();
+ 
+     final IActivityManager mActivityManager;
+@@ -806,6 +808,8 @@ private WindowManagerService(Context context, PowerManagerService pm,
+         mOnlyCore = onlyCore;
+         mLimitedAlphaCompositing = context.getResources().getBoolean(
+                 com.android.internal.R.bool.config_sf_limitedAlpha);
++        mSetLandscapeProperty = context.getResources().getBoolean(
++                com.android.internal.R.bool.config_setLandscapeProp);
+         mDisplayManagerService = displayManager;
+         mHeadless = displayManager.isHeadless();
+ 
+@@ -5791,6 +5795,12 @@ public void setStrictModeVisualIndicatorPreference(String value) {
+         SystemProperties.set(StrictMode.VISUAL_PROPERTY, value);
+     }
+ 
++    /** {@hide} */
++    public void setLandscapeProperty(String value) {
++        if (!mSetLandscapeProperty) return;
++        SystemProperties.set("sys.orientation.landscape", value);
++    }
++
+     /**
+      * Takes a snapshot of the screen.  In landscape mode this grabs the whole screen.
+      * In portrait mode, it grabs the upper region of the screen based on the vertical dimension
+@@ -6950,8 +6960,13 @@ boolean computeScreenConfigurationLocked(Configuration config) {
+         }
+ 
+         if (config != null) {
+-            config.orientation = (dw <= dh) ? Configuration.ORIENTATION_PORTRAIT :
+-                    Configuration.ORIENTATION_LANDSCAPE;
++            if (dw <= dh) {
++                config.orientation = Configuration.ORIENTATION_PORTRAIT;
++                setLandscapeProperty("0");
++            } else {
++                config.orientation = Configuration.ORIENTATION_LANDSCAPE;
++                setLandscapeProperty("1");
++            }
+         }
+ 
+         // Update application display metrics.
