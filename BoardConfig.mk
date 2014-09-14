@@ -102,6 +102,9 @@ BOARD_HAVE_QCOM_FM := true
 # Power
 TARGET_POWERHAL_VARIANT := cm
 
+# Override healthd HAL
+BOARD_HAL_STATIC_LIBRARIES := libhealthd.msm7x30
+
 # Bluetooth
 BOARD_HAVE_BLUETOOTH := true
 BOARD_HAVE_BLUETOOTH_BCM := true
