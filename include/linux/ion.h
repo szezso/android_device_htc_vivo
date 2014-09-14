@@ -665,8 +665,8 @@ static inline int msm_ion_do_cache_op(struct ion_client *client,
 struct ion_allocation_data {
 	size_t len;
 	size_t align;
-	unsigned int heap_mask;
 	unsigned int flags;
+	unsigned int heap_mask;
 	struct ion_handle *handle;
 };
 
