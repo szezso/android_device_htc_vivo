@@ -200,4 +200,8 @@
     the blur effect where it isn't worth the performance hit. -->
     <bool name="config_sf_slowBlur">true</bool>
 
+    <!-- Base "touch slop" value used by ViewConfiguration as a
+    movement threshold where scrolling should begin. -->
+    <dimen name="config_viewConfigurationTouchSlop">4dp</dimen>
+
 </resources>
