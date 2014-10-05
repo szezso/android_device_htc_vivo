@@ -12,16 +12,12 @@ on init
     symlink /storage/sdcard0 /sdcard
     symlink /storage/sdcard0 /mnt/sdcard
 
-    mkdir /devlog 0700 root root
-
 on fs
     mount_all /fstab.vivo
     
 on post-fs
     chmod 0771 /cache
     chown system cache /cache
-    chmod 0700 /devlog
-    chown root root /devlog
 
 on post-fs-data
     # Misc, Radio and WiFi
