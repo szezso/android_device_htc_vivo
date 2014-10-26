@@ -176,7 +176,6 @@ PRODUCT_PACKAGES += \
     audio.a2dp.default \
     audio.primary.msm7x30 \
     audio_policy.msm7x30 \
-    audio.usb.default \
     libaudio-resampler \
     libaudioparameter
 
@@ -202,7 +201,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     libOmxCore \
     libOmxVenc \
-    libmm-omxcore \
     libOmxVdec \
     libc2dcolorconvert \
     libstagefrighthw
