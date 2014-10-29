@@ -16,10 +16,6 @@
 
 $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 
-# The gps config appropriate for this device
-
-PRODUCT_COPY_FILES += device/common/gps/gps.conf_EU:system/etc/gps.conf
-
 ## (1) First, the most specific values, i.e. the aspects that are specific to GSM
 
 PRODUCT_COPY_FILES += \
@@ -48,7 +44,7 @@ PRODUCT_COPY_FILES += \
 ## (2) Also get non-open-source GSM-specific aspects if available
 $(call inherit-product-if-exists, vendor/htc/vivo/vivo-vendor.mk)
 
-# Copy bcm4329 firmware
+# Copy BCM4329 firmware
 $(call inherit-product-if-exists, hardware/broadcom/wlan/bcmdhd/firmware/bcm4329/device-bcm.mk)
 
 ## (3)  Finally, the least specific parts, i.e. the non-GSM-specific aspects
@@ -66,10 +62,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.vold.umsdirtyratio=20
 
 DEVICE_PACKAGE_OVERLAYS += device/htc/vivo/overlay
-
-# gsm config xml file
-PRODUCT_COPY_FILES += \
-    device/htc/vivo/voicemail-conf.xml:system/etc/voicemail-conf.xml
 
 # Input device calibration files
 PRODUCT_COPY_FILES += \
@@ -149,25 +141,25 @@ PRODUCT_COPY_FILES += \
     device/htc/vivo/dsp/soundimage/Sound_Rec_Landscape.txt:system/etc/soundimage/Sound_Rec_Landscape.txt \
     device/htc/vivo/dsp/soundimage/Sound_Rec_Portrait.txt:system/etc/soundimage/Sound_Rec_Portrait.txt
 
-#Softkey Rotation Script
+# Softkey Rotation Script
 PRODUCT_COPY_FILES += \
-    device/htc/vivo/rotate_lights.sh:/system/etc/rotate_lights.sh
+    device/htc/vivo/prebuilt/rotate_lights.sh:/system/etc/rotate_lights.sh
 
-# stuff common to all HTC phones
+# Stuff common to all HTC phones
 $(call inherit-product, device/htc/common/common.mk)
 
-# htc audio settings
+# HTC audio settings
 $(call inherit-product, device/htc/vivo/media_htcaudio.mk)
 
 $(call inherit-product, frameworks/native/build/phone-hdpi-512-dalvik-heap.mk)
 
-# media configs
+# Media configs
 PRODUCT_COPY_FILES += \
     device/htc/vivo/prebuilt/media_profiles.xml:system/etc/media_profiles.xml \
     device/htc/vivo/prebuilt/media_codecs.xml:system/etc/media_codecs.xml \
     device/htc/vivo/prebuilt/audio_policy.conf:system/etc/audio_policy.conf
 
-# adb hack
+# ADB hack
 PRODUCT_COPY_FILES += \
     device/htc/vivo/prebuilt/20fixup:system/etc/init.d/20fixup
 
@@ -239,10 +231,10 @@ PRODUCT_PACKAGES += \
     make_ext4fs \
     setup_fs
 
-# we have enough storage space to hold precise GC data
+# We have enough storage space to hold precise GC data
 PRODUCT_TAGS += dalvik.gc.type-precise
 
-# use high-density artwork where available
+# Use high-density artwork where available
 PRODUCT_LOCALES += hdpi
 
 PRODUCT_AAPT_CONFIG := normal hdpi
@@ -257,7 +249,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     debug.egl.hw=1 \
     debug.egl.recordable.rgba8888=1
     
-    # Low Power Audio
+# Low Power Audio
 PRODUCT_PROPERTY_OVERRIDES += \
 	lpa.decode=false \
 	lpa.use-stagefright=false
