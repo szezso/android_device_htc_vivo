@@ -188,32 +188,3 @@ BOARD_VOLD_EMMC_SHARES_DEV_MAJOR := true
 TARGET_RELEASETOOLS_EXTENSIONS := device/htc/common
 #TARGET_PREBUILT_KERNEL := device/htc/vivo/prebuilt/kernel
 #TARGET_PREBUILT_RECOVERY_KERNEL := device/htc/vivo/prebuilt/kernel
-
-# SELinux
-BOARD_SEPOLICY_DIRS += \
-    device/htc/vivo/sepolicy
-
-BOARD_SEPOLICY_UNION += \
-    app.te \
-    bluetooth.te \
-    device.te \
-    domain.te \
-    drmserver.te \
-    file_contexts \
-    files \
-    file.te \
-    hci_init.te \
-    healthd.te \
-    init.te \
-    init_shell.te \
-    keystore.te \
-    kickstart.te \
-    mediaserver.te \
-    rild.te \
-    surfaceflinger.te \
-    system.te \
-    ueventd.te \
-    untrusted_app.te \
-    vold.te \
-    wpa.te \
-    wpa_socket.te
