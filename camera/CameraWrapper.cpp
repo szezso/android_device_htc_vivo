@@ -103,14 +103,23 @@ static char *camera_fixup_getparams(int id, const char *settings)
     android::CameraParameters params;
     params.unflatten(android::String8(settings));
 
-    params.set("max-saturation", "10");
-    params.set("max-contrast", "10");
-    params.set("max-sharpness", "10");
-
 #if !LOG_NDEBUG
     ALOGV("%s: original parameters:", __FUNCTION__);
     params.dump();
 #endif
+
+    // Some QCOM related framework changes expect max-saturation, max-contrast
+    // max-sharpness or the Camera app will crash.
+    const char* value;
+    if((value = params.get("saturation-max"))) {
+        params.set("max-saturation", value);
+    }
+    if((value = params.get("contrast-max"))) {
+        params.set("max-contrast", value);
+    }
+    if((value = params.get("sharpness-max"))) {
+        params.set("max-sharpness", value);
+    }
 
 #if !LOG_NDEBUG
     ALOGV("%s: fixed parameters:", __FUNCTION__);
