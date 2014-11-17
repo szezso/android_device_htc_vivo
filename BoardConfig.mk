@@ -117,6 +117,7 @@ BOARD_USES_PMEM_ADSP := true
 
 # Legacy Patches
 USE_SET_METADATA := false
+BOARD_USES_LEGACY_MMAP := true
 
 # RIL
 BOARD_USES_LEGACY_RIL := true
