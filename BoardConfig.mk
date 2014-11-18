@@ -24,6 +24,9 @@
 # variant, so that it gets overwritten by the parent (which goes
 # against the traditional rules of inheritance).
 
+# Inherit from msm7x30-common
+-include device/htc/msm7x30-common/BoardConfigCommon.mk
+
 # Flags
 COMMON_GLOBAL_CFLAGS += -DQCOM_HARDWARE
 COMMON_GLOBAL_CFLAGS += -DREFRESH_RATE=60
@@ -55,9 +58,6 @@ TARGET_ARCH_VARIANT := armv7-a-neon
 TARGET_CPU_VARIANT := cortex-a8
 TARGET_CPU_ABI := armeabi-v7a
 TARGET_CPU_ABI2 := armeabi
-
-# Common stuffs for proper compilation
-TARGET_SPECIFIC_HEADER_PATH := device/htc/vivo/include
 
 BOARD_HARDWARE_CLASS := device/htc/vivo/cmhw
 
