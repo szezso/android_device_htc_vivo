@@ -202,19 +202,6 @@ PRODUCT_PACKAGES += \
     com.android.future.usb.accessory \
     libsurfaceflinger_client
 
-# Live Wallpapers
-PRODUCT_PACKAGES += \
-    Galaxy4 \
-    HoloSpiralWallpaper \
-    LiveWallpapers \
-    LiveWallpapersPicker \
-    MagicSmokeWallpapers \
-    NoiseField \
-    PhaseBeam \
-    VisualizationWallpapers \
-    PhotoTable \
-    PhotoPhase
-
 # Torch
 PRODUCT_PACKAGES += \
     Torch
