@@ -1,6 +1,10 @@
 LOCAL_PATH := $(call my-dir)
 include $(CLEAR_VARS)
 
+ifeq ($(BOARD_HAVE_HTC_FFC),true)
+    LOCAL_CFLAGS += -DBOARD_HAVE_HTC_FFC
+endif
+
 LOCAL_C_INCLUDES := \
 	system/media/camera/include
 

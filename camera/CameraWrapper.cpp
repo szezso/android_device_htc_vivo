@@ -149,6 +149,14 @@ char * camera_fixup_setparams(struct camera_device * device, const char * settin
         params.set(android::CameraParameters::KEY_ROTATION, "0");
     }
 
+#ifdef BOARD_HAVE_HTC_FFC
+    if (id == 0) {
+        system("echo 0 > /sys/android_camera2/htcwc");
+    } else {
+        system("echo 1 > /sys/android_camera2/htcwc");
+    }
+#endif
+
 #if !LOG_NDEBUG
     ALOGV("%s: fixed parameters:", __FUNCTION__);
     params.dump();
