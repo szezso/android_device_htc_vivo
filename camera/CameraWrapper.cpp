@@ -418,6 +418,11 @@ static int camera_send_command(struct camera_device *device,
     if (!device)
         return -EINVAL;
 
+    if (cmd == CAMERA_CMD_ENABLE_FOCUS_MOVE_MSG) {
+        // not supported
+        return 0;
+    }
+
     return VENDOR_CALL(device, send_command, cmd, arg1, arg2);
 }
 
