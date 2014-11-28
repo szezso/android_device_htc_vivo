@@ -149,14 +149,6 @@ char * camera_fixup_setparams(struct camera_device * device, const char * settin
         params.set(android::CameraParameters::KEY_ROTATION, "0");
     }
 
-#ifdef BOARD_HAVE_HTC_FFC
-    if (id == 0) {
-        system("echo 0 > /sys/android_camera2/htcwc");
-    } else {
-        system("echo 1 > /sys/android_camera2/htcwc");
-    }
-#endif
-
 #if !LOG_NDEBUG
     ALOGV("%s: fixed parameters:", __FUNCTION__);
     params.dump();
@@ -518,6 +510,15 @@ static int camera_device_open(const hw_module_t *module, const char *name,
             return -EINVAL;
 
         cameraid = atoi(name);
+
+#ifdef BOARD_HAVE_HTC_FFC
+        if (cameraid == 0) {
+            system("echo 0 > /sys/android_camera2/htcwc");
+        } else {
+            system("echo 1 > /sys/android_camera2/htcwc");
+        }
+#endif
+
         num_cameras = gVendorModule->get_number_of_cameras();
 
         fixed_set_params = (char **) malloc(sizeof(char *) * num_cameras);
