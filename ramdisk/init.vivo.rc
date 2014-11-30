@@ -90,12 +90,12 @@ on boot
 
     # bluetooth power up/down interface
     chown bluetooth bluetooth /dev/ttyHS0
-    chown bluetooth net_bt_stack /sys/class/rfkill/rfkill0/type
-    chown bluetooth net_bt_stack /sys/class/rfkill/rfkill0/state
+    chown bluetooth bluetooth /sys/class/rfkill/rfkill0/type
+    chown bluetooth bluetooth /sys/class/rfkill/rfkill0/state
     chmod 0660 /sys/class/rfkill/rfkill0/state
 
     # Bluetooth MAC address path
-    chown bluetooth net_bt_stack /sys/module/htc_bdaddress/parameters/bdaddress
+    chown bluetooth bluetooth /sys/module/htc_bdaddress/parameters/bdaddress
     setprop ro.bt.bdaddr_path /sys/module/htc_bdaddress/parameters/bdaddress
     # bluetooth car dock pin
     chown system system /sys/class/switch/dock/bt_pin
