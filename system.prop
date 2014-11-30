@@ -59,4 +59,4 @@ ro.ril.disable.power.collapse=1
 ro.ril.update.vivo.acoustic=1
 
 # USB Mounting
-persist.sys.usb.config=mass_storage,adb
+persist.sys.usb.config=mtp,adb
