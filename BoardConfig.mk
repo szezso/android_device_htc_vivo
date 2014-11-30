@@ -102,6 +102,9 @@ BOARD_HAL_STATIC_LIBRARIES := libhealthd.msm7x30
 # Don't generate block mode update zips
 BLOCK_BASED_OTA := false
 
+# Radio
+TARGET_NEEDS_NON_PIE_SUPPORT := true
+
 # Bluetooth
 BOARD_HAVE_BLUETOOTH := true
 BOARD_HAVE_BLUETOOTH_BCM := true
@@ -114,7 +117,6 @@ TARGET_DISABLE_ARM_PIE := true
 BOARD_NEEDS_MEMORYHEAPPMEM := true
 BOARD_HAVE_HTC_FFC := true
 BOARD_USE_REVERSE_FFC := true
-TARGET_DISABLE_ARM_PIE := true
 USE_CAMERA_STUB := true
 BOARD_USES_PMEM_ADSP := true
 
