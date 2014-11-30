@@ -215,8 +215,12 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     DeviceSettings
 
+# Camera
 PRODUCT_PACKAGES += \
     camera.msm7x30
+
+PRODUCT_COPY_FILES += \
+    device/htc/vivo/prebuilt/libsurfaceflinger_client.so:system/lib/libsurfaceflinger_client.so
 
 # Filesystem management tools
 PRODUCT_PACKAGES += \
@@ -224,7 +228,7 @@ PRODUCT_PACKAGES += \
     setup_fs
 
 # WiFi
-+PRODUCT_PACKAGES += \
+PRODUCT_PACKAGES += \
     dhcpcd.conf \
     hostapd \
     wpa_supplicant \
