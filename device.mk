@@ -174,6 +174,8 @@ PRODUCT_PACKAGES += \
     libaudio-resampler \
     libaudioparameter
 
+# GPS
+PRODUCT_PACKAGES += librpc
 
 # Sensors, GPS, Lights
 PRODUCT_PACKAGES += \
