@@ -99,6 +99,9 @@ TARGET_POWERHAL_VARIANT := cm
 # Override healthd HAL
 BOARD_HAL_STATIC_LIBRARIES := libhealthd.msm7x30
 
+# Don't generate block mode update zips
+BLOCK_BASED_OTA := false
+
 # Bluetooth
 BOARD_HAVE_BLUETOOTH := true
 BOARD_HAVE_BLUETOOTH_BCM := true
