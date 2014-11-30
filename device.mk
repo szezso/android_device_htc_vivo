@@ -254,6 +254,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
     # Resampler quality
 PRODUCT_PROPERTY_OVERRIDES += \
 	af.resampler.quality=255
+
+# Awesome Player as default
+PRODUCT_PROPERTY_OVERRIDES += \
+	media.stagefright.use-awesome=true
 	
     # hTC-related stuff (pulled from DHD)
 PRODUCT_PROPERTY_OVERRIDES += \
