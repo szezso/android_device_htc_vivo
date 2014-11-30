@@ -189,11 +189,6 @@ PRODUCT_PACKAGES += \
     gralloc.msm7x30 \
     hwcomposer.msm7x30
 
-
-# Wireless
-PRODUCT_PACKAGES += \
-    libnetcmdiface
-
 # Media
 PRODUCT_PACKAGES += \
     libOmxCore \
@@ -229,10 +224,11 @@ PRODUCT_PACKAGES += \
 
 # WiFi
 PRODUCT_PACKAGES += \
-    dhcpcd.conf \
-    hostapd \
-    wpa_supplicant \
-    wpa_supplicant.conf
+	libnetcmdiface \
+	dhcpcd.conf \
+	hostapd \
+	wpa_supplicant \
+	wpa_supplicant.conf
 
 # We have enough storage space to hold precise GC data
 PRODUCT_TAGS += dalvik.gc.type-precise
