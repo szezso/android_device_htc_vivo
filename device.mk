@@ -155,8 +155,11 @@ $(call inherit-product, frameworks/native/build/phone-hdpi-512-dalvik-heap.mk)
 
 # Media configs
 PRODUCT_COPY_FILES += \
-    device/htc/vivo/prebuilt/media_profiles.xml:system/etc/media_profiles.xml \
+    frameworks/av/media/libstagefright/data/media_codecs_google_audio.xml:system/etc/media_codecs_google_audio.xml \
+    frameworks/av/media/libstagefright/data/media_codecs_google_telephony.xml:system/etc/media_codecs_google_telephony.xml \
+    frameworks/av/media/libstagefright/data/media_codecs_google_video.xml:system/etc/media_codecs_google_video.xml \
     device/htc/vivo/prebuilt/media_codecs.xml:system/etc/media_codecs.xml \
+    device/htc/vivo/prebuilt/media_profiles.xml:system/etc/media_profiles.xml \
     device/htc/vivo/prebuilt/audio_policy.conf:system/etc/audio_policy.conf
 
 # ADB hack
