@@ -273,3 +273,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     # Set max background services
 PRODUCT_PROPERTY_OVERRIDES += \
 	ro.config.max_starting_bg=8
+
+# Implement fakeiccid for legacy rils
+ADDITIONAL_BUILD_PROPERTIES += ro.telephony.ril.config=fakeiccid
