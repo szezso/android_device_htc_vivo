@@ -189,9 +189,11 @@ TARGET_RELEASETOOLS_EXTENSIONS := device/htc/common
 #TARGET_PREBUILT_KERNEL := device/htc/vivo/prebuilt/kernel
 #TARGET_PREBUILT_RECOVERY_KERNEL := device/htc/vivo/prebuilt/kernel
 
-# Enable dex-preoptimization to speed up first boot sequence
-ifeq ($(HOST_OS),linux)
-    ifeq ($(WITH_DEXPREOPT),)
-      WITH_DEXPREOPT := true
+ifeq ($(USE_DEXPREOPT),true)
+    # Enable dex-preoptimization to speed up first boot sequence
+    ifeq ($(HOST_OS),linux)
+        ifeq ($(WITH_DEXPREOPT),)
+            WITH_DEXPREOPT := true
+        endif
     endif
 endif
