@@ -254,6 +254,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
     debug.sf.hw=1 \
     debug.egl.hw=1 \
     debug.egl.recordable.rgba8888=1
+
+# Newer camera API isn't supported.
+PRODUCT_PROPERTY_OVERRIDES += \
+    camera2.portability.force_api=1
     
 # Low Power Audio
 PRODUCT_PROPERTY_OVERRIDES += \
