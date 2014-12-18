@@ -266,6 +266,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Awesome Player as default
 PRODUCT_PROPERTY_OVERRIDES += \
+	persist.sys.media.use-awesome=true \
 	media.stagefright.use-awesome=true
 	
     # hTC-related stuff (pulled from DHD)
