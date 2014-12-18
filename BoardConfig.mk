@@ -100,6 +100,7 @@ BOARD_HAL_STATIC_LIBRARIES := libhealthd.msm7x30
 BLOCK_BASED_OTA := false
 
 # Radio
+BOARD_PROVIDES_LIBRIL := true
 TARGET_NEEDS_NON_PIE_SUPPORT := true
 
 # Bluetooth
