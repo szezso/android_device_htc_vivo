@@ -152,6 +152,7 @@ TARGET_FORCE_CPU_UPLOAD := true
 TARGET_BOOTLOADER_BOARD_NAME := vivo
 TARGET_RECOVERY_FSTAB = device/htc/vivo/ramdisk/fstab.vivo
 BOARD_UMS_LUNFILE := /sys/class/android_usb/android0/f_mass_storage/lun0/file
+TARGET_RECOVERY_PIXEL_FORMAT := RGBX_8888
 
 # Kernel
 BOARD_KERNEL_CMDLINE := no_console_suspend=1
@@ -182,6 +183,25 @@ BOARD_USES_MMCUTILS := true
 BOARD_HAS_NO_MISC_PARTITION := true
 TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/class/android_usb/android0/f_mass_storage/lun0/file
 BOARD_VOLD_EMMC_SHARES_DEV_MAJOR := true
+
+# Brightness
+BRIGHTNESS_SYS_FILE := /sys/devices/platform/leds-pm8058/leds/keyboard-backlight/brightness
+
+# Charge mode
+BOARD_CHARGING_MODE_BOOTING_LPM := /sys/htc_lpm/lpm_mode
+
+# TWRP
+DEVICE_RESOLUTION := 480x800
+TW_FLASH_FROM_STORAGE := true
+TW_INTERNAL_STORAGE_PATH := "/sdcard"
+TW_INTERNAL_STORAGE_MOUNT_POINT := "sdcard"
+TW_INCLUDE_JB_CRYPTO := true
+TW_NO_SCREEN_BLANK := true
+TW_INCLUDE_DUMLOCK := true
+RECOVERY_GRAPHICS_USE_LINELENGTH := true
+#RECOVERY_VARIANT := twrp
+TW_EXCLUDE_MTP := true
+TW_NO_CPU_TEMP := true
 
 # Misc
 TARGET_RELEASETOOLS_EXTENSIONS := device/htc/common
