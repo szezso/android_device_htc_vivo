@@ -1,0 +1,53 @@
+on boot
+    # CPU
+    write /sys/module/pm2/modes/power_collapse/suspend_enabled 1
+    write /sys/module/pm2/modes/power_collapse/idle_enabled 1
+    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq 384000
+    chown system system /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
+    chmod 0664 /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
+    chown system system /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq
+    chmod 0664 /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq
+    chown system system /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq
+    chmod 0664 /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq	
+    setprop recovery.perf.mode 0
+
+    start choice_fn
+    start htcbatt
+
+on property:recovery.perf.mode=0
+    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor "ondemand"
+
+on property:recovery.perf.mode=1
+    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor "performance"
+
+service choice_fn /sbin/choice_fn
+    disabled
+    oneshot
+
+service power_test /sbin/power_test
+    disabled
+    oneshot
+
+service offmode_charging /sbin/offmode_charging
+    disabled
+    oneshot
+
+service detect_key /sbin/detect_key
+    disabled
+    oneshot
+
+service htcbatt /sbin/htcbatt
+    disabled
+    oneshot
+
+# Always start adbd on userdebug and eng builds
+on property:ro.debuggable=1
+    #write /sys/class/android_usb/android0/enable 1
+    #start adbd
+    setprop service.adb.root 1
+
+# Restart adbd so it can run as root
+on property:service.adb.root=1
+    write /sys/class/android_usb/android0/enable 0
+    restart adbd
+    write /sys/class/android_usb/android0/enable 1
