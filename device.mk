@@ -285,3 +285,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     # Set max background services
 PRODUCT_PROPERTY_OVERRIDES += \
 	ro.config.max_starting_bg=8
+
+# Disable atlas services on low-ram targets
+PRODUCT_PROPERTY_OVERRIDES += \
+	config.disable_atlas=true
