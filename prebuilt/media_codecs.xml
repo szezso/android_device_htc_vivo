@@ -18,10 +18,8 @@
 -->
 
 <MediaCodecs>
-    <Include href="media_codecs_google_audio.xml" />
-    <Include href="media_codecs_google_telephony.xml" />
     <Encoders>
-        <!-- Audio Hardware  -->
+        <!-- Audio Hardware
         <MediaCodec name="OMX.qcom.audio.encoder.evrc" type="audio/evrc">
             <Quirk name="requires-allocate-on-input-ports"/>
             <Quirk name="requires-allocate-on-output-ports"/>
@@ -29,9 +27,10 @@
         <MediaCodec name="OMX.qcom.audio.encoder.qcelp13" type="audio/qcelp">
             <Quirk name="requires-allocate-on-input-ports"/>
             <Quirk name="requires-allocate-on-output-ports"/>
-        </MediaCodec>
+        </MediaCodec> -->
         <!-- Audio Software  -->
-        <MediaCodec name="AACEncoder" type="audio/mp4a-latm"/>
+        <!--<MediaCodec name="AACEncoder" type="audio/mp4a-latm"/>-->
+		<!-- Video Hardware -->
         <MediaCodec name="OMX.qcom.video.encoder.mpeg4" type="video/mp4v-es">
             <Quirk name="requires-allocate-on-input-ports"/>
             <Quirk name="requires-allocate-on-output-ports"/>
@@ -51,6 +50,13 @@
     <Decoders>
         <!-- Audio Hardware  -->
         <!--
+        <MediaCodec name="OMX.qcom.audio.decoder.Qcelp13" type="audio/qcelp">
+			<Quirk name="requires-global-flush" />
+		</MediaCodec>
+		<MediaCodec name="OMX.qcom.audio.decoder.evrc" type="audio/evrc">
+			<Quirk name="requires-global-flush" />
+		</MediaCodec>
+		<MediaCodec name="OMX.qcom.audio.decoder.amrwbp" type="audio/amr-wb-plus" />
         <MediaCodec name="OMX.qcom.audio.decoder.wma" type="audio/x-ms-wma">
             <Quirk name="requires-global-flush"/>
             <Quirk name="requires-wma-pro-component"/>
@@ -58,46 +64,40 @@
         -->
         <!-- Audio Software  -->
         <MediaCodec name="MP3Decoder" type="audio/mpeg"/>
-        <MediaCodec name="OMX.qcom.audio.decoder.Qcelp13" type="audio/qcelp">
-            <Quirk name="requires-global-flush"/>
+        <!-- Video Hardware -->
+        <MediaCodec name="OMX.qcom.video.decoder.avc" type="video/avc">
+			<Quirk name="requires-allocate-on-input-ports" />
+			<Quirk name="requires-allocate-on-output-ports" />
+			<Feature name="adaptive-playback" />
         </MediaCodec>
-        <MediaCodec name="OMX.qcom.audio.decoder.evrc" type="audio/evrc">
-            <Quirk name="requires-global-flush"/>
+        <MediaCodec name="OMX.qcom.video.decoder.mpeg4" type="video/mp4v-es">
+			<Quirk name="requires-allocate-on-input-ports" />
+			<Quirk name="requires-allocate-on-output-ports" />
+			<Feature name="adaptive-playback" />
         </MediaCodec>
         <MediaCodec name="OMX.qcom.video.decoder.vc1" type="video/x-ms-wmv">
             <Quirk name="requires-allocate-on-input-ports"/>
             <Quirk name="requires-allocate-on-output-ports"/>
-            <Quirk name="defers-output-buffer-allocation"/>
-        </MediaCodec>
-        <MediaCodec name="OMX.qcom.video.decoder.divx" type="video/divx">
-            <Quirk name="requires-allocate-on-input-ports"/>
-            <Quirk name="requires-allocate-on-output-ports"/>
-            <Quirk name="defers-output-buffer-allocation"/>
-        </MediaCodec>
-        <MediaCodec name="OMX.qcom.video.decoder.divx4" type="video/divx4">
-            <Quirk name="requires-allocate-on-input-ports"/>
-            <Quirk name="requires-allocate-on-output-ports"/>
-            <Quirk name="defers-output-buffer-allocation"/>
-        </MediaCodec>
-        <MediaCodec name="OMX.qcom.video.decoder.avc" type="video/avc">
-            <Quirk name="requires-allocate-on-input-ports"/>
-            <Quirk name="requires-allocate-on-output-ports"/>
-            <Quirk name="defers-output-buffer-allocation"/>
-            <Feature name="adaptive-playback" />
-        </MediaCodec>
-        <MediaCodec name="OMX.qcom.video.decoder.mpeg4" type="video/mp4v-es">
-            <Quirk name="requires-allocate-on-input-ports"/>
-            <Quirk name="requires-allocate-on-output-ports"/>
-            <Quirk name="defers-output-buffer-allocation"/>
             <Feature name="adaptive-playback" />
         </MediaCodec>
         <MediaCodec name="OMX.qcom.video.decoder.h263" type="video/3gpp">
             <Quirk name="requires-allocate-on-input-ports"/>
             <Quirk name="requires-allocate-on-output-ports"/>
-            <Quirk name="defers-output-buffer-allocation"/>
             <Feature name="adaptive-playback" />
         </MediaCodec>
+        <MediaCodec name="OMX.qcom.video.decoder.divx4" type="video/divx4">
+            <Quirk name="requires-allocate-on-input-ports"/>
+            <Quirk name="requires-allocate-on-output-ports"/>
+            <Feature name="adaptive-playback" />
+        </MediaCodec>
+        <MediaCodec name="OMX.qcom.video.decoder.divx" type="video/divx">
+			<Quirk name="requires-allocate-on-input-ports" />
+			<Quirk name="requires-allocate-on-output-ports" />
+			<Feature name="adaptive-playback" />
+        </MediaCodec>
     </Decoders>
+    <Include href="media_codecs_google_audio.xml" />
+    <Include href="media_codecs_google_telephony.xml" />
     <Include href="media_codecs_google_video.xml" />
     <Include href="media_codecs_ffmpeg.xml" />
 </MediaCodecs>
