@@ -24,8 +24,8 @@
 # variant, so that it gets overwritten by the parent (which goes
 # against the traditional rules of inheritance).
 
-# Inherit from msm7x30-common
--include device/htc/msm7x30-common/BoardConfigCommon.mk
+# Use prebuilt headers
+TARGET_SPECIFIC_HEADER_PATH := device/htc/vivo/include
 
 # Flags
 COMMON_GLOBAL_CFLAGS += -DQCOM_HARDWARE
