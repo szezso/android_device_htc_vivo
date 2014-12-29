@@ -97,9 +97,6 @@ TARGET_POWERHAL_VARIANT := cm
 # Override healthd HAL
 BOARD_HAL_STATIC_LIBRARIES := libhealthd.msm7x30
 
-# Don't generate block mode update zips
-BLOCK_BASED_OTA := false
-
 # Radio
 BOARD_PROVIDES_LIBRIL := true
 TARGET_NEEDS_NON_PIE_SUPPORT := true
