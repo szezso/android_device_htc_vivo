@@ -182,13 +182,7 @@
     <!-- Indicate whether the SD card is accessible without removing the battery. -->
     <bool name="config_batterySdCardAccessibility">true</bool>
 
-    <!-- Flag indicating whether the surface flinger is inefficient
-    at performing a blur. Used by parts of the UI to turn off
-    the blur effect where it isn't worth the performance hit. -->
-    <bool name="config_sf_slowBlur">true</bool>
-
-    <!-- Base "touch slop" value used by ViewConfiguration as a
-    movement threshold where scrolling should begin. -->
-    <dimen name="config_viewConfigurationTouchSlop">4dp</dimen>
+    <string name="config_perf_profile_prop">sys.perf.profile</string>
+    <string name="config_perf_profile_default_entry">1</string>
 
 </resources>
