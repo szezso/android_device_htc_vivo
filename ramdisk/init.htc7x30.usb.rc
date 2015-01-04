@@ -42,7 +42,7 @@ on property:sys.usb.config=mtp
     write /sys/class/android_usb/android0/bDeviceClass 0
     write /sys/class/android_usb/android0/bDeviceSubClass 0
     write /sys/class/android_usb/android0/bDeviceProtocol 0
-    write /sys/class/android_usb/android0/functions mtp
+    write /sys/class/android_usb/android0/functions ${sys.usb.config}
     write /sys/devices/platform/android_usb/usb_function_switch 128
     write /sys/class/android_usb/android0/enable 1
     setprop sys.usb.state ${sys.usb.config}
@@ -54,7 +54,7 @@ on property:sys.usb.config=mtp,adb
     write /sys/class/android_usb/android0/bDeviceClass 0
     write /sys/class/android_usb/android0/bDeviceSubClass 0
     write /sys/class/android_usb/android0/bDeviceProtocol 0
-    write /sys/class/android_usb/android0/functions mtp,adb
+    write /sys/class/android_usb/android0/functions ${sys.usb.config}
     write /sys/devices/platform/android_usb/usb_function_switch 130
     write /sys/class/android_usb/android0/enable 1
     start adbd
