@@ -79,7 +79,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Misc
 PRODUCT_PROPERTY_OVERRIDES += \
 	ro.setupwizard.enable_bypass=1 \
-	ro.com.google.clientidbase=android-htc-rev \
 	ro.com.google.locationfeatures=1 \
 	ro.product.locale.language=en \
 	ro.product.locale.region=US
