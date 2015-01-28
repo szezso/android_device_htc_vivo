@@ -54,7 +54,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     	media.a1026.nsForVoiceRec=0 \
     	media.a1026.enableA1026=0
-	audio.offload.disable=1 \
 	persist.sys.media.use-awesome=true
 
 # Camera
