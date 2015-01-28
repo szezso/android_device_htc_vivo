@@ -163,6 +163,11 @@ TARGET_KERNEL_SOURCE := kernel/htc/vivo
 # Use Lollipop's new fonts
 EXTENDED_FONT_FOOTPRINT := true
 
+# Use dlmalloc instead of jemalloc because it's
+# supposedly better in single-threaded applications
+# http://blog.poweredbytoast.com/memory-allocators
+MALLOC_IMPL := dlmalloc
+
 # GPS
 BOARD_VENDOR_QCOM_GPS_LOC_API_HARDWARE := vivo
 BOARD_VENDOR_QCOM_AMSS_VERSION := 1200
