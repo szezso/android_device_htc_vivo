@@ -165,10 +165,6 @@ PRODUCT_COPY_FILES += \
     device/htc/vivo/prebuilt/media_profiles.xml:system/etc/media_profiles.xml \
     device/htc/vivo/prebuilt/audio_policy.conf:system/etc/audio_policy.conf
 
-# ADB hack
-PRODUCT_COPY_FILES += \
-    device/htc/vivo/prebuilt/20fixup:system/etc/init.d/20fixup
-
 # Audio
 PRODUCT_PACKAGES += \
     audio.a2dp.default \
