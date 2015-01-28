@@ -50,15 +50,12 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	debug.egl.hw=1 \
 	debug.egl.recordable.rgba8888=1
 
-# Media
-PRODUCT_PROPERTY_OVERRIDES += \
-	persist.sys.media.use-awesome=true
-
 # Audio
 PRODUCT_PROPERTY_OVERRIDES += \
-	lpa.decode=false \
     	media.a1026.nsForVoiceRec=0 \
     	media.a1026.enableA1026=0
+	audio.offload.disable=1 \
+	persist.sys.media.use-awesome=true
 
 # Camera
 PRODUCT_PROPERTY_OVERRIDES += \
