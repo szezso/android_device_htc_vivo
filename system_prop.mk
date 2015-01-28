@@ -52,8 +52,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Media
 PRODUCT_PROPERTY_OVERRIDES += \
-	persist.sys.media.use-awesome=true \
-	media.stagefright.use-awesome=true
+	persist.sys.media.use-awesome=true
 
 # Audio
 PRODUCT_PROPERTY_OVERRIDES += \
