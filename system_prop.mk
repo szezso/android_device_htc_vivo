@@ -57,10 +57,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Audio
 PRODUCT_PROPERTY_OVERRIDES += \
 	lpa.decode=false \
-	lpa.use-stagefright=false \
     	media.a1026.nsForVoiceRec=0 \
-    	media.a1026.enableA1026=0 \
-	af.resampler.quality=255
+    	media.a1026.enableA1026=0
 
 # Camera
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -81,8 +79,12 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Misc
 PRODUCT_PROPERTY_OVERRIDES += \
 	ro.setupwizard.enable_bypass=1 \
+	ro.com.google.clientidbase=android-htc-rev \
 	ro.com.google.locationfeatures=1 \
 	ro.product.locale.language=en \
-	ro.product.locale.region=US \
-	persist.sys.strictmode.visual=0 \
-	persist.sys.strictmode.disable=1
+	ro.product.locale.region=US
+
+# Disable strict mode
+PRODUCT_PROPERTY_OVERRIDES += \
+ 	persist.sys.strictmode.visual=0 \
+ 	persist.sys.strictmode.disable=1
