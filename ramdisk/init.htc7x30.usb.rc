@@ -1,3 +1,17 @@
+# Copyright (C) 2012 The Android Open Source Project
+#
+# USB configuration common for all HTC msm7x30 devices
+#
+# Go home HTC, you are drunk guide for usb_function_switch
+#   0: disable all
+#   1: UMS
+#   2: ADB
+#   3: UMS+ADB
+#   4: RNDIS
+#   6: RNDIS+ADB
+# 128: MTP/PTP
+# 130: MTP/PTP+ADB
+
 on boot
     write /sys/class/android_usb/android0/iSerial ${ro.serialno}
     write /sys/class/android_usb/android0/iManufacturer ${ro.product.manufacturer}
@@ -6,22 +20,45 @@ on boot
     write /sys/class/android_usb/android0/f_rndis/vendorID 0bb4
     write /sys/class/android_usb/android0/f_rndis/wceis 1
 
-# UMS
-on property:sys.usb.config=mass_storage
+# Used to disable USB when switching states
+on property:sys.usb.config=none
     stop adbd
     write /sys/class/android_usb/android0/enable 0
+    write /sys/devices/platform/android_usb/usb_function_switch 0
+    write /sys/class/android_usb/android0/bDeviceClass 0
+    setprop sys.usb.state ${sys.usb.config}
+
+# adb only USB configuration
+on property:sys.usb.config=adb
+    write /sys/class/android_usb/android0/enable 0
+    write /sys/devices/platform/android_usb/usb_function_switch 0
     write /sys/class/android_usb/android0/idVendor 0bb4
     write /sys/class/android_usb/android0/idProduct 0ff9
     write /sys/class/android_usb/android0/bDeviceClass 0
     write /sys/class/android_usb/android0/bDeviceSubClass 0
     write /sys/class/android_usb/android0/bDeviceProtocol 0
-    write /sys/class/android_usb/android0/functions ${sys.usb.config}
+    write /sys/devices/platform/android_usb/usb_function_switch 2
+    write /sys/class/android_usb/android0/enable 1
+    start adbd
+    setprop sys.usb.state ${sys.usb.config}
+
+# UMS
+on property:sys.usb.config=mass_storage
+    stop adbd
+    write /sys/class/android_usb/android0/enable 0
+    write /sys/devices/platform/android_usb/usb_function_switch 0
+    write /sys/class/android_usb/android0/idVendor 0bb4
+    write /sys/class/android_usb/android0/idProduct 0ff9
+    write /sys/class/android_usb/android0/bDeviceClass 0
+    write /sys/class/android_usb/android0/bDeviceSubClass 0
+    write /sys/class/android_usb/android0/bDeviceProtocol 0
     write /sys/devices/platform/android_usb/usb_function_switch 1
     write /sys/class/android_usb/android0/enable 1
     setprop sys.usb.state ${sys.usb.config}
 
 on property:sys.usb.config=mass_storage,adb
     write /sys/class/android_usb/android0/enable 0
+    write /sys/devices/platform/android_usb/usb_function_switch 0
     write /sys/class/android_usb/android0/idVendor 0bb4
     write /sys/class/android_usb/android0/idProduct 0ff9
     write /sys/class/android_usb/android0/bDeviceClass 0
@@ -37,24 +74,24 @@ on property:sys.usb.config=mass_storage,adb
 on property:sys.usb.config=mtp
     stop adbd
     write /sys/class/android_usb/android0/enable 0
+    write /sys/devices/platform/android_usb/usb_function_switch 0
     write /sys/class/android_usb/android0/idVendor 0bb4
     write /sys/class/android_usb/android0/idProduct 0f91
     write /sys/class/android_usb/android0/bDeviceClass 0
     write /sys/class/android_usb/android0/bDeviceSubClass 0
     write /sys/class/android_usb/android0/bDeviceProtocol 0
-    write /sys/class/android_usb/android0/functions ${sys.usb.config}
     write /sys/devices/platform/android_usb/usb_function_switch 128
     write /sys/class/android_usb/android0/enable 1
     setprop sys.usb.state ${sys.usb.config}
 
 on property:sys.usb.config=mtp,adb
     write /sys/class/android_usb/android0/enable 0
+    write /sys/devices/platform/android_usb/usb_function_switch 0
     write /sys/class/android_usb/android0/idVendor 0bb4
     write /sys/class/android_usb/android0/idProduct 0ca8
     write /sys/class/android_usb/android0/bDeviceClass 0
     write /sys/class/android_usb/android0/bDeviceSubClass 0
     write /sys/class/android_usb/android0/bDeviceProtocol 0
-    write /sys/class/android_usb/android0/functions ${sys.usb.config}
     write /sys/devices/platform/android_usb/usb_function_switch 130
     write /sys/class/android_usb/android0/enable 1
     start adbd
@@ -64,26 +101,28 @@ on property:sys.usb.config=mtp,adb
 on property:sys.usb.config=rndis
     stop adbd
     write /sys/class/android_usb/android0/enable 0
+    write /sys/devices/platform/android_usb/usb_function_switch 0
+    write /sys/class/android_usb/android0/f_rndis/vendorID 0bb4
     write /sys/class/android_usb/android0/idVendor 0bb4
     write /sys/class/android_usb/android0/idProduct 0ffe
     write /sys/class/android_usb/android0/bDeviceClass 239
     write /sys/class/android_usb/android0/bDeviceSubClass 2
     write /sys/class/android_usb/android0/bDeviceProtocol 1
-    write /sys/class/android_usb/android0/functions ${sys.usb.config}
     write /sys/devices/platform/android_usb/usb_function_switch 4
     write /sys/class/android_usb/android0/enable 1
     setprop sys.usb.state ${sys.usb.config}
 
 on property:sys.usb.config=rndis,adb
     write /sys/class/android_usb/android0/enable 0
+    write /sys/devices/platform/android_usb/usb_function_switch 0
+    write /sys/class/android_usb/android0/f_rndis/vendorID 0bb4
     write /sys/class/android_usb/android0/idVendor 0bb4
     write /sys/class/android_usb/android0/idProduct 0ffc
     write /sys/class/android_usb/android0/bDeviceClass 239
     write /sys/class/android_usb/android0/bDeviceSubClass 2
     write /sys/class/android_usb/android0/bDeviceProtocol 1
-    write /sys/class/android_usb/android0/functions ${sys.usb.config}
-    write /sys/devices/platform/android_usb/usb_function_switch 6
     write /sys/class/android_usb/android0/enable 1
+    write /sys/devices/platform/android_usb/usb_function_switch 6
     start adbd
     setprop sys.usb.state ${sys.usb.config}
 
@@ -91,24 +130,24 @@ on property:sys.usb.config=rndis,adb
 on property:sys.usb.config=ptp
     stop adbd
     write /sys/class/android_usb/android0/enable 0
+    write /sys/devices/platform/android_usb/usb_function_switch 0
     write /sys/class/android_usb/android0/idVendor 0bb4
     write /sys/class/android_usb/android0/idProduct 0f91
     write /sys/class/android_usb/android0/bDeviceClass 0
     write /sys/class/android_usb/android0/bDeviceSubClass 0
     write /sys/class/android_usb/android0/bDeviceProtocol 0
-    write /sys/class/android_usb/android0/functions ${sys.usb.config}
     write /sys/devices/platform/android_usb/usb_function_switch 128
     write /sys/class/android_usb/android0/enable 1
     setprop sys.usb.state ${sys.usb.config}
 
 on property:sys.usb.config=ptp,adb
     write /sys/class/android_usb/android0/enable 0
+    write /sys/devices/platform/android_usb/usb_function_switch 0
     write /sys/class/android_usb/android0/idVendor 0bb4
     write /sys/class/android_usb/android0/idProduct 0ca8
     write /sys/class/android_usb/android0/bDeviceClass 0
     write /sys/class/android_usb/android0/bDeviceSubClass 0
     write /sys/class/android_usb/android0/bDeviceProtocol 0
-    write /sys/class/android_usb/android0/functions ${sys.usb.config}
     write /sys/devices/platform/android_usb/usb_function_switch 130
     write /sys/class/android_usb/android0/enable 1
     start adbd
