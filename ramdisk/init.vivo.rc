@@ -14,10 +14,6 @@ on init
 
 on fs
     mount_all /fstab.vivo
-    
-on post-fs
-    chmod 0771 /cache
-    chown system cache /cache
 
 on post-fs-data
     # Misc, Radio and WiFi
