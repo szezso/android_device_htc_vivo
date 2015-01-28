@@ -62,6 +62,9 @@ TARGET_CPU_ABI2 := armeabi
 
 BOARD_HARDWARE_CLASS := device/htc/vivo/cmhw
 
+# SELinux
+-include device/qcom/common/sepolicy.mk
+
 # Wifi
 WIFI_BAND := 802_11_ABGN
 WPA_SUPPLICANT_VERSION := VER_0_8_X
