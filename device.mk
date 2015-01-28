@@ -18,6 +18,9 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 
 ## (1) First, the most specific values, i.e. the aspects that are specific to GSM
 
+# System Properties
+$(call inherit-product, device/htc/vivo/system_prop.mk)
+
 PRODUCT_COPY_FILES += \
     device/htc/vivo/ramdisk/init.vivo.rc:root/init.vivo.rc \
     device/htc/vivo/ramdisk/fstab.vivo:root/fstab.vivo \
@@ -247,45 +250,3 @@ ADDITIONAL_DEFAULT_PROPERTIES += \
 endif
 
 PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
-
-PRODUCT_PROPERTY_OVERRIDES += \
-    com.qc.hardware=true \
-    debug.composition.type=gpu \
-    debug.sf.hw=1 \
-    debug.egl.hw=1 \
-    debug.egl.recordable.rgba8888=1
-
-# Newer camera API isn't supported.
-PRODUCT_PROPERTY_OVERRIDES += \
-    camera2.portability.force_api=1
-    
-# Low Power Audio
-PRODUCT_PROPERTY_OVERRIDES += \
-	lpa.decode=false \
-	lpa.use-stagefright=false
-
-    # Resampler quality
-PRODUCT_PROPERTY_OVERRIDES += \
-	af.resampler.quality=255
-
-# Awesome Player as default
-PRODUCT_PROPERTY_OVERRIDES += \
-	persist.sys.media.use-awesome=true \
-	media.stagefright.use-awesome=true
-	
-    # hTC-related stuff (pulled from DHD)
-PRODUCT_PROPERTY_OVERRIDES += \
-    	media.a1026.nsForVoiceRec=0 \
-    	media.a1026.enableA1026=0
-
-    # Reduce background apps limit to 16 on low-tier devices
-PRODUCT_PROPERTY_OVERRIDES += \
-    	ro.sys.fw.bg_apps_limit=16
-    	
-    # Set max background services
-PRODUCT_PROPERTY_OVERRIDES += \
-	ro.config.max_starting_bg=8
-
-# Disable atlas services on low-ram targets
-PRODUCT_PROPERTY_OVERRIDES += \
-	config.disable_atlas=true
