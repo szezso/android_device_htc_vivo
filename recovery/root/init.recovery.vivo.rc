@@ -11,6 +11,19 @@ on boot
     chmod 0664 /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq	
     setprop recovery.perf.mode 0
 
+    # USB
+    write /sys/class/android_usb/android0/enable 0
+    write /sys/class/android_usb/android0/functions adb,mtp
+    write /sys/devices/platform/android_usb/usb_function_switch 130
+    write /sys/class/android_usb/android0/idVendor 0BB4
+    write /sys/class/android_usb/android0/idProduct 0CA8
+    write /sys/class/android_usb/android0/idVendor 0bb4
+    write /sys/class/android_usb/android0/idProduct 0ca8
+    write /sys/class/android_usb/android0/f_mass_storage/inquiry_string "HTC Phone                0000"
+    setprop usb.vendor 0bb4
+    setprop usb.product.adb 0ff9
+    setprop usb.product.mtpadb 0ca8
+
     start choice_fn
     start htcbatt
 
