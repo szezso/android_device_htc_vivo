@@ -2,6 +2,7 @@ import init.htc7x30.usb.rc
 
 on early-init
     write /sys/block/mmcblk0/queue/scheduler noop
+    chmod 666 /proc/cmdline
 
 on init
     mkdir /mnt/media_rw/sdcard0 0700 media_rw media_rw
