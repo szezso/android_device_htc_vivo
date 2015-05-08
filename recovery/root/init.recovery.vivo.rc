@@ -24,8 +24,12 @@ on boot
     setprop usb.product.adb 0ff9
     setprop usb.product.mtpadb 0ca8
 
-    start choice_fn
     start htcbatt
+
+on charger
+    start choice_fn
+    start detect_key
+    start offmode_charging
 
 on property:recovery.perf.mode=0
     write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor "ondemand"
@@ -36,22 +40,26 @@ on property:recovery.perf.mode=1
 service choice_fn /sbin/choice_fn
     disabled
     oneshot
+    seclabel u:r:recovery:s0
 
-service power_test /sbin/power_test
-    disabled
-    oneshot
+service detect_key /sbin/detect_key
+     disabled
+     oneshot
+    seclabel u:r:healthd:s0
 
 service offmode_charging /sbin/offmode_charging
     disabled
-    oneshot
+    seclabel u:r:healthd:s0
 
-service detect_key /sbin/detect_key
-    disabled
-    oneshot
+service power_test /sbin/power_test
+     disabled
+     oneshot
+    seclabel u:r:recovery:s0
 
 service htcbatt /sbin/htcbatt
     disabled
     oneshot
+    seclabel u:r:recovery:s0
 
 # Always start adbd on userdebug and eng builds
 on property:ro.debuggable=1

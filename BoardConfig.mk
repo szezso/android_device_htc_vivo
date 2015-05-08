@@ -191,11 +191,8 @@ BOARD_VOLD_EMMC_SHARES_DEV_MAJOR := true
 # Brightness
 BRIGHTNESS_SYS_FILE := /sys/devices/platform/leds-pm8058/leds/keyboard-backlight/brightness
 
-# Charge mode
-BOARD_CHARGING_MODE_BOOTING_LPM := /sys/htc_lpm/lpm_mode
-
 # TWRP
-DEVICE_RESOLUTION := 480x800
+TW_THEME := portrait_mdpi
 TW_FLASH_FROM_STORAGE := true
 TW_INTERNAL_STORAGE_PATH := "/sdcard"
 TW_INTERNAL_STORAGE_MOUNT_POINT := "sdcard"
@@ -206,6 +203,7 @@ RECOVERY_GRAPHICS_USE_LINELENGTH := true
 #RECOVERY_VARIANT := twrp
 TW_NO_CPU_TEMP := true
 TW_NO_USB_STORAGE := true
+BOARD_CHARGING_MODE_BOOTING_LPM := /sys/htc_lpm/lpm_mode
 
 # Misc
 TARGET_RELEASETOOLS_EXTENSIONS := device/htc/common
