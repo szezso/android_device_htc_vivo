@@ -40,11 +40,8 @@ static char **fixed_set_params = NULL;
 
 static int camera_device_open(const hw_module_t* module, const char* name,
                 hw_device_t** device);
-static int camera_device_close(hw_device_t* device);
 static int camera_get_number_of_cameras(void);
 static int camera_get_camera_info(int camera_id, struct camera_info *info);
-static int camera_send_command(struct camera_device * device, int32_t cmd,
-                int32_t arg1, int32_t arg2);
 
 static struct hw_module_methods_t camera_module_methods = {
     .open = camera_device_open
@@ -132,9 +129,8 @@ static char *camera_fixup_getparams(int id, const char *settings)
     return ret;
 }
 
-char * camera_fixup_setparams(struct camera_device * device, const char * settings)
+char * camera_fixup_setparams(int id, const char * settings)
 {
-    int id = CAMERA_ID(device);
     android::CameraParameters params;
     params.unflatten(android::String8(settings));
 
@@ -283,7 +279,7 @@ static int camera_start_recording(struct camera_device *device)
             (uintptr_t)(((wrapper_camera_device_t*)device)->vendor));
 
     if (!device)
-        return EINVAL;
+        return -EINVAL;
 
     return VENDOR_CALL(device, start_recording);
 }
@@ -377,7 +373,7 @@ static int camera_set_parameters(struct camera_device *device,
         return -EINVAL;
 
     char *tmp = NULL;
-    tmp = camera_fixup_setparams(device, params);
+    tmp = camera_fixup_setparams(CAMERA_ID(device), params);
 
     int ret = VENDOR_CALL(device, set_parameters, tmp);
     return ret;
