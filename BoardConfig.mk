@@ -44,7 +44,6 @@ TARGET_USE_QCOM_BIONIC_OPTIMIZATION := true
 
 # Board
 TARGET_BOARD_PLATFORM := msm7x30
-TARGET_BOARD_PLATFORM_GPU := qcom-adreno200
 
 # Bootloader
 TARGET_NO_BOOTLOADER := true
@@ -75,26 +74,23 @@ BOARD_HOSTAPD_PRIVATE_LIB := lib_driver_cmd_bcmdhd
 BOARD_WLAN_DEVICE := bcmdhd
 WIFI_DRIVER_FW_PATH_STA := "/system/vendor/firmware/fw_bcmdhd.bin"
 WIFI_DRIVER_FW_PATH_AP := "/system/vendor/firmware/fw_bcmdhd_apsta.bin"
-WIFI_DRIVER_FW_PATH_P2P := "/system/vendor/firmware/fw_bcmdhd_apsta.bin"
 WIFI_DRIVER_FW_PATH_PARAM := "/sys/module/bcmdhd/parameters/firmware_path"
 WIFI_DRIVER_MODULE_NAME := bcmdhd
 WIFI_DRIVER_MODULE_PATH := "/system/lib/modules/bcmdhd.ko"
-BOARD_LEGACY_NL80211_STA_EVENTS := true
 
 # Display
 BOARD_EGL_CFG := device/htc/vivo/prebuilt/egl.cfg
 USE_OPENGL_RENDERER := true
 TARGET_USES_C2D_COMPOSITION := true
-TARGET_NO_ADAPTIVE_PLAYBACK := true
 TARGET_NO_HW_VSYNC := true
 
 # Audio
 BOARD_HAVE_HTC_AUDIO := true
 BOARD_PREBUILT_LIBAUDIO := false
-BOARD_HAVE_PRE_KITKAT_AUDIO_POLICY_BLOB := true
 BOARD_USES_LEGACY_ALSA_AUDIO := true
 AUDIO_FEATURE_ENABLED_INCALL_MUSIC := false
 AUDIO_FEATURE_ENABLED_COMPRESS_VOIP := false
+AUDIO_FEATURE_ENABLED_PROXY_DEVICE := false
 
 # Power
 TARGET_POWERHAL_VARIANT := cm
@@ -113,7 +109,6 @@ BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/htc/vivo/bluetooth
 BOARD_BLUEDROID_VENDOR_CONF := device/htc/vivo/bluetooth/libbt_vndcfg.txt
 
 # Camera
-BOARD_USES_QCOM_LEGACY_CAM_PARAMS := true
 TARGET_DISABLE_ARM_PIE := true
 BOARD_NEEDS_MEMORYHEAPPMEM := true
 BOARD_HAVE_HTC_FFC := true
@@ -123,10 +118,6 @@ BOARD_USES_PMEM_ADSP := true
 
 # Legacy Patches
 BOARD_USES_LEGACY_MMAP := true
-TARGET_QCOM_LEGACY_OMX := true
-
-# RIL
-BOARD_USES_LEGACY_RIL := true
 
 # QCOM
 BOARD_USES_QCOM_GPS := true
