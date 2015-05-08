@@ -81,6 +81,7 @@ WIFI_DRIVER_MODULE_PATH := "/system/lib/modules/bcmdhd.ko"
 # Display
 BOARD_EGL_CFG := device/htc/vivo/prebuilt/egl.cfg
 USE_OPENGL_RENDERER := true
+HWUI_COMPILE_FOR_PERF := true
 TARGET_USES_C2D_COMPOSITION := true
 TARGET_NO_HW_VSYNC := true
 
