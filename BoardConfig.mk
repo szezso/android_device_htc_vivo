@@ -119,6 +119,7 @@ BOARD_USES_PMEM_ADSP := true
 
 # Legacy Patches
 BOARD_USES_LEGACY_MMAP := true
+BLOCK_BASED_OTA := false
 
 # QCOM
 BOARD_USES_QCOM_GPS := true
