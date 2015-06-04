@@ -19,7 +19,7 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 ## (1) First, the most specific values, i.e. the aspects that are specific to GSM
 
 # System Properties
--include device/htc/vivo/system_prop.mk
+$(call inherit-product, device/htc/vivo/system_prop.mk)
 
 PRODUCT_COPY_FILES += \
     device/htc/vivo/ramdisk/init.vivo.rc:root/init.vivo.rc \
@@ -175,11 +175,13 @@ PRODUCT_PACKAGES += \
 # GPS
 PRODUCT_PACKAGES += librpc
 
-# Sensors, GPS, Lights
+# HAL
 PRODUCT_PACKAGES += \
     gps.vivo \
     lights.vivo \
+    power.vivo \
     sensors.vivo
+
 
 # Video
 PRODUCT_PACKAGES += \
