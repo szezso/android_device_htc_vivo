@@ -4,7 +4,6 @@
 
 PRODUCT_PROPERTY_OVERRIDES += \
 	ro.sf.lcd_density=240 \
-	persist.sys.strictmode.visual=0 \
 	ro.gsm.2nd_data_retry_config=max_retries=3,2000,2000,2000 \
 	com.qc.hardware=true
 
@@ -75,6 +74,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Misc
 PRODUCT_PROPERTY_OVERRIDES += \
+	ro.setupwizard.enable_bypass=1 \
 	ro.com.google.locationfeatures=1 \
 	ro.product.locale.language=en \
 	ro.product.locale.region=US

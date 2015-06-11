@@ -19,7 +19,9 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 ## (1) First, the most specific values, i.e. the aspects that are specific to GSM
 
 # System Properties
-$(call inherit-product, device/htc/vivo/system_prop.mk)
+-include device/htc/vivo/system_prop.mk
+
+PRODUCT_BOOT_JARS += qcmediaplayer
 
 PRODUCT_COPY_FILES += \
     device/htc/vivo/ramdisk/init.vivo.rc:root/init.vivo.rc \
@@ -187,7 +189,8 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     copybit.msm7x30 \
     gralloc.msm7x30 \
-    hwcomposer.msm7x30
+    hwcomposer.msm7x30 \
+    memtrack.msm7x30
 
 # Media
 PRODUCT_PACKAGES += \
@@ -196,6 +199,8 @@ PRODUCT_PACKAGES += \
     libOmxVdec \
     libc2dcolorconvert \
     libstagefrighthw
+
+PRODUCT_PACKAGES += qcmediaplayer
 
 # Misc
 PRODUCT_PACKAGES += \
