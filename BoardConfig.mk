@@ -146,7 +146,7 @@ BOARD_UMS_LUNFILE := /sys/class/android_usb/android0/f_mass_storage/lun0/file
 TARGET_RECOVERY_PIXEL_FORMAT := RGBX_8888
 
 # Kernel
-BOARD_KERNEL_CMDLINE := no_console_suspend=1 androidboot.selinux=permissive
+BOARD_KERNEL_CMDLINE := no_console_suspend=1 androidboot.selinux=permissive androidboot.hardware=vivo
 BOARD_KERNEL_RECOVERY_CMDLINE := $(BOARD_KERNEL_CMDLINE) msmsdcc_power_gpio=88
 BOARD_KERNEL_BASE := 0x4400000
 BOARD_KERNEL_PAGE_SIZE := 4096
