@@ -149,9 +149,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     device/htc/vivo/prebuilt/rotate_lights.sh:/system/etc/rotate_lights.sh
 
-# Stuff common to all HTC phones
-$(call inherit-product, device/htc/common/common.mk)
-
 # HTC audio settings
 $(call inherit-product, device/htc/vivo/media_htcaudio.mk)
 
@@ -203,21 +200,19 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += qcmediaplayer
 
 # Misc
-PRODUCT_PACKAGES += \
-    com.android.future.usb.accessory \
-    libsurfaceflinger_client
+PRODUCT_PACKAGES += com.android.future.usb.accessory
 
 # Torch
-PRODUCT_PACKAGES += \
-    Torch
+PRODUCT_PACKAGES += Torch
+
+# Live wallpapers
+PRODUCT_PACKAGES += LiveWallpapersPicker
 
 # DeviceSettings
-PRODUCT_PACKAGES += \
-    DeviceSettings
+PRODUCT_PACKAGES += DeviceSettings
 
 # Camera
-PRODUCT_PACKAGES += \
-    camera.msm7x30
+PRODUCT_PACKAGES += camera.msm7x30
 
 PRODUCT_COPY_FILES += \
     device/htc/vivo/prebuilt/libsurfaceflinger_client.so:system/lib/libsurfaceflinger_client.so
