@@ -18,69 +18,64 @@
 -->
 
 <device name="Android">
-  <item name="none">0</item>
-  <item name="screen.on">90</item> <!-- Estimated -->
-  <item name="bluetooth.active">142</item> <!-- In call -->
-  <item name="bluetooth.on">0.3</item>
-  <!-- CPU wakelock held for 830ms on bluetooth headset at command. 43mA * 830 -->
-  <item name="bluetooth.at">35690</item>
-  <item name="screen.full">200</item> <!-- Estimated -->
-  <item name="wifi.on">4</item>
-  <item name="wifi.active">120</item>
-  <item name="wifi.scan">220</item>
-  <item name="dsp.audio">106</item> <!-- Estimated -->
-  <item name="dsp.video">106</item> <!-- Estimated -->
-  <item name="radio.active">300</item>
-  <item name="gps.on">170</item>
-  <item name="battery.capacity">1450</item>
-  <item name="radio.scanning">70</item>
-  <array name="radio.on"> <!-- Strength 0 to BINS-1 -->
-      <value>3</value>
-      <value>3</value>
-  </array>
-  <array name="cpu.speeds"> <!-- from /sys/devices/system/cpu/cpu0/cpufreq/scaling_available_frequencies -->
-    <value>149760</value>
-    <value>245760</value>
-    <value>341640</value>
-    <value>614400</value>
-    <value>768000</value>
-    <value>806400</value>
-    <value>1024000</value>
-    <value>1200000</value>
-    <value>1305600</value>
-    <value>1401600</value>
-    <value>1516800</value>
-    <value>1612800</value>
-    <value>1689600</value>
-    <value>1766400</value>
-    <value>1843200</value>
-    <value>1920000</value>
-    <value>1996800</value>
-    <value>2016000</value>
-  </array>
-  <!-- Power consumption in suspend -->
-  <item name="cpu.idle">3.0</item> <!-- from /sys/class/power_supply/battery/current_now -->
-  <!-- Power consumption due to wake lock held -->
-  <item name="cpu.awake">10</item>
-  <!-- Power consumption at different speeds -->
-  <array name="cpu.active"> <!-- Estimated -->
-      <value>55</value>
-      <value>60</value>
-      <value>74.7</value>
-      <value>120.6</value>
-      <value>154.9</value>
-      <value>163.8</value>
-      <value>173.2</value>
-      <value>184.5</value>
-      <value>196.2</value>
-      <value>208.9</value>
-      <value>220.1</value>
-      <value>232</value>
-      <value>244</value>
-      <value>256</value>
-      <value>268</value>
-      <value>280</value>
-      <value>292</value>
-      <value>304</value>
-  </array>
+    <item name="none">0</item>
+    <item name="screen.on">48</item>
+    <item name="screen.full">140</item>
+    <item name="bluetooth.active">4.6</item>
+    <item name="bluetooth.on">1.2</item>
+    <item name="wifi.on">5</item>
+    <item name="wifi.active">120</item>
+    <item name="wifi.scan">5</item>
+    <item name="dsp.audio">7</item>
+    <item name="dsp.video">10</item>
+    <item name="battery.capacity">1450</item>
+    <item name="gps.on">45</item>
+    <item name="radio.active">210</item>
+    <item name="radio.scanning">15</item>
+    <array name="radio.on">
+        <value>3.2</value>
+        <value>3.2</value>
+    </array>
+    <array name="cpu.speeds">
+        <value>149760</value>
+        <value>245760</value>
+        <value>341640</value>
+        <value>614400</value>
+        <value>768000</value>
+        <value>806400</value>
+        <value>1024000</value>
+        <value>1200000</value>
+        <value>1305600</value>
+        <value>1401600</value>
+        <value>1516800</value>
+        <value>1612800</value>
+        <value>1689600</value>
+        <value>1766400</value>
+        <value>1843200</value>
+        <value>1920000</value>
+        <value>1996800</value>
+        <value>2016000</value>
+    </array>
+    <item name="cpu.idle">3.2</item>
+    <item name="cpu.awake">30</item>
+    <array name="cpu.active">
+        <value>56</value>
+        <value>60.1</value>
+        <value>73.5</value>
+        <value>80</value>
+        <value>89.2</value>
+        <value>94</value>
+        <value>99.0</value>
+        <value>110</value>
+        <value>120</value>
+        <value>208.9</value>
+        <value>220.1</value>
+        <value>232</value>
+        <value>244</value>
+        <value>256</value>
+        <value>268</value>
+        <value>280</value>
+        <value>292</value>
+        <value>304</value>
+    </array>
 </device>
