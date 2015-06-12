@@ -1,7 +1,7 @@
 import init.htc7x30.usb.rc
 
 on early-init
-    write /sys/block/mmcblk0/queue/scheduler noop
+    mount debugfs debugfs /sys/kernel/debug
     chmod 666 /proc/cmdline
 
 on init
@@ -12,9 +12,12 @@ on init
     # Support legacy paths
     symlink /storage/sdcard0 /sdcard
     symlink /storage/sdcard0 /mnt/sdcard
+    mkdir /storage/primary 0555 root root
+    symlink /storage/sdcard0 /storage/primary/legacy
 
 on fs
     mount_all /fstab.vivo
+    swapon_all /fstab.vivo
 
 on post-fs-data
     # Set indication (checked by vold) that we have finished this action
@@ -148,8 +151,6 @@ on boot
     chown system system /sys/devices/system/cpu/cpufreq/ondemand/sampling_rate
     chmod 0660          /sys/devices/system/cpu/cpufreq/ondemand/sampling_rate
 
-    mount debugfs /sys/kernel/debug /sys/kernel/debug
-
 service wpa_supplicant /system/bin/wpa_supplicant \
     -iwlan0 -Dnl80211 -c/data/misc/wifi/wpa_supplicant.conf \
     -I/system/etc/wifi/wpa_supplicant_overlay.conf \
@@ -213,6 +214,14 @@ service lights_portrait /system/bin/sh /system/etc/rotate_lights.sh 0
     disabled
     oneshot
 
+on property:init.svc.bootanim=running
+    write /sys/block/mmcblk0/queue/scheduler noop
+    # Lower LCD backlight to save juice
+    write /sys/class/leds/lcd-backlight/brightness 1
+
+on property:init.svc.bootanim=stopped
+    write /sys/block/mmcblk0/queue/scheduler row
+
 on property:ro.use_data_netmgrd=false
     # netmgr not supported on specific target
     stop netmgrd
@@ -223,28 +232,13 @@ on property:sys.orientation.landscape=0
 on property:sys.orientation.landscape=1
     start lights_landscape
 
-# CM Performance Profiles
+on property:service.adb.root=1
+    write /sys/class/android_usb/android0/enable 0
+    restart adbd
+    write /sys/class/android_usb/android0/enable 1
 
-# Powersave
-on property:sys.perf.profile=0
-    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor conservative
-    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq 806400
-    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq 122880
-    write /sys/module/pm2/parameters/idle_sleep_mode 1
-
-# Balanced
-on property:sys.perf.profile=1
-    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor smartassV2
-    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq 1024000
-    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq 245760
-    write /sys/module/pm2/parameters/idle_sleep_mode 1
-
-# Performance
-on property:sys.perf.profile=2
-    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor performance
-    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq 1024000
-    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq 245760
-    write /sys/module/pm2/parameters/idle_sleep_mode 3
-
-on property:sys.boot_completed=1
-    write /sys/block/mmcblk0/queue/scheduler sio
+service setup_fs /system/bin/setup_fs mmcblk0p26 mmcblk0p27
+    class core
+    user root
+    group root
+    oneshot
