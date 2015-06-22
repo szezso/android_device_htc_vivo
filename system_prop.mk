@@ -69,8 +69,7 @@ PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     	ro.sys.fw.bg_apps_limit=16 \
     	ro.config.max_starting_bg=8 \
-    	config.disable_atlas=true \
-    	ro.ksm.default=1
+    	config.disable_atlas=true
 
 # Misc
 PRODUCT_PROPERTY_OVERRIDES += \
