@@ -1,0 +1,14 @@
+on boot
+    # S2W extras for vivo
+    chown root system /sys/android_touch/s2w_allow_stroke
+    chmod 0664 /sys/android_touch/s2w_allow_stroke
+    chown root system /sys/android_touch/s2w_min_distance
+    chmod 0664 /sys/android_touch/s2w_min_distance
+    chown root system /sys/android_touch/s2w_register_threshold
+    chmod 0664 /sys/android_touch/s2w_register_threshold
+    chown root system /sys/android_touch/doubletap2wake
+    chmod 0664 /sys/android_touch/doubletap2wake
+    chown root system /sys/android_touch/dt2w_max_duration
+    chmod 0664 /sys/android_touch/dt2w_max_duration
+    chown root system /sys/android_touch/dt2w_min_duration
+    chmod 0664 /sys/android_touch/dt2w_min_duration
