@@ -1,4 +1,3 @@
-import init.target.rc
 import init.htc7x30.usb.rc
 
 on early-init
@@ -9,10 +8,6 @@ on init
     mkdir /mnt/media_rw/sdcard0 0700 media_rw media_rw
     mkdir /storage/sdcard0 0700 root root
     export EXTERNAL_STORAGE /storage/sdcard0
-
-    #sd-ext
-    mkdir /sd-ext 0700 root root
-    export SD_EXT_DIRECTORY /sd-ext
 
     # Support legacy paths
     symlink /storage/sdcard0 /sdcard
@@ -28,21 +23,57 @@ on post-fs-data
     # Set indication (checked by vold) that we have finished this action
     setprop vold.post_fs_data_done 1
 
-on early-boot
-    # set RLIMIT_MEMLOCK to 64MB
-    setrlimit 8 67108864 67108864
-
 on boot
-    chmod 0664 /sys/module/pm/parameters/idle_sleep_mode
-
-    # Disable idle power collapse to speed up the boot process
-    # Enable it when boot is complete
-    write /sys/module/pm2/parameters/idle_sleep_mode 3
-
+    # CyanogenMod SysFS entries
     chown radio system /sys/module/gpio_event/parameters/phone_call_status
     chmod 0664         /sys/module/gpio_event/parameters/phone_call_status
     chown radio system /sys/camera_led_status/led_ril_status
     chmod 0644         /sys/camera_led_status/led_ril_status
+
+    # Vibrator
+    chown system system /sys/class/timed_output/vibrator/voltage_level
+ 
+
+    # Advanced settings
+    chown root system /sys/android_touch/sweep2wake
+    chmod 0664 /sys/android_touch/sweep2wake
+    chown root system /sys/android_touch/s2w_allow_stroke
+    chmod 0664 /sys/android_touch/s2w_allow_stroke
+    chown root system /sys/android_touch/s2w_min_distance
+    chmod 0664 /sys/android_touch/s2w_min_distance
+    chown root system /sys/android_touch/s2w_register_threshold
+    chmod 0664 /sys/android_touch/s2w_register_threshold
+    chown root system /sys/android_touch/doubletap2wake
+    chmod 0664 /sys/android_touch/doubletap2wake
+    chown root system /sys/android_touch/dt2w_max_duration
+    chmod 0664 /sys/android_touch/dt2w_max_duration
+    chown root system /sys/android_touch/dt2w_min_duration
+    chmod 0664 /sys/android_touch/dt2w_min_duration
+    chown root system /sys/kernel/fast_charge/force_fast_charge
+    chmod 0664 /sys/kernel/fast_charge/force_fast_charge
+    chown root system /sys/class/timed_output/vibrator/voltage_level
+    chmod 0664 /sys/class/timed_output/vibrator/voltage_level
+
+    # Power Management
+    chmod 0664 /sys/module/pm/parameters/idle_sleep_mode
+
+    # To allow interfaces to get v6 address when tethering is enabled
+    write /proc/sys/net/ipv6/conf/rmnet0/accept_ra 2
+    write /proc/sys/net/ipv6/conf/rmnet1/accept_ra 2
+    write /proc/sys/net/ipv6/conf/rmnet2/accept_ra 2
+    write /proc/sys/net/ipv6/conf/rmnet3/accept_ra 2
+    write /proc/sys/net/ipv6/conf/rmnet4/accept_ra 2
+    write /proc/sys/net/ipv6/conf/rmnet5/accept_ra 2
+    write /proc/sys/net/ipv6/conf/rmnet6/accept_ra 2
+    write /proc/sys/net/ipv6/conf/rmnet7/accept_ra 2
+    
+    # zRAM
+    write /proc/sys/vm/page-cluster 0
+
+    # Disable IPv6 over mobile radio
+#    write /proc/sys/net/ipv6/conf/rmnet0/disable_ipv6 1
+#    write /proc/sys/net/ipv6/conf/rmnet1/disable_ipv6 1
+#    write /proc/sys/net/ipv6/conf/rmnet2/disable_ipv6 1
 
     # HTC SysFS for "Flip to Speaker"
     chown radio radio /sys/class/htc_accelerometer/accelerometer/PhoneOnOffFlag
@@ -68,106 +99,57 @@ on boot
     chown bluetooth bluetooth /sys/class/rfkill/rfkill0/state
     chmod 0660 /sys/class/rfkill/rfkill0/state
 
-    # Bluetooth MAC address programming
+    # Bluetooth MAC address path
     chown bluetooth bluetooth /sys/module/htc_bdaddress/parameters/bdaddress
     setprop ro.bt.bdaddr_path /sys/module/htc_bdaddress/parameters/bdaddress
+    # bluetooth car dock pin
     chown system system /sys/class/switch/dock/bt_pin
+
+    # bluetooth LPM
+    chmod 0220 /proc/bluetooth/sleep/lpm
+    chmod 0220 /proc/bluetooth/sleep/btwrite
+    chown bluetooth net_bt_stack /proc/bluetooth/sleep/lpm
+    chown bluetooth net_bt_stack /proc/bluetooth/sleep/btwrite 
 
     # liblights permissions
     chown system system /sys/class/leds/amber/brightness
     chown system system /sys/class/leds/amber/blink
     chown system system /sys/class/leds/green/brightness
     chown system system /sys/class/leds/green/blink
-    chown system system /sys/class/leds/button-backlight/brightness
-    chown system camera /sys/class/leds/flashlight/brightness
-    chmod 0660          /sys/class/leds/flashlight/brightness
+    chown system system /sys/class/leds/button-backlight-portrait/brightness
+    chown system system /sys/class/leds/button-backlight-landscape/brightness
     chown system system /sys/class/leds/lcd-backlight/brightness
 
-    # Increase readahead buffers on MMC devices
-    write /sys/block/mmcblk0/queue/read_ahead_kb 3072
-    # Read / Write 12MB/s / 70MB/s on Sandisk 16GB Class 10
-    write /sys/block/mmcblk1/queue/read_ahead_kb 4096
-    write /sys/block/mmcblk1/queue/scheduler cfq
+    chown system camera /sys/class/leds/flashlight/brightness
+    chmod 0666          /sys/class/leds/flashlight/brightness
+
+
+    # MMC devices readahead performance tweak
+    write /sys/block/mmcblk1/bdi/read_ahead_kb 1024
 
     # Flash storage isn't a good entropy source, and only causes locking
     # overhead in the kernel. Turn it off.
     write /sys/block/mmcblk0/queue/add_random 0
-    write /sys/block/mmcblk1/queue/add_random 0
-
-    # Enable dynamic fsync
-    write /sys/kernel/dyn_fsync/Dyn_fsync_active 1
-
-    # Read only 1 page at a time
-    write /proc/sys/vm/page-cluster 0
-
-    # ZRAM
-    write /proc/sys/vm/swappiness 100
-    write /proc/sys/vm/vfs_cache_pressure 120
-    write /sys/block/zram0/comp_algorithm lz4
 
     # KSM
-    write /sys/kernel/mm/uksm/max_cpu_percentage 75
-    write /sys/kernel/mm/uksm/sleep_millisecs 500
-    write /sys/kernel/mm/uksm/run 1
+    write /sys/kernel/mm/ksm/pages_to_scan 100
+    write /sys/kernel/mm/ksm/sleep_millisecs 500
 
     # Allow system to have access to /dev/tun directory
     mkdir /dev/tun 0770 system vpn
     chown system vpn /dev/tun
     chmod 0770 /dev/tun
 
-    # Advanced settings
-    chown root system /sys/android_touch/sweep2wake
-    chmod 0664 /sys/android_touch/sweep2wake
-    chown root system /sys/kernel/fast_charge/force_fast_charge
-    chmod 0664 /sys/kernel/fast_charge/force_fast_charge
-    chown root system /sys/class/timed_output/vibrator/voltage_level
-    chmod 0664 /sys/class/timed_output/vibrator/voltage_level
-    chown system system /sys/class/leds/flashlight/soft_flash
+    # Enable low memory killer to check file pages
+    write /sys/module/lowmemorykiller/parameters/minfile 0,0,0,5120,5632,6144
+    write /sys/module/lowmemorykiller/parameters/check_filepages 1
 
-    # Network tweaks
-    write /proc/sys/net/ipv4/tcp_fin_timeout 30
-    write /proc/sys/net/ipv4/tcp_keepalive_intvl 30
-    write /proc/sys/net/ipv4/tcp_timestamps 1
-    write /proc/sys/net/ipv4/tcp_keepalive_time 1200
-    write /proc/sys/net/core/rmem_max 524288
-    write /proc/sys/net/core/wmem_max 524288
-    write /proc/sys/net/ipv4/tcp_tw_reuse 1
-    write /proc/sys/net/ipv4/tcp_window_scaling 1
-    write /proc/sys/net/ipv4/tcp_mem "8192 87380 524288"
+    # CPU frequency scaling
+    write /sys/devices/system/cpu/cpufreq/ondemand/up_threshold 90
+    write /sys/devices/system/cpu/cpufreq/ondemand/sampling_rate 50000
 
-    # To prevent out of order acknowledgements from making
-    # connection tracking to treat them as not belonging to
-    # the connection they belong to.
-    # Otherwise, a weird issue happens in which some long
-    # connections on high-throughput links get dropped when
-    # an ack packet comes out of order
-    write /proc/sys/net/netfilter/nf_conntrack_tcp_be_liberal 1
-
-    chown root system /proc/net/ip_conntrack
-
-    # To allow interfaces to get v6 address when tethering is enabled
-    write /proc/sys/net/ipv6/conf/rmnet0/accept_ra 2
-    write /proc/sys/net/ipv6/conf/rmnet1/accept_ra 2
-    write /proc/sys/net/ipv6/conf/rmnet2/accept_ra 2
-    write /proc/sys/net/ipv6/conf/rmnet3/accept_ra 2
-    write /proc/sys/net/ipv6/conf/rmnet4/accept_ra 2
-    write /proc/sys/net/ipv6/conf/rmnet5/accept_ra 2
-    write /proc/sys/net/ipv6/conf/rmnet6/accept_ra 2
-    write /proc/sys/net/ipv6/conf/rmnet7/accept_ra 2
-
-on property:sys.boot_completed=1
-    write /sys/module/pm2/parameters/idle_sleep_mode 1
-
-on property:init.svc.bootanim=running
-    write /sys/block/mmcblk0/queue/scheduler noop
-    # Lower LCD backlight to save juice
-    write /sys/class/leds/lcd-backlight/brightness 1
-
-on property:init.svc.bootanim=stopped
-    write /sys/block/mmcblk0/queue/scheduler row
-
-on property:init.svc.wpa_supplicant=stopped
-    stop dhcpcd
+    chown system system /sys/devices/system/cpu/cpufreq/ondemand/sampling_rate
+    chmod 0660          /sys/devices/system/cpu/cpufreq/ondemand/sampling_rate
 
 service wpa_supplicant /system/bin/wpa_supplicant \
     -iwlan0 -Dnl80211 -c/data/misc/wifi/wpa_supplicant.conf \
@@ -183,7 +165,6 @@ service dhcpcd_wlan0 /system/bin/dhcpcd -aABDKL
     disabled
     oneshot
 
-#bluetooth
 service dhcpcd_bt-pan /system/bin/dhcpcd -BKLG
     class main
     disabled
@@ -201,21 +182,55 @@ service iprenew_bt-pan /system/bin/dhcpcd -n
 
 # Compass and accelerometer daemon
 service akmd /system/bin/akmd
-    class core
+    class main
     user compass
     group compass misc input
 
 # sdcard daemon
 service fuse_sdcard0 /system/bin/sdcard -u 1023 -g 1023 -d /mnt/media_rw/sdcard0 /storage/sdcard0
-    class late_start
+    class main
     disabled
 
+# Bugreport is triggered by the KEY_VOLUMEUP and BTN_MOUSE keycodes
+service bugreport /system/bin/bugmailer.sh -v
+    class main
+    disabled
+    oneshot
+    keycodes 114 115 116
+
 service rmt_storage /system/bin/rmt_storage /dev/block/mmcblk0p13 /dev/block/mmcblk0p14
-    class core
+    class main
     user root
 
+service lights_landscape /system/bin/sh /system/etc/rotate_lights.sh 1
+    class main
+    user root
+    disabled
+    oneshot
+
+service lights_portrait /system/bin/sh /system/etc/rotate_lights.sh 0
+    class main
+    user root
+    disabled
+    oneshot
+
+on property:init.svc.bootanim=running
+    write /sys/block/mmcblk0/queue/scheduler noop
+    # Lower LCD backlight to save juice
+    write /sys/class/leds/lcd-backlight/brightness 1
+
+on property:init.svc.bootanim=stopped
+    write /sys/block/mmcblk0/queue/scheduler row
+
 on property:ro.use_data_netmgrd=false
+    # netmgr not supported on specific target
     stop netmgrd
+
+on property:sys.orientation.landscape=0
+    start lights_portrait
+
+on property:sys.orientation.landscape=1
+    start lights_landscape
 
 on property:service.adb.root=1
     write /sys/class/android_usb/android0/enable 0
@@ -227,9 +242,3 @@ service setup_fs /system/bin/setup_fs mmcblk0p26 mmcblk0p27
     user root
     group root
     oneshot
-
-on property:sys.orientation.landscape=0
-    start lights_portrait
-
-on property:sys.orientation.landscape=1
-    start lights_landscape

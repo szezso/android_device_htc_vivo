@@ -27,7 +27,6 @@ PRODUCT_COPY_FILES += \
     device/htc/vivo/ramdisk/init.vivo.rc:root/init.vivo.rc \
     device/htc/vivo/ramdisk/fstab.vivo:root/fstab.vivo \
     device/htc/vivo/ramdisk/init.htc7x30.usb.rc:root/init.htc7x30.usb.rc \
-    device/htc/vivo/ramdisk/init.target.rc:root/init.target.rc \
     device/htc/vivo/ramdisk/ueventd.vivo.rc:root/ueventd.vivo.rc
 
 PRODUCT_COPY_FILES += \

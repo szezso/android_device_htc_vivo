@@ -12,6 +12,3 @@
 /dev/block/platform/msm_sdcc.2/by-name/cache        /cache      f2fs    rw,noatime,nosuid,nodev,inline_xattr                                            wait
 
 /devices/platform/msm_sdcc.4/mmc_host/mmc2*         auto        auto    defaults        voldmanaged=sdcard0:auto,noemulatedsd
-
-# zram
-/dev/block/zram0                                    none        swap    defaults        zramsize=268435456
