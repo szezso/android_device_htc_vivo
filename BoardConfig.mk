@@ -142,7 +142,7 @@ BOARD_KERNEL_CMDLINE := no_console_suspend=1 androidboot.selinux=permissive andr
 BOARD_KERNEL_RECOVERY_CMDLINE := $(BOARD_KERNEL_CMDLINE) msmsdcc_power_gpio=88
 BOARD_KERNEL_BASE := 0x4400000
 BOARD_KERNEL_PAGE_SIZE := 4096
-TARGET_KERNEL_CONFIG := vivo_defconfig
+TARGET_KERNEL_CONFIG := cyanogen_vivo_defconfig
 TARGET_KERNEL_SOURCE := kernel/htc/vivo
 
 # Use Lollipop's new fonts
