@@ -39,5 +39,5 @@ $(call inherit-product, device/htc/vivo/device.mk)
 # Set those variables here to overwrite the inherited values.
 PRODUCT_NAME := full_vivo
 PRODUCT_DEVICE := vivo
-PRODUCT_BRAND := hTC
+PRODUCT_BRAND := HTC
 PRODUCT_MODEL := Incredible S

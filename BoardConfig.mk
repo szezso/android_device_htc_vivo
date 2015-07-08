@@ -67,7 +67,6 @@ WIFI_DRIVER_FW_PATH_AP := "/system/vendor/firmware/fw_bcmdhd_apsta.bin"
 WIFI_DRIVER_FW_PATH_PARAM := "/sys/module/bcmdhd/parameters/firmware_path"
 
 # Display
-BOARD_EGL_CFG := device/htc/vivo/prebuilt/egl.cfg
 USE_OPENGL_RENDERER := true
 HWUI_COMPILE_FOR_PERF := true
 TARGET_USES_C2D_COMPOSITION := true
