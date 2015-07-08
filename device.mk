@@ -244,9 +244,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	dalvik.vm.image-dex2oat-filter=speed
 
 # Use high-density artwork where available
-PRODUCT_LOCALES += hdpi
-
-PRODUCT_AAPT_CONFIG := normal hdpi
+PRODUCT_LOCALES += en_US
+PRODUCT_AAPT_CONFIG := normal
 PRODUCT_AAPT_PREF_CONFIG := hdpi
 
 ifeq ($(DISABLE_SECURITY),true)
