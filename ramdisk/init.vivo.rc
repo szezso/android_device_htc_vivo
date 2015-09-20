@@ -225,8 +225,10 @@ on property:init.svc.bootanim=running
     write /sys/class/leds/lcd-backlight/brightness 1
 
 on property:init.svc.bootanim=stopped
-    write /sys/block/mmcblk0/queue/scheduler fiops
-    write /sys/block/mmcblk1/queue/scheduler fiops
+    write /sys/block/mmcblk0/queue/scheduler bfq
+    write /sys/block/mmcblk1/queue/scheduler bfq
+    write /sys/block/mmcblk0/queue/iosched/slice_idle 0
+    write /sys/block/mmcblk1/queue/iosched/slice_idle 0
 
 on property:ro.use_data_netmgrd=false
     # netmgr not supported on specific target
