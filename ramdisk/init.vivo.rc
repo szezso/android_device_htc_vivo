@@ -1,5 +1,4 @@
 import init.htc7x30.usb.rc
-import init.target.rc
 
 on early-init
     mount debugfs debugfs /sys/kernel/debug
@@ -8,15 +7,7 @@ on early-init
 on init
     mkdir /mnt/media_rw/sdcard0 0700 media_rw media_rw
     mkdir /storage/sdcard0 0700 root root
-
-    mkdir /mnt/media_rw/sdcard1 0700 media_rw media_rw
-    mkdir /storage/sdcard1 0700 root root
-
-    mkdir /mnt/media_rw/usbdisk0 0700 media_rw media_rw
-    mkdir /storage/usbdisk0 0700 root root
-
     export EXTERNAL_STORAGE /storage/sdcard0
-    export SECONDARY_STORAGE /storage/sdcard1
 
     #sd-ext
     mkdir /sd-ext 0700 root root
@@ -46,6 +37,10 @@ on boot
     chmod 0664         /sys/module/gpio_event/parameters/phone_call_status
     chown radio system /sys/camera_led_status/led_ril_status
     chmod 0644         /sys/camera_led_status/led_ril_status
+
+    # HTC Camera switch
+    chown system camera /sys/android_camera2/htcwc
+    chmod 0660          /sys/android_camera2/htcwc
 
     # Vibrator
     chown system system /sys/class/timed_output/vibrator/voltage_level
@@ -229,7 +224,7 @@ service akmd /system/bin/akmd
 
 # sdcard daemon
 service fuse_sdcard0 /system/bin/sdcard -u 1023 -g 1023 -d /mnt/media_rw/sdcard0 /storage/sdcard0
-    class main
+    class late_start
     disabled
 
 # Bugreport is triggered by the KEY_VOLUMEUP and BTN_MOUSE keycodes
