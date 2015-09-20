@@ -189,6 +189,7 @@ BOARD_CHARGING_MODE_BOOTING_LPM := /sys/htc_lpm/lpm_mode
 # Misc
 #TARGET_PREBUILT_KERNEL := device/htc/vivo/prebuilt/kernel
 #TARGET_PREBUILT_RECOVERY_KERNEL := device/htc/vivo/prebuilt/kernel
+BOARD_CANT_BUILD_RECOVERY_FROM_BOOT_PATCH := true
 
 # Dexpreopt
 ifeq ($(USE_DEXPREOPT),true)
