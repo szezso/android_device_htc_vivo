@@ -220,11 +220,13 @@ service lights_portrait /system/bin/sh /system/etc/rotate_lights.sh 0
 
 on property:init.svc.bootanim=running
     write /sys/block/mmcblk0/queue/scheduler noop
+    write /sys/block/mmcblk1/queue/scheduler noop
     # Lower LCD backlight to save juice
     write /sys/class/leds/lcd-backlight/brightness 1
 
 on property:init.svc.bootanim=stopped
-    write /sys/block/mmcblk0/queue/scheduler row
+    write /sys/block/mmcblk0/queue/scheduler fiops
+    write /sys/block/mmcblk1/queue/scheduler fiops
 
 on property:ro.use_data_netmgrd=false
     # netmgr not supported on specific target
