@@ -23,6 +23,11 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 
 PRODUCT_BOOT_JARS += qcmediaplayer
 
+# IPv6 tethering
+PRODUCT_PACKAGES += \
+    ebtables \
+    ethertypes
+
 PRODUCT_COPY_FILES += \
     device/htc/vivo/ramdisk/init.vivo.rc:root/init.vivo.rc \
     device/htc/vivo/ramdisk/fstab.vivo:root/fstab.vivo \
