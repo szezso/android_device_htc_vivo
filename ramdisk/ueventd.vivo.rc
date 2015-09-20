@@ -25,7 +25,6 @@
 /dev/gemini0              0660   system     camera
 /dev/graphics/*           0660   system     graphics
 /dev/msm_camera/*         0660   system     camera
-/dev/rawchip0             0666   system     camera
 /dev/msm_rotator          0660   system     graphics
 /dev/ppp                  0660   radio      vpn
 /dev/qmi0                 0640   radio      radio
@@ -57,4 +56,3 @@
 /dev/pmem_adsp            0660   system     audio
 /dev/snd/*                0660   system     audio
 /dev/tpa2051d3	          0660   system     audio
-
