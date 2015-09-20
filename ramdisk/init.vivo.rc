@@ -124,8 +124,12 @@ on boot
     chmod 0666          /sys/class/leds/flashlight/brightness
 
 
-    # MMC devices readahead performance tweak
-    write /sys/block/mmcblk1/bdi/read_ahead_kb 1024
+    # Tweak nand based on:
+    # http://wiki.osnexus.com/index.php?title=IO_Performance_Tuning#Storage_Pool_IO_Tuning_Overview
+    write /sys/block/mmcblk0/queue/read_ahead_kb 4
+    write /sys/block/mmcblk0/queue/nr_requests 2048
+    write /sys/block/mmcblk1/queue/read_ahead_kb 4
+    write /sys/block/mmcblk1/queue/nr_requests 2048
 
     # Flash storage isn't a good entropy source, and only causes locking
     # overhead in the kernel. Turn it off.
