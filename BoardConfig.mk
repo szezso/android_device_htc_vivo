@@ -131,6 +131,7 @@ TARGET_BOOTLOADER_BOARD_NAME := vivo
 TARGET_RECOVERY_FSTAB := device/htc/vivo/ramdisk/fstab.vivo
 BOARD_UMS_LUNFILE := /sys/class/android_usb/android0/f_mass_storage/lun0/file
 TARGET_RECOVERY_PIXEL_FORMAT := RGBX_8888
+TARGET_RECOVERY_DEVICE_DIRS += device/htc/vivo
 
 # Kernel
 BOARD_KERNEL_CMDLINE := no_console_suspend=1 androidboot.selinux=permissive androidboot.hardware=vivo
