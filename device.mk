@@ -21,7 +21,7 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 # System Properties
 -include $(COMMON_PATH)/system_prop.mk
 
-COMMON_PATH := $(COMMON_PATH)
+COMMON_PATH := device/htc/vivo
 
 PRODUCT_BOOT_JARS += qcmediaplayer
 
