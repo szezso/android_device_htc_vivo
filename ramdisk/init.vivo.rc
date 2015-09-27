@@ -184,8 +184,8 @@ on boot
     write /proc/sys/net/ipv6/conf/rmnet6/accept_ra 2
     write /proc/sys/net/ipv6/conf/rmnet7/accept_ra 2
 
-on property:sys.boot_completed=1
-    write /sys/module/pm2/parameters/idle_sleep_mode 1
+    # Lower LCD backlight to save juice
+    write /sys/class/leds/lcd-backlight/brightness 1
 
 service wpa_supplicant /system/bin/wpa_supplicant \
     -iwlan0 -Dnl80211 -c/data/misc/wifi/wpa_supplicant.conf \
@@ -250,13 +250,8 @@ service lights_portrait /system/bin/sh /system/etc/rotate_lights.sh 0
     disabled
     oneshot
 
-on property:init.svc.bootanim=running
-    setprop sys.io.scheduler noop
-    write /sys/block/mmcblk1/queue/scheduler noop
-    # Lower LCD backlight to save juice
-    write /sys/class/leds/lcd-backlight/brightness 1
-
-on property:init.svc.bootanim=stopped
+on property:sys.boot_completed=1
+    write /sys/module/pm2/parameters/idle_sleep_mode 1
     setprop sys.io.scheduler bfq
     write /sys/block/mmcblk1/queue/scheduler bfq
     write /sys/block/mmcblk1/queue/iosched/slice_idle 0
