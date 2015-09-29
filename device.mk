@@ -27,8 +27,8 @@ PRODUCT_BOOT_JARS += qcmediaplayer
 
 # IPv6 tethering
 PRODUCT_PACKAGES += \
-    ebtables \
-    ethertypes
+    	ebtables \
+    	ethertypes
 
 # Ramdisk files
 PRODUCT_PACKAGES += \
