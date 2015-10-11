@@ -130,13 +130,13 @@ TARGET_BOOTANIMATION_USE_RGB565 := true
 
 # Bootloader & Recovery
 TARGET_BOOTLOADER_BOARD_NAME := vivo
-TARGET_RECOVERY_FSTAB := device/htc/vivo/ramdisk/fstab.vivo
+TARGET_RECOVERY_FSTAB := device/htc/vivo/rootdir/fstab.qcom
 BOARD_UMS_LUNFILE := /sys/class/android_usb/android0/f_mass_storage/lun0/file
 TARGET_RECOVERY_PIXEL_FORMAT := RGBX_8888
 TARGET_RECOVERY_DEVICE_DIRS += device/htc/vivo
 
 # Kernel
-BOARD_KERNEL_CMDLINE := no_console_suspend=1 androidboot.selinux=permissive androidboot.hardware=vivo
+BOARD_KERNEL_CMDLINE := no_console_suspend=1 androidboot.selinux=permissive androidboot.hardware=qcom
 BOARD_KERNEL_RECOVERY_CMDLINE := $(BOARD_KERNEL_CMDLINE) msmsdcc_power_gpio=88
 BOARD_KERNEL_BASE := 0x4400000
 BOARD_KERNEL_PAGE_SIZE := 4096

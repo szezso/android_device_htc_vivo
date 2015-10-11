@@ -32,11 +32,11 @@ PRODUCT_PACKAGES += \
 
 # Ramdisk files
 PRODUCT_PACKAGES += \
-    	fstab.vivo \
-	init.vivo.rc \
-	init.vivo.power.rc \
-	init.vivo.usb.rc \
-	ueventd.vivo.rc
+    	fstab.qcom \
+	init.qcom.rc \
+	init.qcom.power.rc \
+	init.qcom.usb.rc \
+	ueventd.qcom.rc
 
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/handheld_core_hardware.xml:system/etc/permissions/handheld_core_hardware.xml \
@@ -215,9 +215,6 @@ PRODUCT_PACKAGES += DeviceSettings
 
 # Camera
 PRODUCT_PACKAGES += camera.msm7x30
-
-PRODUCT_COPY_FILES += \
-    $(COMMON_PATH)/prebuilt/libsurfaceflinger_client.so:system/lib/libsurfaceflinger_client.so
 
 # Filesystem management tools
 PRODUCT_PACKAGES += \

@@ -1,0 +1,46 @@
+on init
+    mkdir /mnt/media_rw/sdcard0 0700 media_rw media_rw
+    mkdir /storage/sdcard0 0700 root root
+    export EXTERNAL_STORAGE /storage/sdcard0
+
+    #sd-ext
+    mkdir /sd-ext 0700 root root
+    export SD_EXT_DIRECTORY /sd-ext
+
+    # Support legacy paths
+    symlink /storage/sdcard0 /sdcard
+    symlink /storage/sdcard0 /mnt/sdcard
+    mkdir /storage/primary 0555 root root
+    symlink /storage/sdcard0 /storage/primary/legacy
+
+on boot
+    # HTC Camera switch
+    chown system camera /sys/android_camera2/htcwc
+    chmod 0660          /sys/android_camera2/htcwc
+
+    # liblight permissions for vivo
+    chown system system /sys/class/leds/button-backlight-portrait/brightness
+    chown system system /sys/class/leds/button-backlight-landscape/brightness
+
+# sdcard daemon
+    service fuse_sdcard0 /system/bin/sdcard -u 1023 -g 1023 -d /mnt/media_rw/sdcard0 /storage/sdcard0
+    class late_start
+    disabled
+
+service lights_landscape /system/bin/sh /system/etc/rotate_lights.sh 1
+    class main
+    user root
+    disabled
+    oneshot
+
+service lights_portrait /system/bin/sh /system/etc/rotate_lights.sh 0
+    class main
+    user root
+    disabled
+    oneshot
+
+on property:sys.orientation.landscape=0
+    start lights_portrait
+
+on property:sys.orientation.landscape=1
+    start lights_landscape
