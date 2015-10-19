@@ -3,14 +3,6 @@ on boot
     # Enable it when boot is complete
     write /sys/module/pm2/parameters/idle_sleep_mode 3
 
-    # Intelliactive
-    write /sys/devices/system/cpu/cpufreq/intelliactive/min_sample_time 40000
-    write /sys/devices/system/cpu/cpufreq/intelliactive/io_is_busy 1
-    write /sys/devices/system/cpu/cpufreq/intelliactive/go_hispeed_load 90
-    write /sys/devices/system/cpu/cpufreq/intelliactive/hispeed_freq 1024000
-    write /sys/devices/system/cpu/cpufreq/intelliactive/above_hispeed_delay 90000
-    write /sys/devices/system/cpu/cpufreq/intelliactive/timer_rate 30000
-
     # Tweak nand based on:
     # http://wiki.osnexus.com/index.php?title=IO_Performance_Tuning#Storage_Pool_IO_Tuning_Overview
     write /sys/block/mmcblk0/queue/read_ahead_kb 4
@@ -22,7 +14,7 @@ on boot
     # overhead in the kernel. Turn it off.
     write /sys/block/mmcblk0/queue/add_random 0
     write /sys/block/mmcblk1/queue/add_random 0
-    
+
     # Enable dynamic fsync
     write /sys/kernel/dyn_fsync/Dyn_fsync_active 1
 
