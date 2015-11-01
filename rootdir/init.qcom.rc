@@ -67,28 +67,37 @@ on boot
 
     # intelliactive permissions
     chown system system /sys/devices/system/cpu/cpufreq/intelliactive/timer_rate
-    chmod 0660 /sys/devices/system/cpu/cpufreq/intelliactive/timer_rate
+    chmod 0664 /sys/devices/system/cpu/cpufreq/intelliactive/timer_rate
     chown system system /sys/devices/system/cpu/cpufreq/intelliactive/timer_slack
-    chmod 0660 /sys/devices/system/cpu/cpufreq/intelliactive/timer_slack
+    chmod 0664 /sys/devices/system/cpu/cpufreq/intelliactive/timer_slack
     chown system system /sys/devices/system/cpu/cpufreq/intelliactive/min_sample_time
-    chmod 0660 /sys/devices/system/cpu/cpufreq/intelliactive/min_sample_time
+    chmod 0664 /sys/devices/system/cpu/cpufreq/intelliactive/min_sample_time
     chown system system /sys/devices/system/cpu/cpufreq/intelliactive/hispeed_freq
-    chmod 0660 /sys/devices/system/cpu/cpufreq/intelliactive/hispeed_freq
+    chmod 0664 /sys/devices/system/cpu/cpufreq/intelliactive/hispeed_freq
     chown system system /sys/devices/system/cpu/cpufreq/intelliactive/target_loads
-    chmod 0660 /sys/devices/system/cpu/cpufreq/intelliactive/target_loads
+    chmod 0664 /sys/devices/system/cpu/cpufreq/intelliactive/target_loads
     chown system system /sys/devices/system/cpu/cpufreq/intelliactive/go_hispeed_load
-    chmod 0660 /sys/devices/system/cpu/cpufreq/intelliactive/go_hispeed_load
+    chmod 0664 /sys/devices/system/cpu/cpufreq/intelliactive/go_hispeed_load
     chown system system /sys/devices/system/cpu/cpufreq/intelliactive/above_hispeed_delay
-    chmod 0660 /sys/devices/system/cpu/cpufreq/intelliactive/above_hispeed_delay
+    chmod 0664 /sys/devices/system/cpu/cpufreq/intelliactive/above_hispeed_delay
     chown system system /sys/devices/system/cpu/cpufreq/intelliactive/boost
-    chmod 0660 /sys/devices/system/cpu/cpufreq/intelliactive/boost
+    chmod 0664 /sys/devices/system/cpu/cpufreq/intelliactive/boost
     chown system system /sys/devices/system/cpu/cpufreq/intelliactive/boostpulse
+    chmod 0664 /sys/devices/system/cpu/cpufreq/intelliactive/boostpulse
     chown system system /sys/devices/system/cpu/cpufreq/intelliactive/input_boost
-    chmod 0660 /sys/devices/system/cpu/cpufreq/intelliactive/input_boost
+    chmod 0664 /sys/devices/system/cpu/cpufreq/intelliactive/input_boost
     chown system system /sys/devices/system/cpu/cpufreq/intelliactive/boostpulse_duration
-    chmod 0660 /sys/devices/system/cpu/cpufreq/intelliactive/boostpulse_duration
+    chmod 0664 /sys/devices/system/cpu/cpufreq/intelliactive/boostpulse_duration
     chown system system /sys/devices/system/cpu/cpufreq/intelliactive/io_is_busy
-    chmod 0660 /sys/devices/system/cpu/cpufreq/intelliactive/io_is_busy
+    chmod 0664 /sys/devices/system/cpu/cpufreq/intelliactive/io_is_busy
+    chown system system /sys/devices/system/cpu/cpufreq/intelliactive/sync_freq
+    chmod 0664 /sys/devices/system/cpu/cpufreq/intelliactive/sync_freq
+    chown system system /sys/devices/system/cpu/cpufreq/intelliactive/up_threshold_any_cpu_freq
+    chmod 0664 /sys/devices/system/cpu/cpufreq/intelliactive/up_threshold_any_cpu_freq
+    chown system system /sys/devices/system/cpu/cpufreq/intelliactive/up_threshold_any_cpu_load
+    chmod 0664 /sys/devices/system/cpu/cpufreq/intelliactive/up_threshold_any_cpu_load
+    chown system system /sys/devices/system/cpu/cpufreq/intelliactive/sampling_down_factor
+    chmod 0664 /sys/devices/system/cpu/cpufreq/intelliactive/sampling_down_factor
 
     # Allow system to have access to /dev/tun directory
     mkdir /dev/tun 0770 system vpn
