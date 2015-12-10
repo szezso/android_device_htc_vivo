@@ -194,9 +194,3 @@ on property:service.adb.root=1
     write /sys/class/android_usb/android0/enable 0
     restart adbd
     write /sys/class/android_usb/android0/enable 1
-
-service setup_fs /system/bin/setup_fs mmcblk0p26 mmcblk0p27
-    class core
-    user root
-    group root
-    oneshot
