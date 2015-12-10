@@ -172,6 +172,10 @@ PRODUCT_PACKAGES += \
     libaudio-resampler \
     libaudioparameter
 
+# Adreno
+PRODUCT_PACKAGES += \
+    libstlport
+
 # GPS
 PRODUCT_PACKAGES += librpc
 
