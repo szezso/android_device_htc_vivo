@@ -31,10 +31,8 @@ TARGET_SPECIFIC_HEADER_PATH := device/htc/vivo/include
 COMMON_GLOBAL_CFLAGS += -DQCOM_HARDWARE
 COMMON_GLOBAL_CFLAGS += -DICS_CAMERA_BLOB
 COMMON_GLOBAL_CFLAGS += -DNO_UPDATE_PREVIEW
+COMMON_GLOBAL_CFLAGS += -DQCOM_NO_SECURE_PLAYBACK
 TARGET_RELEASE_CPPFLAGS += -DNEEDS_VECTORIMPL_SYMBOLS
-
-# Optimizations
-TARGET_USE_QCOM_BIONIC_OPTIMIZATION := true
 
 # Board
 TARGET_BOARD_PLATFORM := msm7x30
@@ -87,6 +85,7 @@ BOARD_HAL_STATIC_LIBRARIES := libhealthd.msm7x30
 # Radio
 BOARD_PROVIDES_LIBRIL := true
 TARGET_NEEDS_NON_PIE_SUPPORT := true
+BOARD_USE_NEW_LIBRIL_HTC := true
 
 # No SDK blobs
 BUILD_EMULATOR_SENSORS_MODULE := false
@@ -131,16 +130,17 @@ TARGET_BOOTANIMATION_USE_RGB565 := true
 
 # Bootloader & Recovery
 TARGET_BOOTLOADER_BOARD_NAME := vivo
-TARGET_RECOVERY_FSTAB := device/htc/vivo/ramdisk/fstab.vivo
+TARGET_RECOVERY_FSTAB := device/htc/vivo/rootdir/fstab.qcom
 BOARD_UMS_LUNFILE := /sys/class/android_usb/android0/f_mass_storage/lun0/file
 TARGET_RECOVERY_PIXEL_FORMAT := RGBX_8888
+TARGET_RECOVERY_DEVICE_DIRS += device/htc/vivo
 
 # Kernel
-BOARD_KERNEL_CMDLINE := no_console_suspend=1 androidboot.selinux=permissive androidboot.hardware=vivo
+BOARD_KERNEL_CMDLINE := no_console_suspend=1 androidboot.selinux=permissive androidboot.hardware=qcom
 BOARD_KERNEL_RECOVERY_CMDLINE := $(BOARD_KERNEL_CMDLINE) msmsdcc_power_gpio=88
 BOARD_KERNEL_BASE := 0x4400000
 BOARD_KERNEL_PAGE_SIZE := 4096
-TARGET_KERNEL_CONFIG := cyanogen_vivo_defconfig
+TARGET_KERNEL_CONFIG := vivo_defconfig
 TARGET_KERNEL_SOURCE := kernel/htc/vivo
 
 # Use Lollipop's new fonts
@@ -189,6 +189,8 @@ BOARD_CHARGING_MODE_BOOTING_LPM := /sys/htc_lpm/lpm_mode
 # Misc
 #TARGET_PREBUILT_KERNEL := device/htc/vivo/prebuilt/kernel
 #TARGET_PREBUILT_RECOVERY_KERNEL := device/htc/vivo/prebuilt/kernel
+BOARD_CANT_BUILD_RECOVERY_FROM_BOOT_PATCH := true
+BOARD_VENDOR := htc
 
 # Dexpreopt
 ifeq ($(USE_DEXPREOPT),true)

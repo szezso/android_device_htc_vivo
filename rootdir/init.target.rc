@@ -1,0 +1,37 @@
+on init
+    mkdir /mnt/shell/emulated 0700 shell shell
+    mkdir /storage/emulated 0555 root root
+
+    # Support legacy paths
+    symlink /sdcard /mnt/sdcard
+    symlink /sdcard /storage/sdcard0
+
+on fs
+    setprop ro.crypto.fuse_sdcard true
+
+on boot
+    # HTC Camera switch
+    chown system camera /sys/android_camera2/htcwc
+    chmod 0660          /sys/android_camera2/htcwc
+
+    # liblight permissions for vivo
+    chown system system /sys/class/leds/button-backlight-portrait/brightness
+    chown system system /sys/class/leds/button-backlight-landscape/brightness
+
+service lights_landscape /system/bin/sh /system/etc/rotate_lights.sh 1
+    class main
+    user root
+    disabled
+    oneshot
+
+service lights_portrait /system/bin/sh /system/etc/rotate_lights.sh 0
+    class main
+    user root
+    disabled
+    oneshot
+
+on property:sys.orientation.landscape=0
+    start lights_portrait
+
+on property:sys.orientation.landscape=1
+    start lights_landscape
